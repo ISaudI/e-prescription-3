@@ -1,0 +1,142 @@
+[
+    {
+       "id": 1,
+       "presc_id": 1,
+       "med_id": 1,
+       "description": "Twice a Day",
+       "qty": 2
+    },
+    {
+       "id": 2,
+       "presc_id": 1,
+       "med_id": 2,
+       "description": "Once a Day",
+       "qty": 1
+    },
+    {
+       "id": 3,
+       "presc_id": 2,
+       "med_id": 3,
+       "description": "Every 4 hours",
+       "qty": 5
+    },
+    {
+       "id": 4,
+       "presc_id": 3,
+       "med_id": 4,
+       "description": "Per Meal",
+       "qty": 3
+    },
+    {
+       "id": 5,
+       "presc_id": 3,
+       "med_id": 5,
+       "description": "Once a Day",
+       "qty": 1
+    },
+    {
+       "id": 6,
+       "presc_id": 4,
+       "med_id": 6,
+       "description": "Every 6 hours",
+       "qty": 4
+    },
+    {
+       "id": 7,
+       "presc_id": 4,
+       "med_id": 7,
+       "description": "Twice a Day",
+       "qty": 2
+    },
+    {
+       "id": 8,
+       "presc_id": 4,
+       "med_id": 8,
+       "description": "Once a Day",
+       "qty": 1
+    },
+    {
+       "id": 9,
+       "presc_id": 5,
+       "med_id": 9,
+       "description": "Twice a Day",
+       "qty": 2
+    },
+    {
+       "id": 10,
+       "presc_id": 6,
+       "med_id": 10,
+       "description": "Once a Day",
+       "qty": 1
+    },
+    {
+       "id": 11,
+       "presc_id": 6,
+       "med_id": 1,
+       "description": "Once a Day",
+       "qty": 1
+    },
+    {
+       "id": 12,
+       "presc_id": 7,
+       "med_id": 2,
+       "description": "Per Meal",
+       "qty": 3
+    },
+    {
+       "id": 13,
+       "presc_id": 7,
+       "med_id": 3,
+       "description": "Twice a Day",
+       "qty": 2
+    },
+    {
+       "id": 14,
+       "presc_id": 7,
+       "med_id": 4,
+       "description": "Once a Day",
+       "qty": 1
+    },
+    {
+       "id": 15,
+       "presc_id": 7,
+       "med_id": 5,
+       "description": "Twice a Day",
+       "qty": 2
+    },
+    {
+       "id": 16,
+       "presc_id": 8,
+       "med_id": 6,
+       "description": "Every 4 hours",
+       "qty": 5
+    },
+    {
+       "id": 17,
+       "presc_id": 8,
+       "med_id": 7,
+       "description": "Every 6 hours",
+       "qty": 4
+    },
+    {
+       "id": 18,
+       "presc_id": 9,
+       "med_id": 8,
+       "description": "Every 4 hours",
+       "qty": 5
+    },
+    {
+       "id": 19,
+       "presc_id": 10,
+       "med_id": 9,
+       "description": "Once a Day",
+       "qty": 1
+    },
+    {
+       "id": 20,
+       "presc_id": 10,
+       "med_id": 10,
+       "description": "Once a Day",
+       "qty": 1
+    }
+ ]

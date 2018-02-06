@@ -1,0 +1,82 @@
+[
+    {
+       "id": 1,
+       "name": "John Doe",
+       "gender": "Male",
+       "license_no": "01026997A",
+       "contact_no": "123-45-67",
+       "speciality": "General Practitioner"
+    },
+    {
+       "id": 2,
+       "name": "Juan Cruz",
+       "gender": "Male",
+       "license_no": "01026997B",
+       "contact_no": "123-45-68",
+       "speciality": "Cardiology"
+    },
+    {
+       "id": 3,
+       "name": "Herbert Cruz",
+       "gender": "Male",
+       "license_no": "01026997C",
+       "contact_no": "123-45-69",
+       "speciality": "Dental Surgeon"
+    },
+    {
+       "id": 4,
+       "name": "Angelica Doe",
+       "gender": "Female",
+       "license_no": "01026997D",
+       "contact_no": "123-45-70",
+       "speciality": "General Practitioner"
+    },
+    {
+       "id": 5,
+       "name": "Licca Sta Maria",
+       "gender": "Female",
+       "license_no": "01026997E",
+       "contact_no": "123-45-71",
+       "speciality": "Obstetrics & Gynecology"
+    },
+    {
+       "id": 6,
+       "name": "Kenneth Sy",
+       "gender": "Male",
+       "license_no": "01026997F",
+       "contact_no": "123-45-72",
+       "speciality": "Cardiology"
+    },
+    {
+       "id": 7,
+       "name": "Micah Go",
+       "gender": "Female",
+       "license_no": "01026997G",
+       "contact_no": "123-45-73",
+       "speciality": "Dental Surgeon"
+    },
+    {
+       "id": 8,
+       "name": "Sean Lim",
+       "gender": "Male",
+       "license_no": "01026997H",
+       "contact_no": "123-45-74",
+       "speciality": "General Practitioner"
+    },
+    {
+       "id": 9,
+       "name": "Katty Hale",
+       "gender": "Female",
+       "license_no": "01026997I",
+       "contact_no": "123-45-75",
+       "speciality": "Obstetrics & Gynecology"
+    },
+    {
+       "id": 10,
+       "name": "Leon Seth",
+       "gender": "Male",
+       "license_no": "01026997J",
+       "contact_no": "123-45-76",
+       "speciality": "Obstetrics & Gynecology"
+    }
+ ]

@@ -14,6 +14,7 @@ const bodyParser = require('body-parser');
 
 //sample routes
 const oauth = require('./routes/oauth');
+const sample = require('./routes/sample');
 
 //import settings
 const settings = require('./lib/settings');
@@ -56,5 +57,6 @@ app.get('/', function(req, res){
 });
 
 app.use('/oauth', oauth);
+app.use('/sample', sample);
 
 module.exports = app;

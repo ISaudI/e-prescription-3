@@ -1,0 +1,72 @@
+[
+    {
+       "id": 1,
+       "name": "Alaxan",
+       "generic": "Paracetamol",
+       "category": "stimulants",
+       "srp": 15
+    },
+    {
+       "id": 2,
+       "name": "Actamin",
+       "generic": "Acetaminophen",
+       "category": "hallucinogens",
+       "srp": 5
+    },
+    {
+       "id": 3,
+       "name": "Zoloft",
+       "generic": "Zoloft",
+       "category": "opiods",
+       "srp": 10
+    },
+    {
+       "id": 4,
+       "name": "Cozaar",
+       "generic": "Losartan",
+       "category": "cannabis",
+       "srp": 20
+    },
+    {
+       "id": 5,
+       "name": "Acticlate",
+       "generic": "Doxycycline",
+       "category": "inhalants",
+       "srp": 75
+    },
+    {
+       "id": 6,
+       "name": "Azithromycin 3 Day Dose Pack",
+       "generic": "Azithromycin",
+       "category": "depressants",
+       "srp": 2
+    },
+    {
+       "id": 7,
+       "name": "Oxaydo",
+       "generic": "Oxycodone",
+       "category": "stimulants",
+       "srp": 3
+    },
+    {
+       "id": 8,
+       "name": "CeleXA",
+       "generic": "Citalopram",
+       "category": "cannabis",
+       "srp": 8
+    },
+    {
+       "id": 9,
+       "name": "Revatio",
+       "generic": "Viagra",
+       "category": "depressants",
+       "srp": 25
+    },
+    {
+       "id": 10,
+       "name": "Moxatag",
+       "generic": "Amoxicillin",
+       "category": "opiods",
+       "srp": 14
+    }
+ ]
