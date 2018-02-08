@@ -55,7 +55,12 @@ app.get('/', function(req, res){
         }
     );
 });
-
+app.get('/patient', function(req, res){
+    res.render('patient/dashboard',{
+        title: 'Dashboard'
+    })
+})
+// app.use('/patient/dashboard');
 app.use('/oauth', oauth);
 app.use('/sample', sample);
 

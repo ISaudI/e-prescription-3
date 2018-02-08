@@ -1,3 +1,16 @@
 html, body {
     height: 100%;
 }
+
+body {
+	background-color: #ffffff;
+}
+
+.nav-themecolor{
+	background-color: #26a69a;
+}
+
+.btn-maincolor{
+	background-color: #00c853;
+}
+
