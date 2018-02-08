@@ -15,6 +15,9 @@ const bodyParser = require('body-parser');
 //sample routes
 const oauth = require('./routes/oauth');
 const sample = require('./routes/sample');
+//routes
+const pharmacy = require('./routes/pharmacy');
+// const dashboard = require('./routes/dashboard');
 
 //import settings
 const settings = require('./lib/settings');
@@ -57,11 +60,14 @@ app.get('/', function(req, res){
 });
 app.get('/patient', function(req, res){
     res.render('patient/dashboard',{
-        title: 'Dashboard'
-    })
-})
-// app.use('/patient/dashboard');
+        title: 'Dashboard',
+        name: 'eRx'
+    });
+});
+
+// app.use('/patient', dashboard);
 app.use('/oauth', oauth);
 app.use('/sample', sample);
+app.use('/patient/pharmacy', pharmacy);
 
 module.exports = app;

@@ -1,8 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/patient/dashboard', function(req, res){
-	res.redirect('patient/dashboard')
+router.get('/patient', function(req, res){
+	res.render('patient/dashboard',{
+        title: 'Dashboard',
+        name: 'eRx'
+    })
 })
 
 module.exports = router;
