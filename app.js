@@ -12,13 +12,6 @@ const app = express();
 //middleware to process POST data
 const bodyParser = require('body-parser');
 
-//sample routes
-const oauth = require('./routes/oauth');
-const sample = require('./routes/sample');
-
-//import settings
-const settings = require('./lib/settings');
-
 //set the template engine into ejs
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -38,25 +31,8 @@ app.use(session({
     resave: false
 }));
 
+app.use('/api', require('./routes/api_patient'));
+app.use('/patient', require('./routes/patient'));
 
-/**
- * Sample Routes
- * 
- * GET (index page)     /
- * GET                  /oauth/redirect
- */
-app.get('/', function(req, res){
-    //display hello world
-    res.render('index', //render /views/index.ejs
-        //pass data to index.ejs
-        {
-            title: 'Index Page',
-            body: 'Hello World'
-        }
-    );
-});
-
-app.use('/oauth', oauth);
-app.use('/sample', sample);
 
 module.exports = app;

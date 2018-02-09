@@ -1,6 +1,7 @@
 'use strict';
 
-var patients_file = '../e-prescription/lib/tmp/patients.json';
+var path = require('path');
+var patients_file = './lib/tmp/patients.json';
 var fs = require('fs');
 
 exports.getPatients = () => {
