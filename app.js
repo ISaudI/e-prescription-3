@@ -17,10 +17,14 @@ const oauth = require('./routes/oauth');
 const sample = require('./routes/sample');
 //routes
 const pharmacy = require('./routes/pharmacy');
-// const dashboard = require('./routes/dashboard');
+const dashboard = require('./routes/dashboard');
+const search_patient = require("./routes/search_patient");
 
 //import settings
 const settings = require('./lib/settings');
+
+
+
 
 //set the template engine into ejs
 app.set('views', path.join(__dirname, 'views'));
@@ -58,16 +62,12 @@ app.get('/', function(req, res){
         }
     );
 });
-app.get('/patient', function(req, res){
-    res.render('patient/dashboard',{
-        title: 'Dashboard',
-        name: 'eRx'
-    });
-});
 
-// app.use('/patient', dashboard);
+
+app.use('/patient', dashboard);
 app.use('/oauth', oauth);
 app.use('/sample', sample);
 app.use('/patient/pharmacy', pharmacy);
-
+app.use('/doctor/search_patient', search_patient);
+// app.use('/doctor/search', search_patient);
 module.exports = app;

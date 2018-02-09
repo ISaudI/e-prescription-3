@@ -4,12 +4,18 @@
         <title><%= title %></title>
         <link rel="stylesheet" href="/css/main.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     </head>
     <body style="background-color: #006064;">
         <!-- body here is in EJS syntax passed from server -->
         <div class = "container">
-            <h2>Locating</h2>
-            <div class="lds-dual-ring"></div>
+            <h2 style="color:#ffffff;">Locating</h2>
+            
+            <div class="lds-ripple">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
         </div>
         <%= body %>
         <script src="/js/index.js"></script>
