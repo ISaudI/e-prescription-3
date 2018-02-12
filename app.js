@@ -64,10 +64,10 @@ app.get('/', function(req, res){
 });
 
 
-app.use('/patient', dashboard);
+app.use('/patient/dashboard', dashboard);
 app.use('/oauth', oauth);
 app.use('/sample', sample);
 app.use('/patient/pharmacy', pharmacy);
-app.use('/doctor/search_patient', search_patient);
-// app.use('/doctor/search', search_patient);
+app.use('/doctor/dashboard', search_patient);
+app.use('/api', require('./routes/api_search'));
 module.exports = app;
