@@ -6,17 +6,19 @@ const patients_model = require('../models/patients');
 router.get('/', function(req, res, next) {
     let patients = patients_model.getPatients();
     patients.then((patient)=>{
-        let data = patient.map(row=>{
-            return {
-                value: row.name,
-                data: row
-            }
-        });
-        res.render('doctor/dashboard', {
-            patient:data,
+        var data = {
+            patients:patient,
             title: 'dashboard',
             name: 'My Patients'
-        });
+        };
+        // let pdata = patient.map(row=>{
+        //     return {
+        //         value: row.name,
+        //         data: row
+        //     }
+        // });
+
+        res.render('doctor/dashboard',data);
     }).catch((error)=>{
         console.log(error);
     });
