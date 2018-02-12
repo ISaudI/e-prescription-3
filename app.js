@@ -6,8 +6,19 @@ const express = require('express');
 //session
 const session = require('express-session');
 
+const helmet = require('helmet');
+
 //create instance
 const app = express();
+
+var mysql = require('./lib/database');
+
+let mysql_con = mysql.connect();
+mysql_con.then((data) => {
+    console.log("Database connected", data);
+}).catch((error) => {
+    console.log("Database error", error);
+});
 
 //middleware to process POST data
 const bodyParser = require('body-parser');
@@ -16,6 +27,9 @@ const bodyParser = require('body-parser');
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.engine('ejs', require('ejs').renderFile);
+
+
+app.use(helmet());
 
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
