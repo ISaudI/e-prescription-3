@@ -13,7 +13,7 @@ const TABLE_COLUMNS = {
     email: 'string',
     password: 'string',
     name: 'string',
-    gender : 'string',
+    gender : 'int',
     license_no: 'string',
     contact_no: 'string',
     speciality: 'string',
