@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const patient = require('../models/patients');
+const patient = require('../../models/patients');
 
 //api
 router.get('/:id', function(req, res, next) {
