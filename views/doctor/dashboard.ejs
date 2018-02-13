@@ -101,11 +101,13 @@
 			// type: 'GET',
 			// dataType:'jsonp',
 			// callback: 'callback',
-            // crossDomain: true,
+			// crossDomain: true,
+			triggerSelectOnValidInput: false,
             onSelect: function (patients) {
                 alert('You selected: ' + patients.value 
-                );
-            },
+				);
+			
+			},
             forceFixPosition:true,
 			appendTo: '.autocomplete-suggestions',
         });

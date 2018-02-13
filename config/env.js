@@ -7,7 +7,7 @@ module.exports = [
                 id: 'default',
                 host: 'localhost',
                 port: '3306',
-                user: 'root',
+                user: 'bianca',
                 pass: 'password',
                 name: 'reseta'
             }
