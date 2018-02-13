@@ -56,7 +56,7 @@ app.use(session({
     resave: false
 }));
 
-app.use('/api', require('./routes/api_patient'));
+app.use('/api/patient', require('./routes/api/patient'));
 app.use('/patient', require('./routes/patient'));
 
 /**
