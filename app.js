@@ -6,11 +6,12 @@ const express = require('express');
 //session
 const session = require('express-session');
 
+const helmet = require('helmet');
+
 //create instance
 const app = express();
 
-//middleware to process POST data
-const bodyParser = require('body-parser');
+var mysql = require('./lib/database');
 
 //sample routes
 const oauth = require('./routes/oauth');
@@ -20,8 +21,15 @@ const pharmacy = require('./routes/pharmacy');
 const dashboard = require('./routes/dashboard');
 const search_patient = require("./routes/search_patient");
 
-//import settings
-const settings = require('./lib/settings');
+let mysql_con = mysql.connect();
+mysql_con.then((data) => {
+    console.log("Database connected", data);
+}).catch((error) => {
+    console.log("Database error", error);
+});
+
+//middleware to process POST data
+const bodyParser = require('body-parser');
 
 
 
@@ -30,6 +38,9 @@ const settings = require('./lib/settings');
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.engine('ejs', require('ejs').renderFile);
+
+
+app.use(helmet());
 
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
@@ -45,6 +56,8 @@ app.use(session({
     resave: false
 }));
 
+app.use('/api', require('./routes/api_patient'));
+app.use('/patient', require('./routes/patient'));
 
 /**
  * Sample Routes
@@ -70,4 +83,5 @@ app.use('/sample', sample);
 app.use('/patient/pharmacy', pharmacy);
 app.use('/doctor/dashboard', search_patient);
 app.use('/api', require('./routes/api_search'));
+
 module.exports = app;
