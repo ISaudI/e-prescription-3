@@ -46,6 +46,7 @@ app.use(session({
 }));
 
 app.use('/api/patient', require('./routes/api/patient'));
+app.use('/api/doctors', require('./routes/api/doctors'));
 app.use('/patient', require('./routes/patient'));
 
 

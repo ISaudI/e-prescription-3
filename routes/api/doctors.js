@@ -1,11 +1,12 @@
 const express = require('express');
 const router = express.Router();
 
-const patient = require('../../models/patients');
+const doctors = require('../../models/doctors');
+const response = require('../../lib/response');
 
 //api
 router.get('/:id', function(req, res, next) {
-    patient.getPatientById(req.params.id).then(data=>{
+    doctors.getDoctorById(req.params.id).then(data=>{
         res.json(data);
     }).catch(error=>{
         res.json(error);
@@ -13,7 +14,7 @@ router.get('/:id', function(req, res, next) {
 });
 
 router.get('/', function(req, res, next) {
-    patient.getPatientsByName(req.query.name, req.query.limit).then(data=>{
+    doctors.getDoctorsByName(req.query.name, req.query.limit).then(data=>{
         res.json(data);
     }).catch(error=>{
         res.json(error);
@@ -21,7 +22,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/verify', function(req, res, next) {
-    patient.verifyPatientUserPass(req.body.email, req.body.pass).then(data=>{
+    doctors.verifyDoctorUserPass(req.body.email, req.body.password).then(data=>{
         res.json(data);
     }).catch(error=>{
         res.json(error);
@@ -29,7 +30,7 @@ router.post('/verify', function(req, res, next) {
 });
 
 router.post('/update', function(req,res,next){
-    patient.updatePatientByEmail(req.body.data, req.body.email).then(data=>{
+    doctors.updateDoctorByEmail(req.body.data, req.body.email).then(data=>{
         if(data.data.affectedRows > 0) {
             res.json(data);
         } else {
@@ -41,7 +42,7 @@ router.post('/update', function(req,res,next){
 });
 
 router.post('/create', function(req,res,next){
-    patient.createPatient(req.body.data).then(data=>{
+    doctors.createDoctor(req.body.data).then(data=>{
         if(data.data.affectedRows > 0) {
             res.json(data);
         } else {
@@ -53,7 +54,7 @@ router.post('/create', function(req,res,next){
 });
 
 router.post('/changepass', function(req,res,next){
-    patient.changePassword(req.body.password, req.body.email).then(data=>{
+    doctors.changePassword(req.body.password, req.body.email).then(data=>{
         if(data.data.affectedRows > 0) {
             res.json(data);
         } else {
