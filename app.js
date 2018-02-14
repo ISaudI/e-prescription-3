@@ -80,11 +80,11 @@ app.get('/', function(req, res){
 });
 
 
-app.use('/doctor/profile', dashboard);
+app.use('/patient/dashboard', dashboard);
 app.use('/oauth', oauth);
 app.use('/sample', sample);
 app.use('/patient/pharmacy', pharmacy);
 app.use('/doctor/dashboard', search_patient);
 app.use('/api', require('./routes/patient'));
-
+app.use('/doctor/profile', require('./routes/doctor'));
 module.exports = app;

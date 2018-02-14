@@ -23,6 +23,10 @@ body{
   font-family: 'Roboto';
 }
 
+.img-size{
+
+}
+
 #autocomplete{
   background-color:transparent;
   color:#ffffff;
@@ -118,7 +122,7 @@ a:hover{
  */
 #menuToggle input:checked ~ span{
   opacity: 1;
-  transform: rotate(45deg) translate(-2px, -1px);
+  transform: rotate(45deg) translate(-1px, -0px);
   background: #ffffff;
 }
 
@@ -178,7 +182,7 @@ a:hover{
     font-size: 100px !important;
   }
 }
-
+/* loading screen */
 .lds-dual-ring {
   display: inline-block;
   width: 64px;
