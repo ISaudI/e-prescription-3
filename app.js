@@ -77,11 +77,11 @@ app.get('/', function(req, res){
 });
 
 
-app.use('/patient/dashboard', dashboard);
+app.use('/doctor/profile', dashboard);
 app.use('/oauth', oauth);
 app.use('/sample', sample);
 app.use('/patient/pharmacy', pharmacy);
 app.use('/doctor/dashboard', search_patient);
-app.use('/api', require('./routes/api_search'));
+app.use('/api', require('./routes/patient'));
 
 module.exports = app;

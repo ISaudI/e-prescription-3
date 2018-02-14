@@ -1,0 +1,54 @@
+<%- include('../layouts/dheader.ejs')%>
+<div class="box box-primary">
+    <div class="box-header with-border">
+        <h3 class="box-title">Profile</h3>
+        <div class="box-body">
+            <div class="box box-primary">
+                <div class="box-body box-profile">
+                    <img class="profile-user-img img-responsive img-circle" src="../img/user-male.png" alt="User profile picture">
+    
+                    <h3 class="profile-username text-center">Name</h3><hr/>
+                    <p class="text-muted text-center">Email</p>
+                    <p class="text-muted text-center">password</p><hr/>
+                    <p class="text-muted text-center">
+                        <img src="https://png.icons8.com/ios/50/000000/birthday-cake.png" class="">Date of Birth</p>
+                    <p class="text-muted text-center">Contact no.</p><hr/>
+                    <p class="text-muted text-center">Specialty</p>
+                    <p class="text-muted text-center">License No.</p>
+                    <!-- foreach schedule -->
+                    <ul class="list-group list-group-unbordered">
+                    <li class="list-group-item">
+                        <b>hospital name</b> <a class="pull-right">schedule</a>
+                        <br/><a class="pull-right">schedule</a>
+                        
+                    </li>
+
+                    <li class="list-group-item">
+                        <b>hospital name</b> <a class="pull-right">schedule</a>
+                    </li>
+                    <li class="list-group-item">
+                        <b>hospital name</b> <a class="pull-right">schedule</a>
+                    </li>
+                    </ul>
+    
+                    <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
+                </div>
+                <!-- /.box-body -->
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<a href="https://icons8.com">Icon pack by Icons8</a>
+<script src="/js/jquery-1.9.1.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
+<script>
+    $(window).load(function() {
+        // Animate loader off screen
+        $(".lds-dual-ring").fadeOut("slow");;
+    });
+
+</script>
+</body>
+</html>

@@ -4,7 +4,7 @@ const router = express.Router();
 const patients_model = require('../models/patients');
 
 router.get('/', function(req, res, next) {
-    let patients = patients_model.getPatients();
+    let patients = patients_model.getPatientsByName(req.query.name);
     patients.then((patient)=>{
         var data = {
             patients:patient,
