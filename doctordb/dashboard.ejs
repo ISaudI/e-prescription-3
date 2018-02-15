@@ -1,0 +1,35 @@
+<%- include('../layouts/header.ejs')%>
+<!-- body -->
+        <style>
+            table, td, th {
+            border: 1px solid black;
+            }
+
+            table {
+            border-collapse: collapse;
+            width: 100%;
+            }
+        </style>
+
+        <table>
+        <% patients.forEach(function(patients) { %>
+            <tr> 
+                <td><%= patients.name %></td>
+            </tr>
+            <% }); %>
+        </table>
+
+        <!-- page loading -->
+        <div class="col-xs-offset-6">
+            <br><br>
+            <div class="lds-dual-ring"></div>
+        </div>
+
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
+            <script>    
+            $(window).load(function() {
+            // Animate loader off screen
+            $(".lds-dual-ring").fadeOut("slow");;
+            });
+        </script>
+    </body>
