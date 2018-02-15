@@ -11,13 +11,6 @@ router.get('/', function(req, res, next) {
             title: 'dashboard',
             name: 'My Patients'
         };
-        // let pdata = patient.map(row=>{
-        //     return {
-        //         value: row.name,
-        //         data: row
-        //     }
-        // });
-
         res.render('doctor/dashboard',data);
     }).catch((error)=>{
         console.log(error);
