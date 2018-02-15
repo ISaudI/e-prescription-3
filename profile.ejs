@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title><%= title %></title>
+		<meta name="author" content="OJT" />
+		<meta name="description" content="ePrescription Project" />
+		<meta name="keyword" content="Profile" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+			rel="stylesheet" type="text/css" />
+	</head>
+	<style type="text/css">
+		body{
+			background-color:#ffffff;
+		}
+		h3{
+			text-align:center;
+			color:#ffffff;
+			font-family: "Roboto";
+		}
+		img{
+			width:150px;
+			height:150px;
+		}
+		.jumbotron{
+			background-color:#26a69a;
+		}
+		.dashboard{
+			color:#ffffff;
+			position: absolute;
+		    left: 100px;
+		    width: 400px;
+		    height: 400px;
+		    
+		}
+		.update{
+			color:#ffffff;
+			position: absolute;
+		    right: -250px;
+		    width: 400px;
+		    height: 400px;
+		}
+	</style>
+	<body>
+		<div class="jumbotron">
+  			<div class="dashboard">
+				<a href=""><i class="fa fa-bars" style="font-size: 50px;color:#ffffff;"></i></a>
+			</div>
+			<div class="update">
+				<a href=""><i class="fa fa-edit" style="font-size: 50px;color:#ffffff;"></i><a>
+			</div>
+  			<h3>Profile</h3>
+  			<center><img src="https://image.freepik.com/vector-gratis/fondo-con-personaje-de-doctor_1270-84.jpg" class="img-circle"></center>
+		</div>
+			<div class="bot">
+				<div class="text-vertical-center" align="center">
+			<div class="profile">
+				<div class="form">
+					<form class="profile-form">
+						<div class="input-group">
+							<i class="fa fa-user" aria-hidden="true"></i>
+							<input id="fn" type="text" placeholder="Full Name"/>
+							 	<span class="focus-input100"></span>
+							<span class="symbol-input100">
+						</span>
+						</div><br/>
+						<div class="input-group">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+							<input id="email" type="text" placeholder="example@gmail.com"/>
+							<span class="focus-input100"></span>
+							<span class="symbol-input100">
+						</span>
+						</div><br/>
+						<div class="input-group">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+							<input type="password" placeholder="Password"/>
+							<span class="focus-input100"></span>
+							<span class="symbol-input100">
+						</span>
+						</div><br/>
+						<div class="input-group">
+							<i class="fa fa-gift" aria-hidden="true"></i>
+							<input id="birthdate" type="text" placeholder="Birthdate"/>
+							<span class="focus-input100"></span>
+							<span class="symbol-input100">
+						</span>
+						</div><br/>
+						<div class="input-group">
+							<i class="fa fa-transgender" aria-hidden="true"></i>
+							<input id="gender" type="text" placeholder="Gender"/>
+							<span class="focus-input100"></span>
+							<span class="symbol-input100">
+						</span>
+						</div><br/>
+						<div class="input-group">
+							<i class="fa fa-calendar" aria-hidden="true"></i>
+							<input id="Date" type="text" placeholder="Date"/>
+							<span class="focus-input100"></span>
+							<span class="symbol-input100">
+						</span>
+						</div><br/>
+					</form>
+				</div>
+			</div>
+		</div>
+            </div>
+            <%= body %>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	</body>
+</html>
