@@ -49,6 +49,7 @@ app.use('/api/patient', require('./routes/api/patient'));
 app.use('/api/doctors', require('./routes/api/doctors'));
 app.use('/api/drugs', require('./routes/api/drugs'));
 app.use('/api/pres', require('./routes/api/prescription'));
+app.use('/api/notif', require('./routes/api/notification'));
 
 app.use('/', require('./routes/render/index'));
 
