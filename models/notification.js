@@ -151,7 +151,7 @@ exports.approve = (id) => {
         id: id
     }));
     return new Promise((resolve, reject) => {
-        let sql = `UPDATE ${TABLE_NAME} SET ok_flag = 1, date_approved = ${moment().format('YYYY-MM-DD h:mm:ss')} WHERE id = ?`
+        let sql = `UPDATE ${TABLE_NAME} SET ok_flag = 1, date_approved = '${moment().format('YYYY-MM-DD h:mm:ss')}' WHERE id = ?`
         db.execute(sql,[id]).then(rows=>{
             resolve(rows);
         }).catch(error=>{
@@ -169,7 +169,7 @@ exports.decline = (id) => {
         id: id
     }));
     return new Promise((resolve, reject) => {
-        let sql = `UPDATE ${TABLE_NAME} SET cancel_flag = 1, date_declined = ${moment().format('YYYY-MM-DD h:mm:ss')} WHERE id = ?`
+        let sql = `UPDATE ${TABLE_NAME} SET cancel_flag = 1, date_declined = '${moment().format('YYYY-MM-DD h:mm:ss')}' WHERE id = ?`
         db.execute(sql,[id]).then(rows=>{
             resolve(rows);
         }).catch(error=>{
