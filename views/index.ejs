@@ -1,12 +1,65 @@
+<!DOCTYPE html>
 <html>
     <head>
-        <!-- title here is in EJS syntax from server -->
-        <title><%= title %></title>
-        <link rel="stylesheet" href="/css/index.css">
+        <% include common/css.ejs %>
+
+        <!-- start of your own css here -->
+        <link type="text/css" rel="stylesheet" href="/css/index.css"/>
+        <!-- end of your own css        -->
+
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
     </head>
     <body>
-        <!-- body here is in EJS syntax passed from server -->
-        <%= body %>
-        <script src="/js/index.js"></script>
+            <% include common/navbar.ejs %>
+
+            <!-- start content goes here -->
+            <div class="container">
+                <!-- Page Content goes here -->
+                <div class="card-panel">
+                    <div class="row">
+                        <div class="col s3 red lighten-1">
+                            <!-- this obj is from server -->
+                            <h3 class="center-align"><%= obj.rx %></h1>
+                        </div>
+                        <div class="col s9">
+                            <h5 class="center-align">RX received</h5>
+                            <h6 class="center-align">For the month of January</h6>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-panel">
+                    <div class="row">
+                        <div class="col s3 light-blue">
+                            <!-- this obj is from server -->
+                            <h3 class="center-align"><%= obj.notif %></h1>
+                        </div>
+                        <div class="col s9">
+                            <h5 class="center-align">Notification</h5>
+                            <h6 class="center-align">Last checked on <%= new Date() %></h6>
+                        </div>
+                    </div>
+                </div>
+
+                <hr />
+
+                <ul class="collapsible" data-collapsible="expandable">
+                    <!-- this array is from server -->
+                    <% for(let i =0;i < array.length; i++){ %>
+                    <li>
+                        <div class="collapsible-header teal"><h5><%= array[i] %></h5></div>
+                        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                    </li>
+                    <% } %>
+                </ul>
+            </div>
+            <!-- end content goes here   -->
+
+            <% include common/js.ejs %>
+            <!-- start your own js here -->
+            <script src="/js/index.js"></script>
+            <!-- end your own js here   -->
     </body>
 </html>
