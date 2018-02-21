@@ -17,28 +17,32 @@
             <!-- start content goes here -->
             <div class="container">
                 <!-- Page Content goes here -->
-                <div class="card-panel">
-                    <div class="row">
-                        <div class="col s3 red lighten-1">
+
+                <div class="col s12 m7" style="margin:10%;">
+                    <div class="card horizontal">
+                        <div class="card-image red darken-1 white-text flex-center" style="padding:5%">
                             <!-- this obj is from server -->
-                            <h3 class="center-align"><%= obj.rx %></h1>
+                            <h2><%= obj.rx %></h2>
                         </div>
-                        <div class="col s9">
-                            <h5 class="center-align">RX received</h5>
-                            <h6 class="center-align">For the month of <%= obj.month %></h6>
+                        <div class="card-stacked">
+                            <div class="card-content">
+                                <p class="card-title">Notification</p>
+                                <p class="grey-text">last checked 11:54PM</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="card-panel">
-                    <div class="row">
-                        <div class="col s3 light-blue">
-                            <!-- this obj is from server -->
-                            <h3 class="center-align"><%= obj.notif %></h1>
+                <div class="col s12 m7" style="margin:10%;">
+                    <div class="card horizontal">
+                        <!-- this obj is from server -->
+                        <div class="card-image blue lighten-1 white-text flex-center" style="padding:5%">
+                            <h2><%= obj.notif %></h2>
                         </div>
-                        <div class="col s9">
-                            <h5 class="center-align">Notification</h5>
-                            <h6 class="center-align">Last checked on <%= obj.date %></h6>
+                        <div class="card-stacked">
+                            <div class="card-content">
+                                <p class="card-title">RX recieved</p>
+                                <p class="grey-text">For the month of January</p>
+                            </div>
                         </div>
                     </div>
                 </div>
