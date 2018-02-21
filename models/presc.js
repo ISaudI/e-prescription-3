@@ -17,17 +17,17 @@ const TABLE_COLUMNS = {
     date_modified: 'datetime'
 };
 
-exports.getPrescriptionByDoctor = (email = '', limit, status) => {
-    console.log(`[${new Date()}][MODEL - ${TABLE_NAME}].getPrescriptionByDoctor [${PARAMS}]`, JSON.stringify({
+exports.getByDoctor = (email = '', limit, status) => {
+    console.log(`[${new Date()}][MODEL - ${TABLE_NAME}].getByDoctor [${PARAMS}]`, JSON.stringify({
         email: email,
         limit: limit,
         status: status
     }));
     return new Promise((resolve, reject) => {
         let cols = TABLE_COLUMNS;
-        let sql = `SELECT ${Object.keys(cols).join(',')} FROM ${TABLE_NAME} WHERE id = (SELECT id FROM doctors WHERE email = ?)`;
+        let sql = `SELECT ${Object.keys(cols).join(',')} FROM ${TABLE_NAME} WHERE doctor_id = (SELECT id FROM doctors WHERE email = ?)`;
         if(status){
-            sql += ` AND status = ${status}`;
+            sql += ` AND status IN (${status})`;
         }
         if(limit){
             sql += ` LIMIT ${limit}`;
@@ -40,17 +40,17 @@ exports.getPrescriptionByDoctor = (email = '', limit, status) => {
     });
 };
 
-exports.getPrescriptionByPatient = (email = '', limit, status) => {
-    console.log(`[${new Date()}][MODEL - ${TABLE_NAME}].getPrescriptionByPatient [${PARAMS}]`, JSON.stringify({
+exports.getByPatient = (email = '', limit, status) => {
+    console.log(`[${new Date()}][MODEL - ${TABLE_NAME}].getByPatient [${PARAMS}]`, JSON.stringify({
         email: email,
         limit: limit,
         status: status
     }));
     return new Promise((resolve, reject) => {
         let cols = TABLE_COLUMNS;
-        let sql = `SELECT ${Object.keys(cols).join(',')} FROM ${TABLE_NAME} WHERE id = (SELECT id FROM patients WHERE email = ?)`;
+        let sql = `SELECT ${Object.keys(cols).join(',')} FROM ${TABLE_NAME} WHERE patient_id = (SELECT id FROM patients WHERE email = ?)`;
         if(status){
-            sql += ` AND status = ${status}`;
+            sql += ` AND status IN (${status})`;
         }
         if(limit){
             sql += ` LIMIT ${limit}`;
@@ -63,8 +63,8 @@ exports.getPrescriptionByPatient = (email = '', limit, status) => {
     });
 };
 
-exports.createPrescription = (data) => {
-    console.log(`[${new Date()}][MODEL - ${TABLE_NAME}].createPrescription [${PARAMS}]`, JSON.stringify({
+exports.create = (data) => {
+    console.log(`[${new Date()}][MODEL - ${TABLE_NAME}].create [${PARAMS}]`, JSON.stringify({
         data: data
     }));
     return new Promise((resolve, reject)=>{
@@ -77,11 +77,11 @@ exports.createPrescription = (data) => {
     });
 };
 
-exports.voidPrescription = (id) => {
+exports.void = (id) => {
     let data = {
         status: 2
     }
-    console.log(`[${new Date()}][MODEL - ${TABLE_NAME}].voidPrescription [${PARAMS}]`, JSON.stringify({
+    console.log(`[${new Date()}][MODEL - ${TABLE_NAME}].void [${PARAMS}]`, JSON.stringify({
         id: id,
         data: data
     }));
@@ -95,11 +95,11 @@ exports.voidPrescription = (id) => {
     });
 };
 
-exports.pushPrescription = (id) => {
+exports.push = (id) => {
     let data = {
         status: 1
     }
-    console.log(`[${new Date()}][MODEL - ${TABLE_NAME}].voidPrescription [${PARAMS}]`, JSON.stringify({
+    console.log(`[${new Date()}][MODEL - ${TABLE_NAME}].push [${PARAMS}]`, JSON.stringify({
         id: id,
         data: data
     }));

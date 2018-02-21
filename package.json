@@ -13,6 +13,7 @@
     "express": "^4.16.2",
     "express-session": "^1.15.6",
     "helmet": "^3.11.0",
+    "moment": "^2.20.1",
     "mysql": "^2.15.0",
     "request": "^2.83.0"
   },
