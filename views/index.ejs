@@ -27,11 +27,12 @@
                         <div class="card-stacked">
                             <div class="card-content">
                                 <p class="card-title">Notification</p>
-                                <p class="grey-text">last checked 11:54PM</p>
+                                <p class="grey-text">last checked <%= obj.date %></p>
                             </div>
                         </div>
                     </div>
                 </div>
+                
                 <div class="col s12 m7" style="margin:10%;">
                     <div class="card horizontal">
                         <!-- this obj is from server -->
@@ -41,7 +42,7 @@
                         <div class="card-stacked">
                             <div class="card-content">
                                 <p class="card-title">RX recieved</p>
-                                <p class="grey-text">For the month of January</p>
+                                <p class="grey-text">For the month of <%= obj.month %></p>
                             </div>
                         </div>
                     </div>
@@ -53,8 +54,8 @@
                     <!-- this array is from server -->
                     <% for(let i =0;i < array.length; i++){ %>
                     <li>
-                        <div class="collapsible-header teal"><h5><%= array[i] %></h5></div>
-                        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                        <div class="collapsible-header teal active"><h5><%= array[i] %></h5></div>
+                        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi vitae neque quasi debitis sapiente! Sint nihil officiis, ab aspernatur ipsa omnis reprehenderit at odio eveniet aut blanditiis nulla repellat sed?</span></div>
                     </li>
                     <% } %>
                 </ul>

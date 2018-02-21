@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <title><%= title %></title>
+    </head>
+    <style type="text/css">
+    	/* label color */
+   .input-field label {
+     color: #fff;
+   }
+   /* label focus color */
+   .input-field input[type=text]:focus + label {
+     color: #fff;
+   }
+   /* label underline focus color */
+   .input-field input[type=text]:focus {
+     border-bottom: 1px solid #fff;
+     box-shadow: 0 1px 0 0 #fff;
+   }
+   /* valid color */
+   .input-field input[type=text].valid {
+     border-bottom: 1px solid #fff;
+     box-shadow: 0 1px 0 0 #fff;
+   }
+   /* invalid color */
+   .input-field input[type=text].invalid {
+     border-bottom: 1px solid #fff;
+     box-shadow: 0 1px 0 0 #fff;
+   }
+   /* icon prefix focus color */
+   .input-field .prefix.active {
+     color: #fff;
+   }
+   body{
+   	background-color: #26a69a;
+   }
+
+    </style>
+
+    <body>
+
+			<div class="nav-wrapper">
+				<h5 class="left-align white-text"><%= title %></h5>
+				<div class="divider" style="height: 1px"></div><br>
+
+				<center><img class="circle" src="images/logo.png" width="150" height="150"></center>
+
+			<div class="row">
+			<form class="col s12">
+			  <div class="row">
+			    <div class="input-field col s12">
+			      <input id="unsername" type="text" class="validate white-text">
+			      <label for="username"><i class=" tiny material-icons white-text">person</i>Username</label>
+			    </div>
+			  </div>
+			  <div class="row">
+			    <div class="input-field col s12">
+			      <input id="password" type="password" class="validate">
+			      <label for="password"><i class="tiny material-icons white-text">lock</i>Password</label>
+			    </div>
+			  </div>
+			</form>
+			</div>
+			<h5 class="center-align"><button class="btn-large waves-effect waves-light green">Sign in</button></div></h5>
+			</div><br>
+
+      <div class="row">
+        <div class="col s6 center-align">
+        	<a class="white-text" href="#">Create Account</a>
+        </div>
+        <div class="col s6 center-align">
+        	<a class="white-text" href="#">Forgot Password</a>
+        </div>
+      </div>
+
+		<!--Import jQuery before materialize.js-->
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+    </body>
+  </html>
