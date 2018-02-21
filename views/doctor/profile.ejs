@@ -32,16 +32,27 @@
     </div>
 </div>
 </div>
-<a href="https://icons8.com">Icon pack by Icons8</a>
 <script src="/js/jquery-1.9.1.min.js"></script>
 <script src="/js/jquery.autocomplete.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
 <script>
-    $(window).load(function() {
-        // Animate loader off screen
-        $(".lds-dual-ring").fadeOut("slow");;
-    });
 
+    
+
+    $( document ).ready(function(){
+        $(".button-collapse").sideNav();
+        // // Show sideNav
+        // $('.button-collapse').sideNav('show');
+        // // Hide sideNav
+        // $('.button-collapse').sideNav('hide');
+        // // Destroy sideNav
+        // // $('.button-collapse').sideNav('destroy');
+        $(window).load(function() {
+            // Animate loader off screen
+            $(".lds-dual-ring").fadeOut("slow");;
+        });
+    })
 </script>
 </body>
 </html>

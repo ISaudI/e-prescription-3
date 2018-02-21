@@ -5,46 +5,51 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="/css/main.css"/>
-        <link rel="stylesheet" href="/css/AdminLTE.min.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" />
+        <!-- <link rel="stylesheet" href="/css/AdminLTE.min.css"> -->
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/> -->
         <script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"/>
     </head>
     <body>
         <!-- body here is in EJS syntax passed from server -->
-        <nav role="navigation" class="navbar nav-themecolor">
-            <div class="nav navbar-nav" id="menuToggle">
-               <!-- click receiver -->
-                <input type="checkbox" />
-                <!-- hamburger -->
-                <span></span>
-                <span></span>
-                <span></span>
-                <!--Too bad the menu has to be inside of the button
-                but hey, it's pure CSS magic.-->
+        <div class='navbar-fixed'>
+            <nav>
+                <div class="nav-wrapper teal lighten-2">
+                    <a href="#!" class="brand-logo center"><%= title %></a>
+                    <!-- <div class=''>
 
-                <ul id="menu">
-                  <div class="col-xs-offset-1 col-xs-10">
-                    <h3 class="text-center" style="margin-top:-40px;">John Doe<!--Username--></h3><br><br>
-                    <div class="col-xs-offset-3">
-                        <img src="/img/user-male.png" class="img-circle img-responsive"/>
-                    </div>
-                    <br><br/><br/>
-                    <a href="#" class="whitetext"><li><i class="fas fa-home"></i> Home</li></a><hr/>
-                    <a href="#" style="color:#ffffff; font-size:20px;"><li><i class='fas fa-user-circle'></i> Patient's list</li></a><hr/>
-                    <a href="#" style="color:#ffffff;font-size:20px;"><li><i class="fas fa-file-alt"></i> Prescription list</li></a><hr/>
-                    <a href="#" style="color:#ffffff;font-size:20px;"><li><i class="fas fa-location-arrow"></i> Add Prescription</li></a><hr/>
-                    <a href="#" style="color:#ffffff;font-size:20px;"><li><i class="fas fa-user-md"></i> Profile</li></a> <hr/>
-                  </div>
-                </ul>
-            </div>
-            
-                <h3 class="text-center"><%= name %></h3>
-            
-        </nav>
-        <div class='container'>
-                <!-- page loading -->
-                <div class="col-xs-offset-6">
-                    <br><br>
-                    <div class="lds-dual-ring"></div>
+                    </div> -->
+                    <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><span class="fa fa-bars"></span></a>
+                    <ul class="side-nav teal lighten-2" id="slide-out" style="width:100%; z-index:1000;">
+                        <li class="text-center" style="display:flex;justify-content:space-between;align-items:center">
+                            <a href="#" data-activates="slide-out" class="button-collapse white-text">
+                                <span class="fa fa-times" style="margin:5%;"></span>
+                            </a>
+                            <p class="no-margin" style="font-size:1.5rem;justify-content:center;font-weight:100;">Dr. Quack</p>
+                            <span class="fa fa-sign-out-alt" style="margin:5%;"></span></li>
+                        <li>
+                            <div class="center-align col s12 m12 l12">
+                                <img class="circle responsive-img" src="../img/user-male.png" style="margin:auto;padding: 10%;width: 40%;" alt="User profile picture">
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#" class='white-text'>
+                                <span class="fa fa-home"></span>&nbsp;&nbsp;&nbsp;Dashboard
+                            </a>
+                        </li>
+                        <hr class="no-margin" style="width:80%;margin:auto !important;"/>
+                        <li><a href="#" class='white-text'><span class="fa fa-user"></span>&nbsp;&nbsp;&nbsp;Patient's list</a></li><hr class="no-margin" style="width:80%;margin:auto !important;"/>
+                        <li><a href="#" class='white-text'><span class="fa fa-list"></span>&nbsp;&nbsp;&nbsp;Perscription list</a></li><hr class="no-margin" style="width:80%;margin:auto !important;"/>
+                        <li><a href="#" class='white-text'><span class="fa fa-medkit"></span>&nbsp;&nbsp;&nbsp;Create Perscription</a></li><hr class="no-margin" style="width:80%;margin:auto !important;"/>
+                        <li><a href="#" class='white-text'><span class="fa fa-user-md"></span>&nbsp;&nbsp;&nbsp;Profile</a></li><hr class="no-margin" style="width:80%;margin:auto !important;"/>
+                    </ul>
                 </div>
+            </nav>
+        </div>
+        <div class='container'>
+            <!-- page loading -->
+            <div class="col-xs-offset-6">
+                <br><br>
+                <div class="lds-dual-ring"></div>
+            </div>
