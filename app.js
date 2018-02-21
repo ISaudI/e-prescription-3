@@ -13,9 +13,7 @@ const app = express();
 
 var mysql = require('./lib/database');
 
-//sample routes
-const oauth = require('./routes/oauth');
-const sample = require('./routes/sample');
+
 //routes
 const pharmacy = require('./routes/pharmacy');
 const dashboard = require('./routes/dashboard');
@@ -65,10 +63,7 @@ app.use('/api/notif', require('./routes/api/notification'));
 app.use('/', require('./routes/render/index'));
 
 app.use('/patient/dashboard', dashboard);
-app.use('/oauth', oauth);
-app.use('/sample', sample);
 app.use('/patient/pharmacy', pharmacy);
 app.use('/doctor/dashboard', search_patient);
-app.use('/api', require('./routes/patient'));
 app.use('/doctor/profile', require('./routes/doctor'));
 module.exports = app;
