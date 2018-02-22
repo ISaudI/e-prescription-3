@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <title><%= title %></title>
+    </head>
+    <style>
+        body{
+        background-color: #004d40;
+        }
+        #top{
+            position: absolute;
+            right: 0;
+            top: 10%;
+            left: 0;
+            padding: 1rem;
+            text-align: center;
+
+        }
+        #middle{
+            position: absolute;
+            right: 0;
+            bottom: 50%;
+            left: 0;
+            padding: 1rem;
+            text-align: center;
+        }
+        #footer{
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            padding: 1rem;
+            text-align: center;
+        }
+    </style>
+
+    <body>
+            <div class="container" id="top">
+                <div class="center-align">
+                    <h6 class="white-text">Locating Nearest Pharmacy</h1>
+                </div>
+            </div>
+            <div class="container" id="middle">
+                <a class="btn btn-floating btn-large pulse"><i class="material-icons">location_on</i></a>
+            </div>
+            <div class="container" id="footer">
+                    <h5 class="center-align"><a href="https://www.google.com.ph/maps/search/pharmacy/" class="btn-large waves-effect waves-light green">Open Maps</a></h5>
+            </div>
+
+		<!--Import jQuery before materialize.js-->
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+    </body>
+  </html>
