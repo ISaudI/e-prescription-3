@@ -1,6 +1,8 @@
 <!DOCTYPE html>
   <html>
     <head>
+
+      <link type="text/css" rel="stylesheet" href="/css/login.css"/>
       <!--Import Google Icon Font-->
       <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <!--Import materialize.css-->
@@ -10,40 +12,6 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       <title><%= title %></title>
     </head>
-    <style type="text/css">
-    	/* label color */
-   .input-field label {
-     color: #fff;
-   }
-   /* label focus color */
-   .input-field input[type=text]:focus + label {
-     color: #fff;
-   }
-   /* label underline focus color */
-   .input-field input[type=text]:focus {
-     border-bottom: 1px solid #fff;
-     box-shadow: 0 1px 0 0 #fff;
-   }
-   /* valid color */
-   .input-field input[type=text].valid {
-     border-bottom: 1px solid #fff;
-     box-shadow: 0 1px 0 0 #fff;
-   }
-   /* invalid color */
-   .input-field input[type=text].invalid {
-     border-bottom: 1px solid #fff;
-     box-shadow: 0 1px 0 0 #fff;
-   }
-   /* icon prefix focus color */
-   .input-field .prefix.active {
-     color: #fff;
-   }
-   body{
-   	background-color: #26a69a;
-   }
-
-    </style>
-
     <body>
 
 			<div class="nav-wrapper">
@@ -56,14 +24,14 @@
 			<form class="col s12">
 			  <div class="row">
 			    <div class="input-field col s12">
-			      <input id="unsername" type="text" class="validate white-text">
-			      <label for="username"><i class=" tiny material-icons white-text">person</i>Username</label>
+			      <input id="unsername" type="text" class="validate">
+			      <label for="username" class="white-text"><i class=" tiny material-icons white-text">person</i>Username</label>
 			    </div>
 			  </div>
 			  <div class="row">
 			    <div class="input-field col s12">
 			      <input id="password" type="password" class="validate">
-			      <label for="password"><i class="tiny material-icons white-text">lock</i>Password</label>
+			      <label for="password" class="white-text"><i class="tiny material-icons white-text">lock</i>Password</label>
 			    </div>
 			  </div>
 			</form>
@@ -71,7 +39,7 @@
 			<h5 class="center-align"><button class="btn-large waves-effect waves-light green">Sign in</button></div></h5>
 			</div><br>
 
-      <div class="row">
+      <div class="row" id="footer">
         <div class="col s6 center-align">
         	<a class="white-text" href="#">Create Account</a>
         </div>
