@@ -29,11 +29,17 @@ $(document).ready(function() {
             success:function(response){
                 var searchArray = response;
                 var searchData = searchArray['data'];
-                var dataSearch = {};
                 for(var i = 0; i < searchData.length; i++){
-                    dataSearch[searchData[i].name] = searchData[i].id;
+                    // dataSearch[searchData[i].name] = searchData[i].id;
+                    $('div.collection').append('<a class="collection-item avatar black-text" href="#">'
+                    +'<span class="title">'
+                    +searchData[i].name
+                    +'</span>'
+                    +'<p>'+searchData[i].city+', '+searchData[i].state_province
+                    +'<br/>'+searchData[i].tel+'</p>'
+                    +'</a>');
                 }
-                $('a.collection-item').append(JSON.stringify(dataSearch));
+               
             }
         })
     });
