@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<head>
+
+	<% include ../common/css.ejs %>
+	 <!--Let browser know website is optimized for mobile-->
+	 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body>
+    <% include ../common/navbar.ejs %>
+    <br/>
+    <div class="container">
+        <!-- List of added medicines -->
+        <ul class="collection">
+
+        </ul>
+        <!-- button for modal -->
+        <button data-target="modal1" class="btn modal-trigger waves-effect green lighten-2">Add Medicine</button>
+        <!-- modal -->
+        <div id="modal1" class="modal bottom-sheet">
+            <div class="modal-content">
+                <h4>Medicine</h4>
+                <div class="input-field col s10">
+                    <label for="meds">Select Medicine</label>
+                    <input type="text" id="meds" class="autocomplete">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id='btnAddMed' class="modal-action modal-close waves-effect waves-green btn-flat">Add</button>
+            </div>
+        </div>
+    </div>
+    <% include ../common/js.ejs %>
+<script src="/js/createrx.js"></script>
+</body>
+</html>	

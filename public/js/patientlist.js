@@ -10,13 +10,14 @@ $(document).ready(function() {
                 var dataName = {};
                 for (var i = 0; i < dataArray.length; i++) {
                     dataName[dataArray[i].name] = dataArray[i].id; 
-                    $('div.collection').append('<a class="collection-item avatar black-text" href="#">'
-                    +'<span class="title">'
-                    +dataArray[i].name
-                    +'</span>'
-                    +'<p>'+dataArray[i].city+', '+dataArray[i].state_province
-                    +'<br/>'+dataArray[i].tel+'</p>'
-                    +'</a>');
+                    $('div.collection').append(`
+                    <a class="collection-item avatar black-text" href="#">
+                    <span class="title">
+                    ${dataArray[i].name}
+                    </span>
+                    <p>${dataArray[i].city}, ${dataArray[i].state_province}
+                    <br/>${dataArray[i].tel}</p>
+                    </a>`);
                 }
                 $('input.autocomplete').autocomplete({
                 
@@ -36,9 +37,10 @@ $(document).ready(function() {
             success:function(response){
                 var searchArray = response;
                 var searchData = searchArray['data'];
+                $('div.collection').html('');
                 for(var i = 0; i < searchData.length; i++){
                     // dataSearch[searchData[i].name] = searchData[i].id;
-                    $('div.collection').html('<a class="collection-item avatar black-text" href="#">'
+                    $('div.collection').append('<a class="collection-item avatar black-text" href="#">'
                     +'<span class="title">'
                     +searchData[i].name
                     +'</span>'

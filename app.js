@@ -62,8 +62,7 @@ app.use('/api/notif', require('./routes/api/notification'));
 
 app.use('/', require('./routes/render/index'));
 
-// app.use('/patient/dashboard', dashboard);
-// app.use('/patient/pharmacy', pharmacy);
 app.use('/doctor/patientlist', require('./routes/render/patientlist'));
+app.use('/doctor/createrx', require('./routes/render/createrx'));
 app.use('/doctor/profile', require('./routes/doctor'));
 module.exports = app;
