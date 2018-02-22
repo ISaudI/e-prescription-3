@@ -15,9 +15,9 @@ var mysql = require('./lib/database');
 
 
 //routes
-const pharmacy = require('./routes/pharmacy');
-const dashboard = require('./routes/dashboard');
-const search_patient = require("./routes/search_patient");
+// const pharmacy = require('./routes/pharmacy');
+// const dashboard = require('./routes/dashboard');
+
 
 let mysql_con = mysql.connect();
 mysql_con.then((data) => {
@@ -62,8 +62,8 @@ app.use('/api/notif', require('./routes/api/notification'));
 
 app.use('/', require('./routes/render/index'));
 
-app.use('/patient/dashboard', dashboard);
-app.use('/patient/pharmacy', pharmacy);
-app.use('/doctor/dashboard', search_patient);
+// app.use('/patient/dashboard', dashboard);
+// app.use('/patient/pharmacy', pharmacy);
+app.use('/doctor/patientlist', require('./routes/render/patientlist'));
 app.use('/doctor/profile', require('./routes/doctor'));
 module.exports = app;
