@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-var moment = require('moment');
+
 router.get('/', function(req, res, next) {
     res.render('index',{
 
@@ -10,9 +10,7 @@ router.get('/', function(req, res, next) {
         //to be used in ejs as `obj` variable
         obj: {
             notif: 25,
-            rx: 20,
-            date: moment().format('LT'),
-            month: moment().format('MMMM')
+            rx: 20
         },
 
         //to be used in ejs as `array` variable
@@ -20,8 +18,7 @@ router.get('/', function(req, res, next) {
             'Ken Crucillo',
             'Victor Rafols',
             'Jerome Patiga',
-            'Jessica Agustin',
-            'Agca Cruz'
+            'Jessica Agustin'
         ]
     });
 });

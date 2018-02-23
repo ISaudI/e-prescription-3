@@ -52,6 +52,5 @@ app.use('/api/pres', require('./routes/api/prescription'));
 app.use('/api/notif', require('./routes/api/notification'));
 
 app.use('/', require('./routes/render/index'));
-app.use('/reseta', require('./routes/render/login'));
-app.use('/location', require('./routes/render/maps'));
+
 module.exports = app;
