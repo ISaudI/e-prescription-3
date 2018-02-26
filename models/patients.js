@@ -9,6 +9,7 @@ const PARAMS = 'PARAMS';
 
 const TABLE_COLUMNS = {
     id: 'string',
+    img:'string',
     name: 'string',
     email: 'string',
     password: 'string',

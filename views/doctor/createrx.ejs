@@ -13,10 +13,9 @@
         <ul class="collection">
 
         </ul>
-        <!-- button for modal -->
-        <button data-target="modal1" class="btn modal-trigger waves-effect green lighten-2">Add Medicine</button>
+        
         <!-- modal -->
-        <div id="modal1" class="modal bottom-sheet">
+        <div id="modal1" class="modal bottom-sheet" style='height:60%;'>
             <div class="modal-content">
                 <h4>Medicine</h4>
                 <div class="input-field col s10">
@@ -24,10 +23,19 @@
                     <input type="text" id="meds" class="autocomplete">
                 </div>
             </div>
-            <div class="modal-footer">
-                <button id='btnAddMed' class="modal-action modal-close waves-effect waves-green btn-flat">Add</button>
+            <div class="modal-footer" style='position:fixed; bottom:0%;'> 
+                <button id='btnAddMed' class="modal-action modal-close waves-effect waves-green btn-flat  pull-right">Add</button>
             </div>
         </div>
+    </div>
+    <div class="btn-footer" style='position:fixed; bottom:0%; '>
+       
+            <button class="btn btn-flat btn-large white-text waves-effect blue lighten-1"  style="width:50%; margin:0% 1.5% 3% 3%" id="btnSend">Send</button>        
+            <!-- button for modal   -->
+            <button data-target="modal1" class="btn btn-flat btn-large white-text modal-trigger waves-effect green lighten-2"  style="width:50%; margin:0% 3% 3% 1.5%">
+                Add Medicine
+            </button>
+        
     </div>
     <% include ../common/js.ejs %>
 <script src="/js/createrx.js"></script>

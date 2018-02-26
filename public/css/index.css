@@ -17,3 +17,20 @@ Override css goes here
 .card.horizontal .card-image{
     min-width: 40%;
 }
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+
+ .btn-footer {
+    position: absolute;
+    bottom: 0%;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
