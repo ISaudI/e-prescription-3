@@ -56,5 +56,5 @@ app.use('/rx', require('./routes/render/rx'));
 app.use('/location', require('./routes/render/maps'));
 app.use('/notif', require('./routes/render/notif'));
 app.use('/reseta', require('./routes/render/login'));
-
+app.use('/pharmacy', require('./routes/render/pharmacy'));
 module.exports = app;

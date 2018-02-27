@@ -5,7 +5,7 @@
 
         <!-- start of your own css here -->
         <link type="text/css" rel="stylesheet" href="/css/index.css"/>
-        <!-- end of your own css        -->
+        <!-- end of your own css -->
 
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -24,6 +24,7 @@
                             <!-- this obj is from server -->
                             <h2><%= obj.notif %></h2>
                         </div>
+
                         <div class="card-stacked">
                             <div class="card-content">
                                 <p class="card-title">Notification</p>
@@ -32,6 +33,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="col s12 m7" style="margin:10%;">
                     <div class="card horizontal">
                         <!-- this obj is from server -->
@@ -46,9 +48,8 @@
                         </div>
                     </div>
                 </div>
-
                 <hr />
-
+                
                 <ul class="collapsible" data-collapsible="expandable">
                     <!-- this array is from server -->
                     <% for(let i =0;i < array.length; i++){ %>
@@ -60,7 +61,6 @@
                 </ul>
             </div>
             <!-- end content goes here   -->
-
             <% include common/js.ejs %>
             <!-- start your own js here -->
             <script src="/js/index.js"></script>
