@@ -4,7 +4,7 @@ $(document).ready(function() {
     //Autocomplete textbox
     $.ajax({
         type: 'GET',
-        url: 'http://localhost:3000/api/patient',
+        url: '/api/patient',
         success: function(response) {
             var nameArray = response;
             var dataArray = nameArray['data'];
@@ -12,7 +12,7 @@ $(document).ready(function() {
             for (var i = 0; i < dataArray.length; i++) {
                 dataName[dataArray[i].name] = dataArray[i].img;
                 $('div.collection').append(`
-                <a class="collection-item avatar black-text" href='/doctor/patientinfo/${dataArray[i].id}'>
+                <a class="collection-item avatar black-text" href='/doctor/patientinfo?id=${dataArray[i].id}'>
                 <img src='${dataArray[i].img}' alt="profile pic" class="circle">
                 <span class="title">
                 ${dataArray[i].name}
@@ -32,7 +32,7 @@ $(document).ready(function() {
     $("#btnsearch").on('click',function(){
         $.ajax({
             type:'GET',
-            url:'http://localhost:3000/api/patient',
+            url:'/api/patient',
             data: {
                 name: $('input.autocomplete').val()
             },
@@ -42,7 +42,7 @@ $(document).ready(function() {
                 $('div.collection').html('');
                 for(var i = 0; i < searchData.length; i++){
                 // dataSearch[searchData[i].name] = searchData[i].id;
-                $('div.collection').append(`<a class="collection-item avatar black-text" href='/doctor/patientinfo/${dataArray[i].id}'>
+                $('div.collection').append(`<a class="collection-item avatar black-text" href='/doctor/patientinfo?id=${dataArray[i].id}'>
                 <img src='${searchData[i].img}S' alt="profile" class="circle">
                 <span class="title">
                 ${searchData[i].name}
