@@ -6,9 +6,9 @@ $(document).ready(function() {
         type: 'GET',
         url: '/api/patient',
         success: function(response) {
-            var nameArray = response;
-            var dataArray = nameArray['data'];
-            var dataName = {};
+            let nameArray = response;
+            let dataArray = nameArray['data'];
+            let dataName = {};
             for (var i = 0; i < dataArray.length; i++) {
                 dataName[dataArray[i].name] = dataArray[i].img;
                 $('div.collection').append(`
@@ -37,8 +37,8 @@ $(document).ready(function() {
                 name: $('input.autocomplete').val()
             },
             success:function(response){
-                var searchArray = response;
-                var searchData = searchArray['data'];
+                let searchArray = response;
+                let searchData = searchArray['data'];
                 $('div.collection').html('');
                 for(var i = 0; i < searchData.length; i++){
                 // dataSearch[searchData[i].name] = searchData[i].id;
@@ -55,8 +55,6 @@ $(document).ready(function() {
             }
         })
     });
-
-
 
 });
 

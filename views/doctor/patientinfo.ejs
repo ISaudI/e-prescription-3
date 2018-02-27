@@ -13,19 +13,24 @@
     </head>
     <body>
             <% include ../common/navbar.ejs %>
+            <div class='head teal lighten-1'>
 
+            </div>
             <!-- start content goes here -->
             <div class="container">
                 <!-- Page Content goes here -->
-
-               
-            <!-- maps -->
-            <!-- https://www.google.com.ph/maps/search/pharmacy/ -->
-            <!-- end content goes here   -->
-
+                
+             </div>  
+            <div class="btn-footer" style='position:fixed; bottom:0%; '>
+    
+                    <button class="btn btn-flat btn-large white-text waves-effect green accent-4"  style="width:100%; margin:0% 3% 3% 3%" id="btnAdd">Add Prescription</button>        
+                
+            </div>
             <% include ../common/js.ejs %>
             <!-- start your own js here -->
             <script src="/js/patientinfo.js"></script>
+            <script src="/js/helper.js"></script>
+            
             <!-- end your own js here   -->
     </body>
 </html>
