@@ -3,7 +3,7 @@ $(document).ready(function(){
     $('.modal').modal();
     Materialize.updateTextFields();
 
-    /* Get all drugs in the prescription*/
+    /* Get all drugs in the prescription */
     $.ajax({
         type:'GET',
         url:'http://localhost:3000/api/pres/details',
@@ -16,6 +16,7 @@ $(document).ready(function(){
             for (var i = 0; i<detailsData.length; i++){
                 $('ul.collection').append(`
                     <li class="collection-item dismissable">
+                    <input value='${detailsData[i].id}' class='hide'/>
                     <span class="title">
                     ${detailsData[i].drug_name}
                     </span>
@@ -44,7 +45,7 @@ $(document).ready(function(){
         }
     });
 
-    /* Selects desired drug */
+    /* Selects desired drug  and add it to the prescription*/
     $("#btnAddMed").on('click',function(){
         $.ajax({
             type:'GET',
@@ -83,6 +84,13 @@ $(document).ready(function(){
             }
         })
     });
+
+    $.ajax({
+        type:'POST',
+        url: 'http://localhost:3000/api/pres/details/delete',
+        data: {id : ''}
+    })
+
     // $("#btnSend").on('click', function(){
     //     /* example of adding to database */
     //     $.ajax({

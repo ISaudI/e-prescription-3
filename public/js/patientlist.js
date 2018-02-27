@@ -1,33 +1,32 @@
 $(document).ready(function() {
     //Autocomplete textbox
-    $(function() {
-        $.ajax({
-            type: 'GET',
-            url: 'http://localhost:3000/api/patient',
-            success: function(response) {
-                var nameArray = response;
-                var dataArray = nameArray['data'];
-                var dataName = {};
-                for (var i = 0; i < dataArray.length; i++) {
-                    dataName[dataArray[i].name] = dataArray[i].img;
-                    $('div.collection').append(`
-                    <a class="collection-item avatar black-text" href="#">
-                    <img src='${dataArray[i].img}' alt="profile pic" class="circle">
-                    <span class="title">
-                    ${dataArray[i].name}
-                    </span>
-                    <p>${dataArray[i].city}, ${dataArray[i].state_province}
-                    <br/>${dataArray[i].tel}</p>
-                    </a>`);
-                }
-                $('input.autocomplete').autocomplete({
-
-                    data: dataName,
-                    limit: 5,
-                });
+    $.ajax({
+        type: 'GET',
+        url: 'http://localhost:3000/api/patient',
+        success: function(response) {
+            var nameArray = response;
+            var dataArray = nameArray['data'];
+            var dataName = {};
+            for (var i = 0; i < dataArray.length; i++) {
+                dataName[dataArray[i].name] = dataArray[i].img;
+                $('div.collection').append(`
+                <a class="collection-item avatar black-text" href="#">
+                <img src='${dataArray[i].img}' alt="profile pic" class="circle">
+                <span class="title">
+                ${dataArray[i].name}
+                </span>
+                <p>${dataArray[i].city}, ${dataArray[i].state_province}
+                <br/>${dataArray[i].tel}</p>
+                </a>`);
             }
-        });
+            $('input.autocomplete').autocomplete({
+
+                data: dataName,
+                limit: 5,
+            });
+        }
     });
+
     $("#btnsearch").on('click',function(){
         $.ajax({
             type:'GET',
