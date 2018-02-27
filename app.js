@@ -52,6 +52,7 @@ app.use('/api/pres', require('./routes/api/prescription'));
 app.use('/api/notif', require('./routes/api/notification'));
 
 app.use('/', require('./routes/render/index'));
-app.use('/doctor/patientlist', require('./routes/render/patientlist.js'));
-app.use('/doctor/patientinfo', require('./routes/render/patientinfo.js'));
+app.use('/doctor', require('./routes/render/patient'));
+app.use('/prescription', require('./routes/render/prescription'));
+
 module.exports = app;
