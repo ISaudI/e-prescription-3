@@ -7,4 +7,10 @@ router.get('/:id', function(req, res, next) {
     });
 });
 
+router.get('/', function(req, res, next) {
+    res.render('doctor/prescriptionlist',{
+        title: 'Prescription list'
+    });
+});
+
 module.exports = router;
