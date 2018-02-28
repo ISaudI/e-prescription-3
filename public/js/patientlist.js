@@ -42,7 +42,7 @@ $(document).ready(function() {
                 $('div.collection').html('');
                 for(var i = 0; i < searchData.length; i++){
                 // dataSearch[searchData[i].name] = searchData[i].id;
-                $('div.collection').append(`<a class="collection-item avatar black-text" href='/doctor/patientinfo?id=${dataArray[i].id}'>
+                $('div.collection').append(`<a class="collection-item avatar black-text" href='/doctor/patientinfo?id=${searchData[i].id}'>
                 <img src='${searchData[i].img}S' alt="profile" class="circle">
                 <span class="title">
                 ${searchData[i].name}

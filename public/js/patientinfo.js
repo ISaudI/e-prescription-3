@@ -43,7 +43,7 @@ $(document).ready(function() {
                 status:0
             },
             success: function(response){
-                window.location.href = '/doctor/prescriptionlist';
+                window.location.href = '/prescription';
             }
         })
     })
