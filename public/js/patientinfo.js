@@ -32,4 +32,19 @@ $(document).ready(function() {
             }
         }
     })
+
+    $('#btnAdd').on('click', function(){
+        $.ajax({
+            type:"POST",
+            url:'/api/pres/create',
+            data:{
+                patient_id: queryParams.id,
+                doctor_id: 1,
+                status:0
+            },
+            success: function(response){
+                window.location.href = '/doctor/prescriptionlist';
+            }
+        })
+    })
 });
