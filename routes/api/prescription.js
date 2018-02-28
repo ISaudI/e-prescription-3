@@ -74,6 +74,13 @@ router.get('/details', function(req, res, next) {
     });
 });
 
+router.get('/:id', function(req, res, next) {
+    presc.getPresById(req.params.id).then(data=>{
+        res.json(data);
+    }).catch(error=>{
+        res.json(error);
+    });
+});
 // -----> end
 
 module.exports = router;
