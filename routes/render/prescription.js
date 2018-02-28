@@ -8,7 +8,7 @@ router.get('/:id', function(req, res, next) {
 });
 
 router.get('/', function(req, res, next) {
-    res.render('prescription/prescriptionlist',{
+    res.render('doctor/prescriptionlist',{
         title: 'Prescription list'
     });
 });

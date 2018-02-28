@@ -53,6 +53,7 @@ app.use('/api/notif', require('./routes/api/notification'));
 
 app.use('/', require('./routes/render/index'));
 app.use('/doctor', require('./routes/render/patient'));
+app.use('/patient', require('./routes/render/doctor'));
 app.use('/prescription', require('./routes/render/prescription'));
 
 
