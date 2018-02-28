@@ -1,8 +1,8 @@
 <nav>
     <div class="nav-wrapper teal lighten-1" style="display:flex;justify-content:space-between">
-        <span href="#" data-activates="slide-out" class="button-collapse fa fa-bars flex-center"></span>
-        <h5 class="no-margin flex-center"><%= title %></h5>
-        <h5 class="flex-center" style="margin:0 18px"><span class="fa fa-user-circle"></span></h5>
+        <span href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></span>
+        <h5 class="no-margin flex-center">Reseta</h5>
+        <h5 class="flex-center" style="margin:0 18px"><img class="circle" src="images/cat.jpg" style="height: 36px; width: 36px; margin: 15px"></h5>
     </div>
     <ul id="slide-out" class="side-nav teal lighten-1">
         <li>
@@ -16,13 +16,19 @@
             </div>
         </li>
         <li>
-            <a href="#" class="white-text"><i class="material-icons white-text">notifications</i>Notification</a>
+            <a href="/" class="white-text"><i class="material-icons white-text">home</i>Dashboard</a>
         </li>
         <li>
             <div class="divider"></div>
         </li>
         <li>
-            <a href="#" class="white-text"><i class="material-icons white-text">home</i>Dashboard</a>
+            <a href="/notif" class="white-text"><i class="material-icons white-text">notifications</i>Notification<span class="badge"><%= obj.notif%></span></a>
+        </li>
+        <li>
+            <div class="divider"></div>
+        </li>
+        <li>
+            <a href="/rx" class="white-text"><i class="material-icons white-text">chrome_reader_mode</i>Rx<span class="badge"><%= obj.rx%></span></a>
         </li>
         <li>
             <div class="divider"></div>
@@ -34,7 +40,7 @@
             <div class="divider"></div>
         </li>
         <li>
-            <a href="#" class="white-text"><i class="material-icons white-text">location_on</i>Nearest Pharmarcy</a>
+            <a href="/location" class="white-text"><i class="material-icons white-text">location_on</i>Nearest Pharmarcy</a>
         </li>
         <li>
             <div class="divider"></div>
