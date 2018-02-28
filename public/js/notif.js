@@ -1,30 +1,31 @@
 $(document).ready(function() {
-    //Autocomplete textbox
     $.ajax({
         type: 'GET',
         url: '/api/notif/patient/1',
-        success: function(response) {
-            let nameArray = response;
-            let dataArray = nameArray['data'];
-            let dataName = {};
+        success: function (response) {
+            let notifArray = response,
+                dataArray = notifArray['data'];
             for (var i = 0; i < dataArray.length; i++) {
-                dataName[dataArray[i].name] = dataArray[i].img;
-                $('div.collection').append(`
-                <li class="collection-item avatar">
-                <img src="images/yuna.jpg" alt="" class="circle">
-                <span class="title">${dataArray[i].id}</span>
-                <p>
-                Actino Type: ${dataArray[i].action_type} <br>
-                Date Created: ${dataArray[i].date_created} <br>
-
-                </p>
-                </li>`);
+				$('div.collection').append(`
+                        <li class="collection-item avatar">
+                        <span class="title">${dataArray[i].id}</span>
+                        <p>
+                        Action Type: ${dataArray[i].action_type} <br>
+                        Date Created: ${dataArray[i].date_created} <br>
+                        </p>
+                        </li>`);
+                $.ajax({
+					type: 'GET',
+        			url: `/api/doctors/${dataArray[i].id}`,
+        			success: function(response) {
+                        let doctorData = response,
+                            doctorArray = doctorData['data'];
+                            for (var x = 0; x < doctorArray.length; x++) {
+                        		$(`p.doc`).append(`${doctorArray.name}`);
+                            }
+					}
+				})
             }
-            $('input.autocomplete').autocomplete({
-
-                data: dataName,
-                limit: 5,
-            });
         }
     });
 });
