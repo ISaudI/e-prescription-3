@@ -34,8 +34,13 @@ exports.getId = (id) => {
         id: id
     }));
     return new Promise((resolve, reject) => {
-        let cols = TABLE_COLUMNS;
-        let sql = `SELECT ${Object.keys(cols).join(',')} FROM ${TABLE_NAME} WHERE id = ?`;
+        let sql = `
+            SELECT n.*, d.email as doctor_email, d.name as doctor_name, p.name as patient_name, p.email as patient_email 
+            FROM notification n
+            LEFT JOIN doctors d ON d.id = n.doctor_id
+            LEFT JOIN patients p ON p.id = n.patient_id
+            WHERE n.id = ?
+        `;
         db.execute(sql,[id]).then(rows=>{
             resolve(rows);
         }).catch(error=>{
@@ -53,8 +58,12 @@ exports.getAll = (limit) => {
         limit: limit
     }));
     return new Promise((resolve, reject) => {
-        let cols = TABLE_COLUMNS;
-        let sql = `SELECT ${Object.keys(cols).join(',')} FROM ${TABLE_NAME}`;
+        let sql = `
+            SELECT n.*, d.email as doctor_email, d.name as doctor_name, p.name as patient_name, p.email as patient_email 
+            FROM notification n
+            LEFT JOIN doctors d ON d.id = n.doctor_id
+            LEFT JOIN patients p ON p.id = n.patient_id
+        `;
         if(limit){
             sql += ` LIMIT ${limit}`;
         }
@@ -81,8 +90,13 @@ exports.getDoctorId = (id, start_time, end_time, limit) => {
         end_time: end_time
     }));
     return new Promise((resolve, reject) => {
-        let cols = TABLE_COLUMNS;
-        let sql = `SELECT ${Object.keys(cols).join(',')} FROM ${TABLE_NAME} WHERE doctor_id = ?`;
+        let sql = `
+            SELECT n.*, d.email as doctor_email, d.name as doctor_name, p.name as patient_name, p.email as patient_email 
+            FROM notification n
+            LEFT JOIN doctors d ON d.id = n.doctor_id
+            LEFT JOIN patients p ON p.id = n.patient_id
+            WHERE n.doctor_id = ?
+        `;
         if(start_time && end_time){
             sql += `  AND (date(date_created) BETWEEN '${start_time}' AND '${end_time}')`;
         }else{
@@ -120,7 +134,13 @@ exports.getPatientId = (id, start_time, end_time, limit) => {
     }));
     return new Promise((resolve, reject) => {
         let cols = TABLE_COLUMNS;
-        let sql = `SELECT ${Object.keys(cols).join(',')} FROM ${TABLE_NAME} WHERE patient_id = ?`;
+        let sql = `
+            SELECT n.*, d.email as doctor_email, d.name as doctor_name, p.name as patient_name, p.email as patient_email 
+            FROM notification n
+            LEFT JOIN doctors d ON d.id = n.doctor_id
+            LEFT JOIN patients p ON p.id = n.patient_id
+            WHERE n.patient_id = ?
+        `;
         if(start_time && end_time){
             sql += `  AND (date(date_created) BETWEEN '${start_time}' AND '${end_time}')`;
         }else{
