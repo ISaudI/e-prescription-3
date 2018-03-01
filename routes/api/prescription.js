@@ -66,15 +66,6 @@ router.post('/details/delete', function(req, res, next) {
     });
 });
 
-router.post('/details/update', function(req, res, next) {
-    presc_details.update(req.body.id, req.body.data).then(data=>{
-        res.json(data);
-    }).catch(error=>{
-        res.json(error);
-    });
-});
-
-
 router.get('/details', function(req, res, next) {
     presc_details.getDetailsById(req.query.id).then(data=>{
         res.json(data);
@@ -83,13 +74,6 @@ router.get('/details', function(req, res, next) {
     });
 });
 
-router.get('/:id', function(req, res, next) {
-    presc.getPresById(req.params.id).then(data=>{
-        res.json(data);
-    }).catch(error=>{
-        res.json(error);
-    });
-});
 // -----> end
 
 module.exports = router;

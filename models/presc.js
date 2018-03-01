@@ -63,21 +63,6 @@ exports.getByPatient = (email = '', limit, status) => {
     });
 };
 
-exports.getPresById = (id) => {
-    console.log(`[${new Date()}][MODEL - ${TABLE_NAME}].getPresById [${PARAMS}]`, JSON.stringify({
-        id: id
-    }));
-    return new Promise((resolve, reject) => {
-        let cols = TABLE_COLUMNS;
-        let sql = `SELECT ${Object.keys(cols).join(',')} FROM ${TABLE_NAME} WHERE ?`;
-        db.execute(sql,{id: id}).then(rows=>{
-            resolve(rows);
-        }).catch(error=>{
-            reject(error);
-        });
-    });
-};
-
 exports.create = (data) => {
     console.log(`[${new Date()}][MODEL - ${TABLE_NAME}].create [${PARAMS}]`, JSON.stringify({
         data: data
