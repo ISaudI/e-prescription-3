@@ -13,45 +13,20 @@
     </head>
     <body>
             <% include ../common/navbar.ejs %>
+
             <!-- start content goes here -->
             <div class="container">
-                <!-- List of added medicines -->
-                <ul class="collection">
-
-                </ul>
-                <!-- modal -->
-                <div id="modal1" class="modal bottom-sheet" style='max-height:65%; height:53%;'>
-                    <div class="modal-content">
-                        <h4>Medicine</h4>
-                        <div class="input-field col s10">
-                            <label for="meds">Select Medicine</label>
-                            <input type="text" id="meds" class="autocomplete">
-                        </div>
-                        <div class='input-field'>
-                            <label for='notes'>notes</label>
-                            <textarea id="notes" class="materialize-textarea"></textarea>
-                        </div>
-                    </div>
-                    <div class="modal-footer" style='position:fixed; bottom:0%;'> 
-                        <button id='btnAddMed' class="modal-action modal-close waves-effect waves-green btn-flat  pull-right">Add</button>
-                    </div>
-                </div>
-                <!-- End of modal -->
-            </div>
-            <div class="btn-footer row" style='display:flex; position:fixed; bottom:0%; max-width:100%; width:100%; '>
-       
-                <button class="btn btn-flat btn-large white-text waves-effect blue lighten-1 left"  style="width:50%; margin:0% 1.5% 3% 3%" id="btnSend">Send</button>        
-                <!-- button for modal   -->
-                <button data-target="modal1" class="btn btn-flat btn-large white-text modal-trigger waves-effect green lighten-2 right"  style="width:50%; margin:0% 3% 3% 1.5%">
-                    Add Medicine
-                </button>
+            <!-- Page Content goes here -->
             
             </div>
-
+               
+            <!-- maps -->
+            <!-- https://www.google.com.ph/maps/search/pharmacy/ -->
+            <!-- end content goes here   -->
 
             <% include ../common/js.ejs %>
             <!-- start your own js here -->
-            <script src="/js/prescadd.js"></script>
+            <!-- <script src="/js/index.js"></script> -->
             <!-- end your own js here   -->
     </body>
 </html>
