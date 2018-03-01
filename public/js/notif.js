@@ -2,6 +2,7 @@ $(document).ready(function(){
     $.ajax({
         type: 'GET',
 <<<<<<< HEAD
+<<<<<<< HEAD
         url: '/api/notif/patient/1',
         success: function (response) {
             let notifArray = response,
@@ -17,6 +18,8 @@ $(document).ready(function(){
                         </div>
                     </li>`);
 =======
+=======
+>>>>>>> parent of 3df5b97... Merge branch 'reseta-proto' of https://github.com/kendrick004/e-prescription into reseta-proto
         url: 'http://localhost:3000/api/doctors',
         success: function(response){
             var nameArray = response;
@@ -32,6 +35,9 @@ $(document).ready(function(){
                  </div>
                  <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
                 </li>`);
+<<<<<<< HEAD
+>>>>>>> parent of 3df5b97... Merge branch 'reseta-proto' of https://github.com/kendrick004/e-prescription into reseta-proto
+=======
 >>>>>>> parent of 3df5b97... Merge branch 'reseta-proto' of https://github.com/kendrick004/e-prescription into reseta-proto
             }
         }
