@@ -20,7 +20,7 @@
             
             <div class="container">
                 
-                <center>
+                <!-- <center>
                     <div class="logo-padding">
                         <img class="responsive-img" src="/images/logo.png" width="150" height="150">
                     </div>
@@ -36,7 +36,14 @@
                     <div class="sm6">
                         <a href="#!" class="btn">Login</a>
                     </div>    
-                </div>
+                </div> -->
+
+                <ul class="collection">
+                    <% for(let i=0;i<patient.length;i++){ %>
+                        <% let elem = patient[i]; %>
+                        <li class="collection-item" data-info='<%= JSON.stringify(elem) %>'><%= elem.name %></li>
+                    <% } %>
+                </ul>
 
             </div>
 
