@@ -6,7 +6,7 @@ var moment = require('moment');
 router.get('/prescriptionlist', function(req, res, next){
 	res.render('patient/prescriptionlist',{
         title: 'Rx Description',
-
+        user : req.session.user,
         obj: {
             notif: 25,
             rx: 20,
