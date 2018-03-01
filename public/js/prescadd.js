@@ -1,4 +1,3 @@
-
 $(document).ready(function(){
     /* Initialize components*/
     $('.modal').modal();
@@ -8,7 +7,7 @@ $(document).ready(function(){
     /* Get the data of the prescription */
     $.ajax({
         type:'GET',
-        url:`/api/pres/${pId}`,
+        url:`/api/pres/${pathArray[2]}`,
         success: function(response){
 
         }
@@ -17,7 +16,7 @@ $(document).ready(function(){
     /* Get all drugs in the prescription */
     $.ajax({
         type:'GET',
-        url:'http://localhost:3000/api/pres/details',
+        url:'/api/pres/details',
         data:{
             id:pId
         },
@@ -41,7 +40,7 @@ $(document).ready(function(){
     /* Get all drugs */
     $.ajax({
         type: 'GET',
-        url: 'http://localhost:3000/api/drugs',
+        url: '/api/drugs',
         success: function(response) {
             var drugArray = response;
             var dataArray = drugArray['data'];
@@ -60,7 +59,7 @@ $(document).ready(function(){
     $("#btnAddMed").on('click',function(){
         $.ajax({
             type:'GET',
-            url:'http://localhost:3000/api/drugs',
+            url:'/api/drugs',
             data: {
                 name: $('input.autocomplete').val()
             },
@@ -101,12 +100,13 @@ $(document).ready(function(){
             type:'POST',
             url:'/api/pres/push',
             data:{
-                id: pId
+                id: pathArray[2]
             },
             success: function(response){
                 alert('successfully added!');
             }
         })
+
     });
 
 })
