@@ -18,6 +18,7 @@ router.get('/prescriptionlist', function(req, res, next){
 });
 router.get('/maps', function(req, res, next){
 	res.render('patient/maps',{
+        user : req.session.user,
         title: 'Location'
     });
 });

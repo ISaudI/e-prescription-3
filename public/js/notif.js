@@ -6,25 +6,15 @@ $(document).ready(function() {
             let notifArray = response,
                 dataArray = notifArray['data'];
             for (var i = 0; i < dataArray.length; i++) {
-				$('div.collection').append(`
-                        <li class="collection-item avatar">
-                        <span class="title">${dataArray[i].id}</span>
-                        <p>
-                        Action Type: ${dataArray[i].action_type} <br>
-                        Date Created: ${dataArray[i].date_created} <br>
-                        </p>
-                        </li>`);
-                $.ajax({
-					type: 'GET',
-        			url: `/api/doctors/${dataArray[i].id}`,
-        			success: function(response) {
-                        let doctorData = response,
-                            doctorArray = doctorData['data'];
-                            for (var x = 0; x < doctorArray.length; x++) {
-                        		$(`p.doc`).append(`${doctorArray.name}`);
-                            }
-					}
-				})
+                $('ul.collapsible').append(`
+                    <li>
+                        <div class="collapsible-header teal lighten-1 active"><h5>${dataArray[i].doctor_name}</h5></div>
+                        <div class="collapsible-body">
+                            <span>
+                                You have received a prescription, from your last checkup with ${dataArray[i].doctor_name} on ${dataArray[i].date_created}
+                            </span>
+                        </div>
+                    </li>`);
             }
         }
     });
