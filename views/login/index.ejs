@@ -41,7 +41,7 @@
                 <ul class="collection">
                     <% for(let i=0;i<patient.length;i++){ %>
                         <% let elem = patient[i]; %>
-                        <li class="collection-item" data-info='<%= JSON.stringify(elem) %>'><%= elem.name %></li>
+                        <li id="<%= elem.id %>" class="collection-item" data-info="<%= JSON.stringify(elem) %>"><%= elem.name %></li>
                     <% } %>
                 </ul>
 
