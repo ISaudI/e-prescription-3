@@ -66,3 +66,19 @@ exports.delete = (id) => {
     });
 }
 
+exports.update = (id, data) => {
+    console.log(`[${new Date()}][MODEL - ${TABLE_NAME}].update [${PARAMS}]`, JSON.stringify({
+        id: id,
+        data: data
+    }));
+
+    return new Promise((resolve, reject)=>{
+        db.execute(`UPDATE ${TABLE_NAME} SET ? WHERE id = ?`, [data, id])
+        .then((data)=>{
+            resolve(data);
+        }).catch((error)=>{
+            reject(error);
+        }); 
+    });
+}
+
