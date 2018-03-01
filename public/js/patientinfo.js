@@ -43,10 +43,7 @@ $(document).ready(function() {
                 status:0
             },
             success: function(response){
-                let prescArray = response;
-                let dataArray = prescArray['data']
-                window.location.href = `/prescription/${dataArray.insertId}`;
-
+                window.location.href = '/prescription';
             }
         })
     })
