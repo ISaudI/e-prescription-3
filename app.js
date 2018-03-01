@@ -1,3 +1,5 @@
+// app.js
+
 const path = require('path');
 
 //express
@@ -52,9 +54,10 @@ app.use('/api/pres', require('./routes/api/prescription'));
 app.use('/api/notif', require('./routes/api/notification'));
 
 app.use('/', require('./routes/render/index'));
-app.use('/doctor', require('./routes/render/patient'));
-app.use('/patient', require('./routes/render/doctor'));
-app.use('/prescription', require('./routes/render/prescription'));
+app.use('/login', require('./routes/render/login'));
+app.use('/doctor', require('./routes/middleware/auth').isAuthenticated, require('./routes/render/patient'));
+app.use('/patient', require('./routes/middleware/auth').isAuthenticated, require('./routes/render/doctor'));
+app.use('/prescription', require('./routes/middleware/auth').isAuthenticated, require('./routes/render/prescription'));
 
 
-module.exports = app;
+module.exports = app;   
