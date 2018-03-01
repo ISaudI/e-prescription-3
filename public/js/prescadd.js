@@ -8,7 +8,7 @@ $(document).ready(function(){
     /* Get the data of the prescription */
     $.ajax({
         type:'GET',
-        url:`/api/pres/${pathArray[2]}`,
+        url:`/api/pres/${pId}`,
         success: function(response){
 
         }
@@ -99,15 +99,14 @@ $(document).ready(function(){
         confirm('Are you sure you want to submit?');
         $.ajax({
             type:'POST',
-            url:'api/pres/push',
+            url:'/api/pres/push',
             data:{
-                id: pathArray[2]
+                id: pId
             },
             success: function(response){
                 alert('successfully added!');
             }
         })
-
     });
 
 })
