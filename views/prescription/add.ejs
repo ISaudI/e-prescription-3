@@ -4,7 +4,7 @@
         <% include ../common/css.ejs %>
 
         <!-- start of your own css here -->
-        <link type="text/css" rel="stylesheet" href="/css/index.css"/>
+        <link type="text/css" rel="stylesheet" href="/css/prescription.css"/>
         <!-- end of your own css        -->
 
         <!--Let browser know website is optimized for mobile-->
@@ -15,6 +15,26 @@
             <% include ../common/navbar.ejs %>
             <!-- start content goes here -->
             <div class="container">
+                <span><br></span>
+                <div class="row">
+                    <form class="col s12">
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <i class="material-icons prefix">account_circle</i>
+                                <input id="name" type="text" disabled class = 'black-text'>
+                            </div>
+                            <div class="input-field col s6">
+                                <i class="material-icons prefix">home</i>
+                                <input id="address" type="text" class="validate" disabled class = 'black-text'>
+                            </div>
+                            <div class="input-field col s12">
+                                    <i class="material-icons prefix">create</i>
+                                    <input id="presnote" type="text" class="validate" class = 'black-text'>
+                                    <label for="presnote">Type of illness:</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
                 <!-- List of added medicines -->
                 <ul class="collection">
 
@@ -38,11 +58,11 @@
                 </div>
                 <!-- End of modal -->
             </div>
-            <div class="btn-footer row" style='display:flex; position:fixed; bottom:0%; max-width:100%; width:100%; '>
+            <div class="btn-footer row">
        
-                <button class="btn btn-flat btn-large white-text waves-effect blue lighten-1 left"  style="width:50%; margin:0% 1.5% 3% 3%" id="btnSend">Send</button>        
+                <button class="btn btn-flat btn-large white-text waves-effect blue lighten-1 left" id="btnSend">Send</button>        
                 <!-- button for modal   -->
-                <button data-target="modal1" class="btn btn-flat btn-large white-text modal-trigger waves-effect green lighten-2 right"  style="width:50%; margin:0% 3% 3% 1.5%">
+                <button data-target="modal1" class="btn btn-flat btn-large white-text modal-trigger waves-effect green lighten-2 right">
                     Add Medicine
                 </button>
             

@@ -1,0 +1,25 @@
+.btn-footer{
+    display:flex; 
+    position:fixed; 
+    bottom:0%; 
+    max-width:100%; 
+    width:100%;
+}
+.delete-pres{
+    margin-top:0%;
+    margin-right:0%;
+}
+
+.edit-pres{
+    margin-top:0%;
+    margin-right:0%;
+}
+.modal-trigger{
+    width:50%; 
+    margin: 3% 3% 0% 1.5%;
+}
+
+#btnSend{
+    width:50%; 
+    margin:3% 1.5% 0% 3%;
+}

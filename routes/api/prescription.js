@@ -74,6 +74,7 @@ router.get('/details', function(req, res, next) {
     });
 });
 
+//get prescription by its id
 router.get('/:id', function(req, res, next) {
         presc.getPresById(req.params.id).then(data=>{
             res.json(data);
@@ -81,6 +82,22 @@ router.get('/:id', function(req, res, next) {
             res.json(error);
         });
     });
+
+router.post('/details/update', function(req, res, next) {
+    presc_details.update(req.body.id, req.body.data).then(data=>{
+        res.json(data);
+    }).catch(error=>{
+        res.json(error);
+    });
+});
+
+// router.post('/update', function(req, res, next) {
+//     presc_details.update(req.body.id, req.body.data).then(data=>{
+//         res.json(data);
+//     }).catch(error=>{
+//         res.json(error);
+//     });
+// }); -->i think not need, iisipin ko pa pano ko iaadd yung notes
 // -----> end
 
 module.exports = router;
