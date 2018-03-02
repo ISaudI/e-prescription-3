@@ -84,21 +84,12 @@ router.get('/details', function(req, res, next) {
 });
 
 router.get('/:id', function(req, res, next) {
-<<<<<<< HEAD
-    presc.getPresById(req.params.id).then(data=>{
-        res.json(data);
-    }).catch(error=>{
-        res.json(error);
-    });
-});
-=======
         presc.getPresById(req.params.id).then(data=>{
             res.json(data);
         }).catch(error=>{
             res.json(error);
         });
     });
->>>>>>> 9d83dc1f9cf37a829725611b45951819770df774
 // -----> end
 
 module.exports = router;
