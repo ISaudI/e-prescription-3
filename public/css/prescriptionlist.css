@@ -1,13 +1,8 @@
-.container {
-    justify-content: space-between;
-    flex-direction: column;
-    height: 100vh;
-    display: flex;
-    bottom: 0px;
-    position: relative;
-    height: 200px;
-  }
-  .container .btn-holder {
-    justify-content: flex-end;
-    display: flex;
+  #footer{
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      padding: 1rem;
+      text-align: center;
   }
