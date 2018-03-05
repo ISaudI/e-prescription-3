@@ -30,4 +30,25 @@ router.get('/notif', function(req, res, next){
     });
 });
 
+router.get('/doctorprofile', function(req, res, next){
+	res.render('patient/doctorprofile',{
+        title: 'Doctor Profile',
+        user : req.session.user
+    });
+});
+
+router.get('/doctorlist', function(req, res, next){
+	res.render('patient/doctorlist',{
+        title: 'Doctor Profile',
+        user : req.session.user
+    });
+});
+
+router.get('/profile', function(req, res, next){
+	res.render('patient/profile',{
+        title: 'Profile',
+        user : req.session.user
+    });
+});
+
 module.exports = router;

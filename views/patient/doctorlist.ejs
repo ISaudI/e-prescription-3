@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<head>
+
+	<% include ../common/css.ejs %>
+	 <!--Let browser know website is optimized for mobile-->
+	 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body>
+
+	<% include ../common/navbar.ejs %>
+	<div class="col s12 m12 l12">
+		<div class="row center-align">
+		<div class="input-field col s10">
+			<label for="search">Search Doctor Name</label>
+			<input type="text" id="search" class="autocomplete">
+		</div>
+		<div class="input-field col s2" style='margin-left:-15%;'>
+			<button class='btn btn-flat white' id='btnsearch'>
+				<i class="material-icons black-text">search</i>
+			</button>
+		</div>
+		</div>
+	</div>
+	<div class='container'>
+        <div class='preloader-background'>
+            <div class="preloader-wrapper small active">
+                <div class="spinner-layer spinner-green-only">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                    <div class="circle"></div>
+                </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+                </div>
+            </div>
+        </div>
+		<div class='collection'>
+
+		</div>
+
+
+	</div>
+		
+<% include ../common/js.ejs %>
+
+<script src="/js/doctorlist.js"></script>
+</body>
+</html>	
