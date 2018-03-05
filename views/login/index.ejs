@@ -12,44 +12,50 @@
         <!-- end of your own css        -->
 
     </head>
-    <body class="teal lighten-1">
-            <nav>
-                <div class="nav-wrapper teal lighten-1">
-                  <a href="#" class="brand-logo">Reseta</a>
+    <body>
+        <div>
+            <p class="left-align white-text mini-margin">
+                <%= title %>
+            </p>
+            <hr/>
+        </div>
+        <div class="progress hide" id="preloader" style="margin-top:-8px;">
+            <div class="indeterminate"></div>
+        </div>
+        <div class="flex-center" style="margin-bottom:50px;margin-top:50px;">
+            <img class="circle" src="/images/logo.png" width="150px">
+        </div>
+        <div class="row flex-center">
+            <div class="col s10 no-padding" style="margin:auto;background-color:#fff">
+                <div class="row no-margin">
+                    <div class="input-field col s12">
+                        <input id="txt-user" class="green-text no-margin" type="email" class="validate">
+                        <label for="username"><i class=" tiny material-icons grey-text">email</i> &nbsp; Email</label>
+                    </div>
                 </div>
-            </nav>
-            
-            <div class="container">
-                
-                <!-- <center>
-                    <div class="logo-padding">
-                        <img class="responsive-img" src="/images/logo.png" width="150" height="150">
+                <div class="row no-margin">
+                    <div class="input-field col s12">
+                        <input id="txt-pass" class="green-text no-margin" type="password" class="validate">
+                        <label for="password"><i class="tiny material-icons grey-text">lock</i> &nbsp; Password</label>
                     </div>
-                </center>
-
-                <div class="row">
-                    <div class="sm6">
-                        <input type="text">
-                    </div>
-                    <div class="sm6">
-                        <input type="text">
-                    </div>
-                    <div class="sm6">
-                        <a href="#!" class="btn">Login</a>
-                    </div>    
-                </div> -->
-
-                <ul class="collection">
-                    <% for(let i=0;i<patient.length;i++){ %>
-                        <% let elem = patient[i]; %>
-                        <li id="<%= elem.id %>" class="collection-item" data-info="<%= JSON.stringify(elem) %>"><%= elem.name %></li>
-                    <% } %>
-                </ul>
-
+                </div>
+                <button class="btn-large waves-effect waves-light green" id="btn-login" style="width:100%">Sign in</button>
             </div>
+        </div>
+        <div class="row footer-text">
+            <div class="col s6 center-align">
+                <a class="white-text" href="#">Create Account</a>
+            </div>
+            <div class="col s6 center-align">
+                <a class="white-text" href="#">Forgot Password</a>
+            </div>
+        </div>
 
 
             <% include ../common/js.ejs %>
+    <script>
+        let config = <%- JSON.stringify(config) %>;
+    </script>
     <script src="/js/login.js"></script>
     </body>
 </html>

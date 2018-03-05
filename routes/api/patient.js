@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const patient = require('../../models/patients');
+const auth = require('../middleware/auth');
 
 //api
 router.get('/:id', function(req, res, next) {
@@ -20,12 +21,8 @@ router.get('/', function(req, res, next) {
     });
 });
 
-router.post('/verify', function(req, res, next) {
-    patient.verifyPatientUserPass(req.body.email, req.body.pass).then(data=>{
-        res.json(data);
-    }).catch(error=>{
-        res.json(error);
-    });
+router.post('/verify', auth.authPatient, function(req, res, next) {
+    setTimeout(()=>res.json(res.locals.data), 1500);
 });
 
 router.post('/update', function(req,res,next){

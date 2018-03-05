@@ -1,30 +1,57 @@
 /* label color */
 .input-field label {
-    color: #fff;
-  }
-  /* label focus color */
-  .input-field input[type=text]:focus + label {
-    color: #fff;
-  }
-  /* label underline focus color */
-  .input-field input[type=text]:focus {
-    border-bottom: 1px solid #fff;
-    box-shadow: 0 1px 0 0 #fff;
-  }
-  /* valid color */
-  .input-field input[type=text].valid {
-    border-bottom: 1px solid #fff;
-    box-shadow: 0 1px 0 0 #fff;
-  }
-  /* invalid color */
-  .input-field input[type=text].invalid {
-    border-bottom: 1px solid #fff;
-    box-shadow: 0 1px 0 0 #fff;
-  }
-  /* icon prefix focus color */
-  .input-field .prefix.active {
-    color: #fff;
-  }
-  body{
-      background-color: #26a69a;
-  }
+  color: #666 !important;
+  padding:3%;
+}
+.input-field input {
+  padding:3% !important;
+}
+/* label focus color */
+.input-field input[type=text]:focus + label, .input-field input[type=password]:focus + label{
+  color: #666 !important;
+}
+/* label underline focus color */
+.input-field input[type=text]:focus, .input-field input[type=password]:focus {
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+/* valid color */
+.input-field input[type=text].valid, .input-field input[type=password].valid{
+  border-bottom:none  !important;
+  box-shadow: none !important;
+}
+/* invalid color */
+.input-field input[type=text].invalid, .input-field input[type=password].invalid {
+  border-bottom: none !important;
+  box-shadow: none !important;
+  color: tomato !important;
+}
+/* icon prefix focus color */
+.input-field .prefix.active {
+  color: #666;
+}
+.row .input-field input{
+  border:none!important;
+}
+body{
+    background-color: #26a69a;
+}
+.flex-center{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+.mini-margin{
+  margin:3%;
+}
+.no-padding{
+  padding:0 !important;
+}
+.no-margin{
+  margin:0 !important;
+}
+.footer-text{
+  position:absolute;
+  bottom:0;
+  width:100%;
+}

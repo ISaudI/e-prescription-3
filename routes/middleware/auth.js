@@ -2,10 +2,18 @@ const patients = require('../../models/patients')
 const doctors = require('../../models/doctors')
 
 module.exports = {
+    patientRole : (req, res, next) => {
+        res.locals.role = 0;
+        next();
+    },
+    doctortRole : (req, res, next) => {
+        res.locals.role = 1;
+        next();
+    },
     authDoctor : (req, res, next) => {
-        doctors.verifyDoctorUserPass(req.body.email, req.body.password).then(data=>{
-            
+        doctors.verifyDoctorUserPass(req.body.email, req.body.pass).then(data=>{
             req.session.user = data.data[0];
+            req.session.user.role = 1;
             res.locals.data = data;
             next();
         }).catch(error=>{
@@ -16,6 +24,7 @@ module.exports = {
     authPatient : (req, res, next) => {
         patients.verifyPatientUserPass(req.body.email, req.body.pass).then(data=>{
             req.session.user = data.data[0];
+            req.session.user.role = 0;
             res.locals.data = data;
             next();
         }).catch(error=>{
@@ -24,23 +33,27 @@ module.exports = {
     },
 
     isAuthenticated: (req, res, next) => {
-        req.session.user = {
-            "id": 1,
-            "img": null,
-            "email": "john.doe@gmail.com",
-            "name": "John Doe",
-            "gender": 1,
-            "license_no": "01026997A",
-            "contact_no": "777-77-77",
-            "speciality": "General Practitioner"
-        };
-        if(req.session.user){
-            next();
+        if(!req.session.user){
+            console.log(res.locals);
+            if(res.locals.role == 1){
+                res.redirect('/login/doctor');
+            }else{
+                res.redirect('/login/patient');
+            }
         }else{
-            res.status(401).json({
-                status: 0,
-                msg: 'Unauthorized Access'
-            })
+            next();
+        }
+    },
+
+    isLogin: (req, res, next) => {
+        if(req.session.user){
+            if(req.session.user.role == 1){
+                res.redirect('/doctors/profile');
+            }else{
+                res.redirect('/patient/profile');
+            }
+        }else{
+            next();
         }
     }
 }
