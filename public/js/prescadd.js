@@ -2,65 +2,47 @@ $(document).ready(function(){
     /* Initialize components*/
     $('.modal').modal();
     Materialize.updateTextFields();
+    $('select').material_select();
+    $('.dropdown-button').dropdown({
+        inDuration: 300,
+        outDuration: 225,
+        constrainWidth: false, // Does not change width of dropdown to that of the activator
+        hover: true, // Activate on hover
+        gutter: 0, // Spacing from edge 
+        alignment: 'right', // Displays dropdown with edge aligned to the left of button
+        stopPropagation: false // Stops event propagation
+      }
+      );
+    //---end of initialization---
 
+    /* Gets the pathname and splits it to get the prescription Id */
     let pathArray = window.location.pathname.split( '/' );
     let pId = pathArray[2];
 
+    /* Prescription Info */
+    let presData = $("input#name").data("info");
+    if(presData.status !== 0){
+        $(".btn-footer").remove();
+        $(".btn-footerv").remove();
+        $(".dropdown").remove();
+    }else if(presData.status == 0){
+        $(".btn-footerv").remove();
+    }else{
+        $("body").append(`<div class="btn-footerv">
+        <button class="btn btn-flat btn-large white-text waves-effect red lighten-1"  style="width:100%;" id="btnVoid" >Void</button>
+    </div>`);
+    }
 
-    /* Get the data of the prescription */
-    $.ajax({
-        type:'GET',
-        url:`/api/pres/${pId}`,
-        success: function(response){
-            let prescArray = response;
-            let presData = prescArray['data'];
-            for(i=0; i<presData.length; i++){
-                document.getElementById('name').value = `${ presData[i].patient_name}`;
-                document.getElementById('address').value = `${ presData[i].city}, ${ presData[i].state_province}`;
-                if(presData[i].status == 1){
-                    $(".btn-footer").remove();
-                }
-                if(presData[i].notes != null){
-                    document.getElementById("presnote").disabled=true;
-                    document.getElementById('presnote').value = `${ presData[i].notes}`;
-                }
-            }
-        }
-    })
-
-    /* Get all drugs in the prescription */
-    $.ajax({
-        type:'GET',
-        url:'/api/pres/details',
-        data:{
-            id:pId
-        },
-        success: function(response){
-            var prescDetails = response;
-            var detailsData = prescDetails['data'];
-            if(detailsData.length !== 0){
-                document.getElementById("btnSend").disabled=false;
-            }else{
-                document.getElementById("btnSend").disabled=true;
-            }
-            for (var i = 0; i<detailsData.length; i++){
-                $('ul.collection').append(`
-                    <li class="collection-item dismissable">
-                    <div class='col s4 right row'>
-                        <p class='right delete-pres'><i class="material-icons prefix grey-text" id='${detailsData[i].id}'>delete_forever</i><p>
-                        <p class='right edit-pres'><i class="material-icons prefix grey-text" id='${detailsData[i].id}'>edit</i><p>
-                    </div>
-                    <input value='${detailsData[i].id}' class='hide'/>
-                    <span class="title">
-                    ${detailsData[i].drug_name}
-                    </span>
-                    <p>${detailsData[i].notes}</p>
-                    </li>`);
-            }
-
-        }
-    });
-
+    /* Checks if presc_details is empty */
+    if($('.collection').html().trim() !== ""){
+        document.getElementById("btnSend").disabled=false;
+        $('.collection').show();
+    }else{
+        document.getElementById("btnSend").disabled=true;
+        $('.collection').hide();
+        
+    }
+   
     /* Get all drugs */
     $.ajax({
         type: 'GET',
@@ -90,9 +72,7 @@ $(document).ready(function(){
             success:function(response){
                 var addMedArray = response;
                 var addMedData = addMedArray['data'];
-                // $('div.collection').html('');
                 for(var i = 0; i < addMedData.length; i++){
-                    // dataSearch[searchData[i].name] = searchData[i].id;
                     $.ajax({
                         type:'POST',
                         url:'http://localhost:3000/api/pres/details/create',
@@ -112,34 +92,55 @@ $(document).ready(function(){
         })
     });
 
-    // $('.modal-trigger').on('click', function(){
-    //     $.ajax({
-    //         type:'POST',
-    //         url: 'api/pres/update',
-    //         data:{
-    //             id:pId,
-    //             data: $('input#presnote').val()
-    //         },
-    //         success: function(){
-    //             console.log('note added');
-    //         }
-    //     })
-    // });
 
+    $(".edit_presdetail").click(function(){
+        $this = $(this);
+        let detailArray = $this.data("details");
+        // $.ajax({
+        //     type:'GET',
+        //     url:''
+        // })
+    })
+
+
+     /* Deleting of prescription details */
+     $(".delete_presdetail").click(function(){
+        $this = $(this);
+        console.log($this.data("details"));
+        let detailArray = $this.data("details");
+        if(confirm("are you sure you want to delete this medicine?")){
+            $.ajax({
+                type:'POST',
+                url: '/api/pres/details/delete',
+                data:{
+                    id: detailArray.id
+                },
+                success: function(){
+                    window.location.reload(true);
+                    alert("successfully deleted a medicine");
+                }
+            })
+        }
+    });
+
+    /* Pushing of prescription */
     $("#btnSend").on('click', function(){
-        confirm('Are you sure you want to submit?');
-        $.ajax({
-            type:'POST',
-            url:'/api/pres/push',
-            data:{
-                id: pId
-            },
-            success: function(response){
-                document.getElementById("btnSend").disabled = true;
-                window.location.href='/prescription';
-            }
-        })
-
+        if(confirm('Are you sure you want to send the prescription?')){
+            $.ajax({
+                type:'POST',
+                url:'/api/pres/push',
+                data:{
+                    id: pId
+                },
+                success: function(response){
+                    document.getElementById("btnSend").disabled = true;
+                    window.location.href='/prescription';
+                }
+            })
+        }
+        else{
+            alert('The prescription is not sent.');
+        }
     });
 
 })

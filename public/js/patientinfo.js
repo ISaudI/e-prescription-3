@@ -34,12 +34,14 @@ $(document).ready(function() {
     })
 
     $('#btnAdd').on('click', function(){
+        let symptoms = prompt("For what illness is this prescription?","fever");
         $.ajax({
             type:"POST",
             url:'/api/pres/create',
             data:{
                 patient_id: queryParams.id,
                 doctor_id: 1,
+                notes: symptoms,
                 status:0
             },
             success: function(response){

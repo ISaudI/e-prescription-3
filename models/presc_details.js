@@ -84,3 +84,26 @@ exports.update = (id, data) => {
     });
 }
 
+exports.getByDetailsId = (id = '') => {
+    console.log(`[${new Date()}][MODEL - ${TABLE_NAME}].getByDetailsId [${PARAMS}]`, JSON.stringify({
+        id: id
+    }));
+    return new Promise((resolve, reject) => {
+        let cols = TABLE_COLUMNS;
+        let sql = `
+        SELECT
+            rxd.*,
+            d.name as drug_name,
+            d.short_name as drug_short_name,
+            d.drug_category_id as drug_category
+        FROM PRESC_DETAILS rxd
+        LEFT JOIN DRUGS d ON d.id = rxd.drug_id
+        WHERE rxd.id = ?
+        `;
+        db.execute(sql,[id]).then(rows=>{
+            resolve(rows);
+        }).catch(error=>{
+            reject(error);
+        });
+    });
+};

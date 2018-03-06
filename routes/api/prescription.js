@@ -100,13 +100,13 @@ router.post('/details/update', function(req, res, next) {
     });
 });
 
-// router.post('/update', function(req, res, next) {
-//     presc_details.update(req.body.id, req.body.data).then(data=>{
-//         res.json(data);
-//     }).catch(error=>{
-//         res.json(error);
-//     });
-// }); -->i think not need, iisipin ko pa pano ko iaadd yung notes
+router.get('/details/:id', function(req, res, next) {
+    presc_details.getByDetailsId(req.params.id).then(data=>{
+        res.json(data);
+    }).catch(error=>{
+        res.json(error);
+    });
+});
 // -----> end
 
 module.exports = router;

@@ -16,31 +16,51 @@
             <!-- start content goes here -->
             <div class="container">
                 <span><br></span>
+                <% for(let i=0; i<presc.length; i++){ %>
+                    <% let elem = presc[i]; %>   
                 <div class="row">
                     <form class="col s12">
                         <div class="row">
-                            <div class="input-field col s6">
-                                <i class="material-icons prefix">account_circle</i>
-                                <input id="name" type="text" disabled class = 'black-text'>
-                            </div>
-                            <div class="input-field col s6">
-                                <i class="material-icons prefix">home</i>
-                                <input id="address" type="text" class="validate" disabled class = 'black-text'>
-                            </div>
-                            <div class="input-field col s12">
-                                    <i class="material-icons prefix">create</i>
-                                    <input id="presnote" type="text" class="validate" class = 'black-text'>
-                                    <label for="presnote">Type of illness:</label>
-                            </div>
+                                <div class="input-field col s6">
+                                    <i class="material-icons prefix">account_circle</i>
+                                    <input id="name" type="text" disabled class = 'black-text' value="<%= elem.patient_name %>" data-info="<%= JSON.stringify(elem) %>">
+                                </div>
+                                <div class="input-field col s6">
+                                    <i class="material-icons prefix">home</i>
+                                    <input id="address" type="text" class="validate" disabled class = 'black-text' value="<%= elem.city %>, <%= elem.state_province %>">
+                                </div>
+                                <div class="input-field col s12">
+                                        <i class="material-icons prefix">create</i>
+                                        <input id="presnote" type="text" class="validate" disabled class = 'black-text' value="<%= elem.notes %>">
+                                </div>
                         </div>
                     </form>
                 </div>
+                <% } %>
                 <!-- List of added medicines -->
                 <ul class="collection">
-
+                    <% for(let x=0; x<prescdetails.length; x++){ %>
+                        <% let element = prescdetails[x]; %>
+                        <li class="collection-item" id="<%= element.id %>" data-details="<%= JSON.stringify(element) %>" >
+                            <div class='dropdown col s4 right row'>
+                            <!-- Dropdown Structure -->
+                                <ul id="dropdown-<%= element.id %>" class='dropdown-content'>
+                                    <li><button class="edit_presdetail modal-trigger btn btn-flat teal-text" data-details="<%= JSON.stringify(element) %>" data-target="modal-edit" id='edit-<%= element.id %>'>Edit</button></li>
+                                    <li><a href="#" class="delete_presdetail" data-details="<%= JSON.stringify(element) %>" id='delete-<%= element.id %>'>Delete</a></li>
+                                </ul>
+                                <a class="dropdown-button btn btn-flat" data-activates="dropdown-<%= element.id %>" href='#'>
+                                    <i class="material-icons prefix grey-text">arrow_drop_down</i>
+                                </a>
+                            </div>
+                            <span class="title">
+                            <%= element.drug_name%>
+                            </span>
+                            <p><%= element.notes %></p>
+                        </li>
+                    <% } %>
                 </ul>
                 <!-- modal -->
-                <div id="modal1" class="modal bottom-sheet" style='max-height:65%; height:53%;'>
+                <div id="modal-add" class="modal bottom-sheet" style='max-height:65%; height:53%;'>
                     <div class="modal-content">
                         <h4>Medicine</h4>
                         <div class="input-field col s10">
@@ -56,18 +76,37 @@
                         <button id='btnAddMed' class="modal-action modal-close waves-effect waves-green btn-flat  pull-right">Add</button>
                     </div>
                 </div>
-                <!-- End of modal -->
+                <!-- End of modal for adding medicine -->
+
+                <!-- modal for editing -->
+                <div id="modal-edit" class="modal bottom-sheet" style='max-height:65%; height:53%;'>
+                    <div class="modal-content">
+                        <h4>Medicine</h4>
+                        <div class="input-field col s10">
+                            <label for="meds">Select Medicine</label>
+                            <input type="text" id="meds" class="autocomplete">
+                        </div>
+                        <div class='input-field'>
+                            <label for='notes'>notes</label>
+                            <textarea id="notes" class="materialize-textarea"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer" style='position:fixed; bottom:0%;'> 
+                        <button id='btnUpdateMed' class="modal-action modal-close waves-effect waves-green btn-flat  pull-right">update</button>
+                        <button id='btnCancel' class="modal-action modal-close waves-effect waves-red btn-flat ">Cancel</button>
+                    </div>
+                </div>
+                <!-- end of modal editing med -->
             </div>
             <div class="btn-footer row">
-       
                 <button class="btn btn-flat btn-large white-text waves-effect blue lighten-1 left" id="btnSend">Send</button>        
                 <!-- button for modal   -->
-                <button data-target="modal1" class="btn btn-flat btn-large white-text modal-trigger waves-effect green lighten-2 right">
+                <button data-target="modal-add" class="btn btn-flat btn-large white-text modal-trigger waves-effect green lighten-2 right">
                     Add Medicine
                 </button>
-            
             </div>
-
+            
+                
 
             <% include ../common/js.ejs %>
             <!-- start your own js here -->

@@ -1,19 +1,27 @@
 .btn-footer{
     display:flex; 
-    position:fixed; 
+    position: fixed; 
     bottom:0%; 
     max-width:100%; 
     width:100%;
 }
-.delete-pres{
+.collection{
+    overflow: visible;
+    margin-bottom: 90px;
+}
+.btn-footerv{
+    display:flex; 
+    position: sticky; 
+    bottom:0%; 
+    max-width:100%; 
+    width:100%;
+    padding:3%; 
+}
+.dropdown-button{
     margin-top:0%;
     margin-right:0%;
 }
 
-.edit-pres{
-    margin-top:0%;
-    margin-right:0%;
-}
 .modal-trigger{
     width:50%; 
     margin: 3% 3% 0% 1.5%;
@@ -22,4 +30,8 @@
 #btnSend{
     width:50%; 
     margin:3% 1.5% 0% 3%;
+}
+
+#btnVoid{
+    width:100%;
 }

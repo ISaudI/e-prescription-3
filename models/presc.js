@@ -121,7 +121,10 @@ exports.getPresById = (id) => {
             let cols = TABLE_COLUMNS;
             let sql = `SELECT pres.id, pres.patient_id, pres.doctor_id, pres.notes, pres.status, pres.date_created, pres.date_modified,
             d.name as doctor_name, d.speciality, d.license_no, d.contact_no, p.name as patient_name, p.city, p.state_province
-             FROM PRESC pres INNER JOIN doctors d ON d.id = pres.doctor_id INNER JOIN patients p ON p.id = pres.patient_id WHERE pres.id = ?`;
+             FROM PRESC pres 
+             INNER JOIN doctors d ON d.id = pres.doctor_id 
+             INNER JOIN patients p ON p.id = pres.patient_id 
+             WHERE pres.id = ?`;
             db.execute(sql,[id]).then(rows=>{
                 resolve(rows);
             }).catch(error=>{
@@ -130,17 +133,3 @@ exports.getPresById = (id) => {
         });
     };
 
-// exports.addNotes = (id, data) => {
-//     console.log(`[${new Date()}][MODEL - ${TABLE_NAME}].push [${PARAMS}]`, JSON.stringify({
-//         id: id,
-//         data: data
-//     }));
-//     return new Promise((resolve, reject) =>{
-//         let sql = `UPDATE ${TABLE_NAME} SET ? WHERE id = ?`;
-//         db.execute(sql, [data, id]).then(data=>{
-//             resolve(data);
-//         }).catch(error=>{
-//             reject(error);
-//         });
-//     });
-// }; --->not sure if needed, baka sa pagpush na lang, i still don't know :((
