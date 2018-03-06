@@ -84,12 +84,11 @@ exports.update = (id, data) => {
     });
 }
 
-exports.getByDetailsId = (id = '') => {
+exports.getByDetailsId = (id) => {
     console.log(`[${new Date()}][MODEL - ${TABLE_NAME}].getByDetailsId [${PARAMS}]`, JSON.stringify({
         id: id
     }));
     return new Promise((resolve, reject) => {
-        let cols = TABLE_COLUMNS;
         let sql = `
         SELECT
             rxd.*,

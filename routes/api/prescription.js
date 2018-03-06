@@ -50,24 +50,6 @@ router.get('/patient', function(req, res, next) {
 
 // -----> start of api in prescription details
 
-
-
-router.get('/details', function(req, res, next) {
-    presc_details.getDetailsById(req.query.id).then(data=>{
-        res.json(data);
-    }).catch(error=>{
-        res.json(error);
-    });
-});
-
-router.get('/details/:id', function(req, res, next) {
-    presc_details.getByDetailsId(req.params.id).then(data=>{
-        res.json(data);
-    }).catch(error=>{
-        res.json(error);
-    });
-});
-
 router.post('/details/create', function(req, res, next) {
     presc_details.create(req.body).then(data=>{
         res.json(data);
@@ -86,6 +68,14 @@ router.post('/details/delete', function(req, res, next) {
 
 router.post('/details/update', function(req, res, next) {
     presc_details.update(req.body.id, req.body.data).then(data=>{
+        res.json(data);
+    }).catch(error=>{
+        res.json(error);
+    });
+});
+
+router.get('/details/:id', function(req, res, next) {
+    presc_details.getByDetailsId(req.params.id).then(data=>{
         res.json(data);
     }).catch(error=>{
         res.json(error);
