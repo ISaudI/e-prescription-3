@@ -57,7 +57,8 @@ app.use('/api/notif', require('./routes/api/notification'));
 const mw = require('./routes/middleware/auth');
 
 app.use('/', require('./routes/render/index'));
-app.use('/login', mw.isLogin, require('./routes/render/login'));
+app.use('/patients/login', mw.isLogin, require('./routes/render/login_patient'));
+app.use('/doctors/login', mw.isLogin, require('./routes/render/login_doctor'));
 app.use('/doctor', mw.doctortRole, mw.isAuthenticated, require('./routes/render/patient'));
 app.use('/patient', mw.patientRole, mw.isAuthenticated, require('./routes/render/doctor'));
 app.use('/prescription', mw.isAuthenticated, require('./routes/render/prescription'));

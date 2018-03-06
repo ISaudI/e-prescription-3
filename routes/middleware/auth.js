@@ -36,9 +36,9 @@ module.exports = {
         if(!req.session.user){
             console.log(res.locals);
             if(res.locals.role == 1){
-                res.redirect('/login/doctor');
+                res.redirect('/doctors/login');
             }else{
-                res.redirect('/login/patient');
+                res.redirect('/patients/login');
             }
         }else{
             next();
