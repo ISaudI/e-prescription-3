@@ -57,7 +57,6 @@ $(document).ready(function(){
                     <p>${detailsData[i].notes}</p>
                     </li>`);
             }
-
         }
     });
 
@@ -109,7 +108,7 @@ $(document).ready(function(){
                 }
                 $('#meds').val('');   
             }
-        })
+        });
     });
 
     // $('.modal-trigger').on('click', function(){
@@ -138,8 +137,6 @@ $(document).ready(function(){
                 document.getElementById("btnSend").disabled = true;
                 window.location.href='/prescription';
             }
-        })
-
+        });
     });
-
 })

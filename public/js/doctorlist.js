@@ -13,15 +13,14 @@ $(document).ready(function() {
                 dataName[dataArray[i].name] = dataArray[i].img;
                 $('div.collection').append(`
                 <a class="collection-item avatar black-text" href='/patient/doctorprofile?id=${dataArray[i].id}'>
-                <img src='${dataArray[i].img}' alt="profile pic" class="circle">
                 <span class="title">
                 ${dataArray[i].name}
                 </span>
-                <p>${dataArray[i].speciality}</p>
+                <p>${dataArray[i].email}<br>
+                ${dataArray[i].speciality}</p>
                 </a>`);
             }
             $('input.autocomplete').autocomplete({
-
                 data: dataName,
                 limit: 5,
             });
@@ -50,11 +49,9 @@ $(document).ready(function() {
                 <br/>${searchData[i].tel}</p>
                 </a>`);
                 } 
-
             }
         })
     });
-
 });
 
 document.addEventListener("DOMContentLoaded", function(){

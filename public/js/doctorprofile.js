@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    let queryParams = getQueryString()
+    let queryParams = util.getQueryString()
 
     $.ajax({
         type:'GET',
@@ -20,5 +20,5 @@ $(document).ready(function() {
                 `);
             }
         }
-    })
+    });
 });
