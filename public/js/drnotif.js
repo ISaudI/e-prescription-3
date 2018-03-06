@@ -1,7 +1,7 @@
 $(document).ready(function(){
     $.ajax({
         type: 'GET',
-        url: '/api/notif/patient/1',
+        url: '/api/notif/doctor/1',
         success: function (response) {
             let notifArray = response,
                 dataArray = notifArray['data'];

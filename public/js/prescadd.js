@@ -89,7 +89,7 @@ $(document).ready(function(){
                 }
                 $('#meds').val('');   
             }
-        })
+        });
     });
 
 
@@ -142,5 +142,4 @@ $(document).ready(function(){
             alert('The prescription is not sent.');
         }
     });
-
 })

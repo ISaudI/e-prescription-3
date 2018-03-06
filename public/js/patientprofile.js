@@ -1,18 +1,10 @@
-$(document).ready(function() {
-    let queryParams = util.getQueryString()
-
-    $.ajax({
+$.ajax({
         type:'GET',
-        url:`/api/patient/${queryParams.id}`,
+        url:`/api/patient/1`,
         success: function(response){
             let patientArray = response;
             let patientData = patientArray['data'];
             for(i=0; i<patientData.length; i++){
-                $('div.head').append(`
-                <div class='center-align'>
-                    <img src='${patientData[i].img}' class='circle respinsive'/><br><br><span></span>
-                </div>
-                `);
                 $('div.container').append(`
                 <ul class='collection'>
                     <li class="collection-item"><i class="material-icons grey-text">person</i>
@@ -31,24 +23,4 @@ $(document).ready(function() {
                 `);
             }
         }
-    })
-
-    $('#btnAdd').on('click', function(){
-        let symptoms = prompt("For what illness is this prescription?","fever");
-        $.ajax({
-            type:"POST",
-            url:'/api/pres/create',
-            data:{
-                patient_id: queryParams.id,
-                doctor_id: 1,
-                notes: symptoms,
-                status:0
-            },
-            success: function(response){
-                let prescArray = response;
-                let dataArray = prescArray['data']
-                window.location.href = `/prescription/${dataArray.insertId}`;
-            }
-        })
-    })
-});
+    });
