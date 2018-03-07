@@ -3,7 +3,7 @@ $(document).ready(function(){
         type: 'GET',
         url: 'http://localhost:3000/api/pres/patient',
         data: {
-            email: "kendrick004@gmail.com"
+            email: config.user.email
         },
         success: function(response){
             var nameArray = response;
@@ -41,7 +41,7 @@ $(document).ready(function(){
         type: 'GET',
         url: 'http://localhost:3000/api/patient',
         data: {
-            name: "kendrick"
+            name: config.user.name
         },
         success: function(response){
             var nameArray = response;

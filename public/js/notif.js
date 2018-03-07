@@ -1,7 +1,9 @@
 $(document).ready(function(){
+    let id = config.user.id
+
     $.ajax({
         type: 'GET',
-        url: '/api/notif/patient/1',
+        url: `/api/notif/patient/${id}`,
         success: function (response) {
             let notifArray = response,
                 dataArray = notifArray['data'];

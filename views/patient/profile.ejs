@@ -13,14 +13,32 @@
     </head>
     <body>
             <% include ../common/navbar.ejs %>
+
+            
             <!-- start content goes here -->
             <div class="container">
-                <!-- Page Content goes here -->
-                
+                <ul class='collection'>
+                    <% for(let x=0; x<profile.length; x++){ %>
+                        <% let element = profile[x]; %>
+                    <li class="collection-item"><i class="material-icons grey-text">person</i>
+                    <%= element.name%>
+                    </li>
+                    <li class="collection-item"><i class="material-icons grey-text">mail</i>
+                        <%= element.email%>
+                    </li>
+                    <li class="collection-item"><i class="material-icons grey-text">place</i>
+                        <%= element.city%>, <%= element.state_province%>
+                    </li>
+                    <li class="collection-item"><i class="material-icons grey-text">cake</i>
+                        <%= element.date_of_birth%>
+                    </li>
+                    <% } %>
+                </ul>
              </div>
+
             <% include ../common/js.ejs %>
             <!-- start your own js here -->
-            <script src="/js/patientprofile.js"></script>
+            <!-- <script src="/js/patientprofile.js"></script> -->
             
             <!-- end your own js here   -->
     </body>
