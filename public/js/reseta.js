@@ -56,20 +56,20 @@ $(document).ready(function(){
         }
     });
 
-    $.ajax({
-        type: 'GET',
-        url: 'http://localhost:3000/api/pres/details',
-        data: {
-            id: "1"
-        },
-        success: function(response){
-            var nameArray = response;
-            var dataArray = nameArray['data'];
-            for(var i = 0; i < dataArray.length; i++){
-                $('li#reseta').append(`
-                    ${dataArray[i].drug_name} ${dataArray[i].notes}<br>
-                `);
-            }
-        }
-    });
+    // $.ajax({
+    //     type: 'GET',
+    //     url: 'http://localhost:3000/api/pres/details',
+    //     data: {
+    //         id: "1"
+    //     },
+    //     success: function(response){
+    //         var nameArray = response;
+    //         var dataArray = nameArray['data'];
+    //         for(var i = 0; i < dataArray.length; i++){
+    //             $('li#reseta').append(`
+    //                 ${dataArray[i].drug_name} ${dataArray[i].notes}<br>
+    //             `);
+    //         }
+    //     }
+    // });
 });
