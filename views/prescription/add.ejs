@@ -46,7 +46,7 @@
                             <!-- Dropdown Structure -->
                                 <ul id="dropdown-<%= element.id %>" class='dropdown-content'>
                                     <li><button class="edit_presdetail modal-trigger btn btn-flat teal-text" data-details="<%= JSON.stringify(element) %>" data-target="modal-edit" id='edit-<%= element.id %>'>Edit</button></li>
-                                    <li><a href="#" class="delete_presdetail" data-details="<%= JSON.stringify(element) %>" id='delete-<%= element.id %>'>Delete</a></li>
+                                    <li><button class="delete_presdetail btn btn-flat teal-text" data-details="<%= JSON.stringify(element) %>" id='delete-<%= element.id %>'>Delete</button></li>
                                 </ul>
                                 <a class="dropdown-button btn btn-flat" data-activates="dropdown-<%= element.id %>" href='#'>
                                     <i class="material-icons prefix grey-text">arrow_drop_down</i>
@@ -83,12 +83,14 @@
                     <div class="modal-content">
                         <h4>Medicine</h4>
                         <div class="input-field col s10">
-                            <label for="meds">Select Medicine</label>
-                            <input type="text" id="meds" class="autocomplete">
+                            <!-- <label for="updatemed">Select Medicine</label> -->
+                            <input type="text" id="updatemed" class="black-text" disabled>
+                            <input type="number" id="detailsId" class="black-text hide" disabled>
+                            
                         </div>
                         <div class='input-field'>
-                            <label for='notes'>notes</label>
-                            <textarea id="notes" class="materialize-textarea"></textarea>
+                            <label for='updatenotes'>notes</label>
+                            <textarea id="updatenotes" class="materialize-textarea"></textarea>
                         </div>
                     </div>
                     <div class="modal-footer" style='position:fixed; bottom:0%;'> 
