@@ -82,6 +82,14 @@ router.get('/details/:id', function(req, res, next) {
     });
 });
 
+router.get('/:id/details', function(req, res, next) {
+    presc_details.getDetailsById(req.params.id).then(data=>{
+        res.json(data);
+    }).catch(error=>{
+        res.json(error);
+    });
+});
+
 //get prescription by its id
 router.get('/:id', function(req, res, next) {
     presc.getPresById(req.params.id).then(data=>{
