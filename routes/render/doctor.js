@@ -1,12 +1,20 @@
 const express = require('express');
 const router = express.Router();
 
+const patient = require('../../models/patients');
+const presc_details = require('../../models/presc_details');
+const notif = require('../../models/notification');
+
 router.get('/prescriptionlist', function(req, res, next){
-	res.render('patient/prescriptionlist',{
-        title: 'Rx Description',
-        user : req.session.user
+    presc_details.getDetailsById(req.params.id).then(data=>{
+        res.render('patient/prescriptionlist',{
+            title: 'Rx Description',
+            user : req.session.user,
+            details: data.data
+        });
     });
 });
+
 router.get('/maps', function(req, res, next){
 	res.render('patient/maps',{
         title: 'Location',
@@ -22,9 +30,12 @@ router.get('/pharmacy', function(req, res, next){
 });
 
 router.get('/notif', function(req, res, next){
-	res.render('patient/notification',{
-        title: 'Notification',
-        user : req.session.user
+    notif.getPatientId(req.session.user.id).then(data=>{
+        res.render('patient/notification',{
+            title: 'Notification',
+            user : req.session.user,
+            notif: data.data
+        });
     });
 });
 
@@ -43,9 +54,12 @@ router.get('/doctorlist', function(req, res, next){
 });
 
 router.get('/profile', function(req, res, next){
-	res.render('patient/profile',{
-        title: 'Profile',
-        user : req.session.user
+    patient.getPatientById(req.session.user.id).then(data=>{
+        res.render('patient/profile',{
+            title: 'Profile',
+            user : req.session.user,
+            profile: data.data
+        });
     });
 });
 

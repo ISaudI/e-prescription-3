@@ -12,7 +12,9 @@
     </head>
     <body>
         <%- include('../common/navbar.ejs')%>
-        <ul class="collection"></ul>
+        <ul class="collection">
+            
+        </ul>
         <div class="container" id="footer">
                 <h5 class="center-align"><a href="/patient/maps" class="waves-effect waves-light big green btn">Look For A Pharmacy</a></h5>
         </div>
@@ -20,6 +22,11 @@
             <!-- end content goes here   -->
             <%- include('../common/js.ejs')%>
             <!-- start your own js here -->
+            <script>
+                    const config = {
+                        user: <%- JSON.stringify(user); %>
+                    };
+                </script>
             <script src="/js/reseta.js"></script>
             <!-- end your own js here   -->
     </body>
