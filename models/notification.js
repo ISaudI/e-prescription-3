@@ -164,6 +164,45 @@ exports.getPatientId = (id, start_time, end_time, limit) => {
 
 /**
  * 
+ * @param {*} id integer
+ * @param {*} start_time Date with format 'yyyy-mm-dd'
+ * @param {*} end_time Date with format 'yyyy-mm-dd'
+ */
+exports.getPrescriptionId = (id, start_time, end_time) => {
+    console.log(`[${new Date()}][MODEL - ${TABLE_NAME}].getPatientId [${PARAMS}]`, JSON.stringify({
+        id: id,
+        start_time: start_time,
+        end_time: end_time
+    }));
+    return new Promise((resolve, reject) => {
+        let cols = TABLE_COLUMNS;
+        let sql = `
+            SELECT n.*, d.email as doctor_email, d.name as doctor_name, p.name as patient_name, p.email as patient_email 
+            FROM notification n
+            LEFT JOIN doctors d ON d.id = n.doctor_id
+            LEFT JOIN patients p ON p.id = n.patient_id
+            WHERE n.presc_id = ?
+        `;
+        if(start_time && end_time){
+            sql += `  AND (date(date_created) BETWEEN '${start_time}' AND '${end_time}')`;
+        }else{
+            if(start_time){
+                sql += `  AND (DATE(date_created) => ${start_time})`;
+            }
+            if(end_time){
+                sql += `  AND (DATE(date_created) <= ${end_time})`;
+            }
+        }
+        db.execute(sql,[id]).then(rows=>{
+            resolve(rows);
+        }).catch(error=>{
+            reject(error);
+        });
+    });
+};
+
+/**
+ * 
  * @param {*} id  integer
  */
 exports.approve = (id) => {

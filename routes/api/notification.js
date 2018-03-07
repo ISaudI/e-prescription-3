@@ -45,6 +45,17 @@ router.get('/patient/:id', function(req, res, next) {
     });
 });
 
+router.get('/prescription/:id', function(req, res, next) {
+    if(isNaN(req.params.id)){
+        res.json({status:0, msg: 'Invalid request'})
+    }
+    notif.getPrescriptionId(req.params.id, req.query.start_time, req.query.end_time).then(data=>{
+        res.json(data);
+    }).catch(error=>{
+        res.json(error);
+    });
+});
+
 router.post('/patient/approve', function(req, res, next) {
     notif.approve(req.body.id).then(data=>{
         res.json(data);

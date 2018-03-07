@@ -23,15 +23,14 @@ $(document).ready(function(){
     let presData = $("input#name").data("info");
     if(presData.status !== 0){
         $(".btn-footer").remove();
-        $(".btn-footerv").remove();
         $(".dropdown").remove();
     }else if(presData.status == 0){
         $(".btn-footerv").remove();
-    }else{
-        $("body").append(`<div class="btn-footerv">
-        <button class="btn btn-flat btn-large white-text waves-effect red lighten-1"  style="width:100%;" id="btnVoid" >Void</button>
-    </div>`);
     }
+    //     $("body").append(`<div class="btn-footerv">
+    //     <button class="btn btn-flat btn-large white-text waves-effect red lighten-1"  style="width:100%;" id="btnVoid" >Void</button>
+    // </div>`);
+    
 
     /* Checks if presc_details is empty */
     if($('.collection').html().trim() !== ""){
@@ -108,6 +107,7 @@ $(document).ready(function(){
                
     })
 
+    /* Editing of a presc_detail */
     $("#btnUpdateMed").on('click',function(){
         if(confirm("Are you sure you want to update this medicine prescribed?")){
             $.ajax({
