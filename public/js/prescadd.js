@@ -19,15 +19,17 @@ $(document).ready(function(){
     let pathArray = window.location.pathname.split( '/' );
     let pId = pathArray[2];
 
+    $(".btn-footerv").hide();
+    $(".card").hide();       
+
+    
     /* Prescription Info */
     let presData = $("input#name").data("info");
     if(presData.status !== 0){
         $(".btn-footer").hide();
         $(".dropdown").hide();
     }
-    if(presData.status !==1){
-        $(".btn-footerv").hide();        
-    }
+
 
     /* Checking of notification*/
     $.ajax({
@@ -38,13 +40,10 @@ $(document).ready(function(){
             let notifData = notifArray.data;
             for(let i=0; i<notifData.length; i++){
                 if(notifData[i].action_type == "PUSH" && notifData[i].ok_flag == 1){
-                    // $("body").append(`<div class="btn-footerv">
-                    // <button class="btn btn-flat btn-large white-text waves-effect red lighten-1" id="btnVoid" onClick ="voidpres()">Void</button>
-                    // </div>`);
                     $(".btnfooterv").show();
-                    
                 }
                 if(notifData[i].action_type == "VOID"){
+                    $(".card").show();                           
                     $("#voidmsg").show();
                     $("#voidmsg").html(`<span class="title red-text">You have voided this prescription</span>`)
                 }
@@ -121,9 +120,9 @@ $(document).ready(function(){
     $(".edit_presdetail").click(function(){
         $this = $(this);
         let detailArray = $this.data("details");
-        $('updatemed').prop("val", detailArray.drug_name);
-        $('detailsId').prop("val", detailArray.id);
-        $('updatenotes').prop("val", detailArray.notes);
+        document.getElementById('updatemed').value = `${detailArray.drug_name}`;
+        document.getElementById('detailsId').value = `${detailArray.id}`;
+        document.getElementById('updatenotes').value = `${detailArray.notes}`;
                
     })
 

@@ -38,10 +38,13 @@
                 </div>
                 <% } %>
                 <!-- List of added medicines -->
-                <ul class="collection">
-                        <li class="collection-iten" id="voidmsg">
+                <div class="card">
+                    <div class="card-content" id="voidmsg">
 
-                        </li>
+                    </div>
+                </div>
+                <ul class="collection">
+                        
                     <% for(let x=0; x<prescdetails.length; x++){ %>
                         <% let element = prescdetails[x]; %>
                         <li class="collection-item" id="<%= element.id %>" data-details="<%= JSON.stringify(element) %>" >
