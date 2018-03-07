@@ -22,24 +22,44 @@ $(document).ready(function(){
     /* Prescription Info */
     let presData = $("input#name").data("info");
     if(presData.status !== 0){
-        $(".btn-footer").remove();
-        $(".dropdown").remove();
-    }else if(presData.status == 0){
-        $(".btn-footerv").remove();
+        $(".btn-footer").hide();
+        $(".dropdown").hide();
     }
-    //     $("body").append(`<div class="btn-footerv">
-    //     <button class="btn btn-flat btn-large white-text waves-effect red lighten-1"  style="width:100%;" id="btnVoid" >Void</button>
-    // </div>`);
-    
+    if(presData.status !==1){
+        $(".btn-footerv").hide();        
+    }
+
+    /* Checking of notification*/
+    $.ajax({
+        type:'GET',
+        url: `/api/notif/prescription/${pId}`,
+        success: function(response){
+            let notifArray = response;
+            let notifData = notifArray.data;
+            for(let i=0; i<notifData.length; i++){
+                if(notifData[i].action_type == "PUSH" && notifData[i].ok_flag == 1){
+                    // $("body").append(`<div class="btn-footerv">
+                    // <button class="btn btn-flat btn-large white-text waves-effect red lighten-1" id="btnVoid" onClick ="voidpres()">Void</button>
+                    // </div>`);
+                    $(".btnfooterv").show();
+                    
+                }
+                if(notifData[i].action_type == "VOID"){
+                    $("#voidmsg").show();
+                    $("#voidmsg").html(`<span class="title red-text">You have voided this prescription</span>`)
+                }
+            }
+
+        }
+    })
 
     /* Checks if presc_details is empty */
-    if($('.collection').html().trim() !== ""){
-        document.getElementById("btnSend").disabled=false;
+    if($('.collection').children().length > 0){
+        $("#btnSend").prop("disabled", "");
         $('.collection').show();
     }else{
-        document.getElementById("btnSend").disabled=true;
+        $("#btnSend").prop("disabled", true);
         $('.collection').hide();
-        
     }
 
    
@@ -48,10 +68,10 @@ $(document).ready(function(){
         type: 'GET',
         url: '/api/drugs',
         success: function(response) {
-            var drugArray = response;
-            var dataArray = drugArray['data'];
-            var dataDrug = {};
-            for (var i = 0; i < dataArray.length; i++) {
+            let drugArray = response;
+            let dataArray = drugArray['data'];
+            let dataDrug = {};
+            for (let i = 0; i < dataArray.length; i++) {
                 dataDrug[dataArray[i].name] = null; 
             }
             $('input.autocomplete').autocomplete({
@@ -71,9 +91,9 @@ $(document).ready(function(){
                     name: $('input.autocomplete').val()
                 },
                 success:function(response){
-                    var addMedArray = response;
-                    var addMedData = addMedArray['data'];
-                    for(var i = 0; i < addMedData.length; i++){
+                    let addMedArray = response;
+                    let addMedData = addMedArray['data'];
+                    for(let i = 0; i < addMedData.length; i++){
                         $.ajax({
                             type:'POST',
                             url:'http://localhost:3000/api/pres/details/create',
@@ -101,9 +121,9 @@ $(document).ready(function(){
     $(".edit_presdetail").click(function(){
         $this = $(this);
         let detailArray = $this.data("details");
-        document.getElementById('updatemed').value = `${detailArray.drug_name}`;
-        document.getElementById('detailsId').value = `${detailArray.id}`;
-        document.getElementById('updatenotes').value = `${detailArray.notes}`;
+        $('updatemed').prop("val", detailArray.drug_name);
+        $('detailsId').prop("val", detailArray.id);
+        $('updatenotes').prop("val", detailArray.notes);
                
     })
 
@@ -120,6 +140,7 @@ $(document).ready(function(){
                     }
                 },
                 success: function(){
+                    window.location.reload(true);
                     alert("successfully updated a medicine");
                 }
             })
@@ -165,4 +186,21 @@ $(document).ready(function(){
             alert('The prescription is not sent.');
         }
     });
+
+    /* Voiding of Notification*/
+    $('#btnVoid').click(function(){
+        if(confirm("Are you sure you want to void this prescription?")){
+            $.ajax({
+                type:'POST',
+                url: '/api/pres/void',
+                data:{
+                    id: pId
+                },
+                success: function(){
+                    window.location.reload(true);
+                }
+            })
+        }
+    });
+    
 })

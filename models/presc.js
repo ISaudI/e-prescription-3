@@ -29,6 +29,7 @@ exports.getByDoctor = (email = '', limit, status) => {
         if(status){
             sql += ` AND status IN (${status})`;
         }
+        sql += ` ORDER BY date_created DESC`;
         if(limit){
             sql += ` LIMIT ${limit}`;
         }

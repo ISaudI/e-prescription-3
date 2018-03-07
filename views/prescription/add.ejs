@@ -39,6 +39,9 @@
                 <% } %>
                 <!-- List of added medicines -->
                 <ul class="collection">
+                        <li class="collection-iten" id="voidmsg">
+
+                        </li>
                     <% for(let x=0; x<prescdetails.length; x++){ %>
                         <% let element = prescdetails[x]; %>
                         <li class="collection-item" id="<%= element.id %>" data-details="<%= JSON.stringify(element) %>" >
@@ -107,8 +110,9 @@
                     Add Medicine
                 </button>
             </div>
-            
-                
+            <div class="btn-footerv">
+                <button class="btn btn-flat btn-large white-text waves-effect red lighten-1" id="btnVoid">Void</button>
+            </div>
 
             <% include ../common/js.ejs %>
             <!-- start your own js here -->

@@ -30,7 +30,7 @@ router.post('/push', function(req, res, next) {
 });
 
 router.get('/doctor', function(req, res, next) {
-    presc.getByDoctor(req.query.email, req.query.limit, req.query.status).then(data=>{
+    presc.getByDoctor(req.query.email, req.query.id, req.query.limit, req.query.status).then(data=>{
         res.json(data);
     }).catch(error=>{
         res.json(error);
