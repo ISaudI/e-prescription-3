@@ -12,21 +12,59 @@
     </head>
     <body>
         <%- include('../common/navbar.ejs')%>
-        
-            <div class="row container" id="footer">
-                <div class="col s6 center-align">
-                    <a id="reject" class="waves-effect waves-light btn-large red" href="#">Reject</a>
+        <div class="container">
+            <% for(let x=0; x<presc.length; x++){ %>
+                <% let element = presc[x]; %> 
+                <h5 class="center-align">Dr. <%= element.doctor_name%> </h5>
+                <p class="flow-text center-align">Speciality: <strong><%= element.speciality%></strong></p> 
+                <p class="flow-text center-align">License no.: <strong><%= element.license_no%></strong></p>
+                <p class="flow-text center-align"> Contact no.: <strong><%= element.contact_no%></strong></p>
+                <div class="card">
+                    <div class="card-content">
+                        <p>
+                            Patient Name:<%= element.patient_name%><br/>
+                            Address: <%= element.city%>, <%=element.state_province%><br/>
+                            Illness: <%=element.notes%><br/>
+                            Date: <%=element.date_modified%>
+                        </p>
+                    </div>
                 </div>
-                <div class="col s6 center-align">
-                    <a id="accept" class="waves-effect waves-light btn-large green" href="#">Accept</a>
+            <% } %>
+            <!-- void message -->
+            <div class="card" id="voidcard">
+                <div class="card-content" id="voidmsg">
+
                 </div>
             </div>
+            <!-- end message -->
+            <ul class="collection">
+                <% for(let y=0; y<prescdetails.length; y++){ %>
+                    <% let elem = prescdetails[y]; %>
+                    <li class="collection-item">
+                        <span class="title"><%= elem.drug_name%></span>
+                        <p><%= elem.notes%></p>
+                    </li>
+                <% } %>
+            </ul>
+        </div>
+        <div class="footer" id="divRequest">
+                <button id="reject" class="waves-effect waves-light btn-large red" >Reject</button>
+                <button id="accept" class="waves-effect waves-light btn-large green">Accept</button>
+        </div>
 
-             <!-- end content goes here   -->
-             <%- include('../common/js.ejs')%>
-             <!-- start your own js here -->
+        <div class="footer" id="findPharmacy">
+                <h5 class="center-align"><a href="/patient/maps" class="waves-effect waves-light big green btn">Look For A Pharmacy</a></h5>
+        </div>
 
-            <script src="/js/rxrequest.js"></script>
-            <!-- end your own js here   -->
+        <!-- end content goes here   -->
+        <%- include('../common/js.ejs')%>
+        <!-- start your own js here -->
+        <script>
+                const config = {
+                    user: <%- JSON.stringify(user); %>
+                };
+        </script>
+        <script src="/js/reseta.js"></script>
+        <!-- end your own js here   -->
     </body>
 </html>

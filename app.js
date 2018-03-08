@@ -58,10 +58,22 @@ const mw = require('./routes/middleware/auth');
 
 app.use('/', require('./routes/render/index'));
 app.use('/logout', require('./routes/api/logout'));
-app.use('/patients/login', mw.isLogin, require('./routes/render/login_patient'));
+
+/* Doctor's side */
 app.use('/doctors/login', mw.isLogin, require('./routes/render/login_doctor'));
-app.use('/doctor', mw.doctortRole, mw.isAuthenticated, require('./routes/render/patient'));
-app.use('/patient', mw.patientRole, mw.isAuthenticated, require('./routes/render/doctor'));
-app.use('/prescription', mw.isAuthenticated, require('./routes/render/prescription'));
+app.use('/doctors/patients', mw.doctortRole, mw.isAuthenticated, require('./routes/render/doctors_patient'));
+app.use('/doctors/prescriptions', mw.doctortRole, mw.isAuthenticated, require('./routes/render/doctors_prescriptions'));
+app.use('/doctors/notifications', mw.doctortRole, mw.isAuthenticated, require('./routes/render/doctors_notif'));
+
+
+/* Patient's side */
+app.use('/patients/login', mw.isLogin, require('./routes/render/login_patient'));
+app.use('/patients', mw.patientRole, mw.isAuthenticated, require('./routes/render/patients'));
+app.use('/patients/doctors', mw.patientRole, mw.isAuthenticated, require('./routes/render/patients_doctor'));
+app.use('/patients/prescriptions', mw.patientRole, mw.isAuthenticated, require('./routes/render/patients_prescriptions'));
+app.use('/patients/notifications', mw.patientRole, mw.isAuthenticated, require('./routes/render/patients_notif'));
+
+
+
 
 module.exports = app;   
