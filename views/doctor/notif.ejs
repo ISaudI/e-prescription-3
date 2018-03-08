@@ -11,14 +11,39 @@
         <!-- Nav Bar -->
         <%- include('../common/navbar.ejs')%>
         <!-- End of Nav Bar -->
-
-            <ul class="collapsible" data-collapsible="expandable">
-                <!-- this array is from server -->
-            </ul>
+        <ul class="collapsible" data-collapsible="expandable">
+            <% for(let x=0; x<notif.length; x++){ %>
+                <% let element = notif[x]; %>
+                <li class="active">
+                <% if(element.cancel_flag == 0){ %>
+                    <div class="collapsible-header teal lighten-1 active"><h5><%= element.patient_name%><br>
+                    </h5></div>
+                    <div class="collapsible-body" style="display: block">
+                        <span>
+                            Your prescription has been accepted
+                        </span>
+                    </div>
+                <% }else { %>
+                    <div class="collapsible-header red lighten-1 active"><h5><%= element.patient_name%><br>
+                    </h5></div>
+                    <div class="collapsible-body" style="display: block">
+                        <span>
+                            Your prescription has been rejected
+                        </span>
+                    </div>
+                <% } %>
+            </li>
+            <% } %>
+        </ul>
             <!-- end content goes here   -->
             <%- include('../common/js.ejs')%>
+            <script>
+            const config = {
+                    user: <%- JSON.stringify(user); %>,
+                    notif: <%- JSON.stringify(notif); %> 
+                };
+            </script>
             <!-- start your own js here -->
-            <script src="/js/drnotif.js"></script>
             <!-- end your own js here   -->
     </body>
 </html>
