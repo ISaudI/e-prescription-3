@@ -12,7 +12,7 @@ $(document).ready(function() {
             for (var i = 0; i < dataArray.length; i++) {
                 dataName[dataArray[i].name] = dataArray[i].img;
                 $('div.collection').append(`
-                <a class="collection-item avatar black-text" href='/doctor/patientinfo/${dataArray[i].id}'>
+                <a class="collection-item avatar black-text" href='/doctors/patients/${dataArray[i].id}'>
                 <img src='${dataArray[i].img}' alt="profile pic" class="circle">
                 <span class="title">
                 ${dataArray[i].name}
@@ -42,7 +42,7 @@ $(document).ready(function() {
                 $('div.collection').html('');
                 for(var i = 0; i < searchData.length; i++){
                 // dataSearch[searchData[i].name] = searchData[i].id;
-                $('div.collection').append(`<a class="collection-item avatar black-text" href='/doctor/patientinfo?id=${searchData[i].id}'>
+                $('div.collection').append(`<a class="collection-item avatar black-text" href='/doctors/patients/${searchData[i].id}'>
                 <img src='${searchData[i].img}S' alt="profile" class="circle">
                 <span class="title">
                 ${searchData[i].name}

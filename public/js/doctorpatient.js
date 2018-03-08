@@ -1,10 +1,10 @@
 $(document).ready(function() {
     let pathArray = window.location.pathname.split( '/' );
-    let pId = pathArray[2];
+    let pId = pathArray[3];
 
     $('#btnAdd').on('click', function(){
         let symptoms = prompt("For what illness is this prescription?","fever");
-        if(pid !==0){
+        if(pId !== 0){
             $.ajax({
                 type:"POST",
                 url:'/api/pres/create',
@@ -17,7 +17,7 @@ $(document).ready(function() {
                 success: function(response){
                     let prescArray = response;
                     let dataArray = prescArray['data']
-                    window.location.href = `/prescription/${dataArray.insertId}`;
+                    window.location.href = `/doctors/prescriptions/${dataArray.insertId}`;
                 }
             })
         }

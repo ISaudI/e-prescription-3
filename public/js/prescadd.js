@@ -103,6 +103,7 @@ $(document).ready(function(){
                             },
                             success:function(response){
                                 // alert('Medicine successfully added!');
+                                $('.collection').show();                                
                                 window.location.reload(true);
                             }
                         });
