@@ -1,19 +1,42 @@
+
 <!DOCTYPE html>
-<head>
-    <% include ../common/css.ejs %>
-    <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link type="text/css" rel="stylesheet" href="/css/prescriptionlist.css"  media="screen,projection"/>
-</head>
-<body>
-    <% include ../common/navbar.ejs %>
-    <div class='container'>
-		<div class='collection'>
+<html>
+    <head>
+        <%- include('../common/css.ejs')%>
 
-		</div>
-	</div>
-    <% include ../common/js.ejs %>
+        <!-- start of your own css here -->
+        <link type="text/css" rel="stylesheet" href="/css/prescriptionlist.css"/>
+        <!-- end of your own css        -->
 
-<script src="/js/prescriptionlist.js"></script>
-</body>
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    </head>
+    <body>
+        <%- include('../common/navbar.ejs')%>
+        <div class="fixed-action-btn">
+                <a class="btn-floating btn-large green">
+                  <i class="large material-icons">add</i>
+                </a>
+        </div>
+        <div class="container">
+            <div class="timeline">
+                <div style="padding-top:2%;">
+                        <a class='dropdown-button green btn pull-right' href='#' data-activates='dropdown1'>Filter</a></br></br>
+                        <ul id='dropdown1' class='dropdown-content'>
+                            <li><a href="#!">Draft</a></li>
+                            <li><a href="#!">Prescribed</a></li>
+                            <li><a href="#!">Void</a></li>
+                          </ul>
+                </div>
+            </div>
+        </div>
+            <!-- end content goes here   -->
+            
+            <%- include('../common/js.ejs')%>
+            <!-- start your own js here -->
+            <script src="/js/prescriptionlist.js"></script>
+            
+            <!-- end your own js here   -->
+    </body>
 </html>
