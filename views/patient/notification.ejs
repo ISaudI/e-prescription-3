@@ -13,10 +13,14 @@
         <!-- End of Nav Bar -->
 
             <ul class="collapsible" data-collapsible="expandable"> 
-                <% for(let x=0; x<notif.length; x++){ %> <!-- /api/notif/patient/${id} presc_id could be used /api/pres/${id}/details -->
-                        <% let element = notif[x]; %> 
+                <% for(let x=0; x<notif.length; x++){ %>
+                    <% let element = notif[x]; %>
                 <li class="active">
-                    <div class="collapsible-header teal lighten-1 active"><h5><%= element.doctor_name%></h5></div>
+                    <% if(element.cancel_flag == 1){ %>
+                        <div class="collapsible-header red lighten-1 active"><h5><%= element.doctor_name%></h5></div>
+                    <% }else { %>
+                        <div class="collapsible-header teal lighten-1 active"><h5><%= element.doctor_name%></h5></div>
+                    <% } %>
                     <div class="collapsible-body" style="display: block">
                         <span>
                             <a href="/patient/prescriptionlist/<%= element.presc_id %>" class="black-text" id="reseta" data-notif="<%= JSON.stringify(element)%>">You have received a prescription, from your last checkup with <%= element.doctor_name%> on <%= element.date_created%></a>
@@ -30,7 +34,8 @@
             <!-- start your own js here -->
             <script>
                 const config = {
-                    user: <%- JSON.stringify(user); %>
+                    user: <%- JSON.stringify(user); %>,
+                    notif: <%- JSON.stringify(notif); %> 
                 };
             </script>
             <!-- end your own js here   -->
