@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 
 const patient = require('../../models/patients');
-
+const doctors = require('../../models/doctors');
+const notif = require('../../models/notification');
 
 router.get('/', function(req, res, next) {
     res.render('doctor/patientlist',{
@@ -20,7 +21,6 @@ router.get('/:id', function(req, res, next) {
         });
     });
 });
-
 
 
 
