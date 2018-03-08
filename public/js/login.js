@@ -41,7 +41,7 @@ $(document).ready(function(){
                     if(config.role == 1){
                         window.location.href = '/doctors/profile'
                     }else{
-                        window.location.href = '/patient/profile'
+                        window.location.href = '/patients/profile'
                     }
                 }else{
                     alert("There is a problem with your request. Please try again.");

@@ -49,7 +49,7 @@ module.exports = {
             if(req.session.user.role == 1){
                 res.redirect('/doctors/profile');
             }else{
-                res.redirect('/patient/profile');
+                res.redirect('/patients/profile');
             }
         }else{
             next();
