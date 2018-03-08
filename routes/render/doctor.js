@@ -2,13 +2,20 @@ const express = require('express');
 const router = express.Router();
 
 const patient = require('../../models/patients');
+const presc = require('../../models/presc');
 const presc_details = require('../../models/presc_details');
 const notif = require('../../models/notification');
 
-router.get('/prescriptionlist', function(req, res, next){
-    res.render('patient/prescriptionlist',{
-        title: 'Rx Description',
-        user : req.session.user
+router.get('/prescriptionlist/:id', function(req, res, next){
+    presc.getPresById(req.params.id).then(data=>{
+        presc_details.getDetailsById(req.params.id).then(detsdata=>{
+            res.render('patient/prescriptionlist',{
+                title: 'Rx Description',
+                user : req.session.user,
+                presc: data.data,
+                prescdetails: detsdata.data
+            });
+        });
     });
 });
 
