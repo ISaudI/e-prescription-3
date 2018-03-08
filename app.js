@@ -61,6 +61,7 @@ app.use('/logout', require('./routes/api/logout'));
 
 /* Doctor's side */
 app.use('/doctors/login', mw.isLogin, require('./routes/render/login_doctor'));
+app.use('/doctors', mw.patientRole, mw.isAuthenticated, require('./routes/render/doctors'));
 app.use('/doctors/patients', mw.doctortRole, mw.isAuthenticated, require('./routes/render/doctors_patient'));
 app.use('/doctors/prescriptions', mw.doctortRole, mw.isAuthenticated, require('./routes/render/doctors_prescriptions'));
 app.use('/doctors/notifications', mw.doctortRole, mw.isAuthenticated, require('./routes/render/doctors_notif'));

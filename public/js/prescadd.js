@@ -37,8 +37,8 @@ $(document).ready(function(){
         url: `/api/notif/prescription/${pId}`,
         success: function(response){
             let notifArray = response;
-            let notifData = notifArray.data;
-            for(let i=0; i<notifData.length; i++){
+            let notifData = notifArray['data'];
+            for(let i=0; i < notifData.length; i++){
                 if(notifData[i].action_type == "PUSH" && notifData[i].ok_flag == 1){
                     $(".btnfooterv").show();
                 }
@@ -48,7 +48,6 @@ $(document).ready(function(){
                     $("#voidmsg").html(`<span class="title red-text">You have voided this prescription</span>`)
                 }
             }
-
         }
     })
 

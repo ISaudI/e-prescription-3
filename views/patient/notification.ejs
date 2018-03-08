@@ -27,7 +27,7 @@
                         <div class="collapsible-header teal lighten-1 active"><h5><%= element.doctor_name%></h5><br><p class="right-align"><%= element.date_created %></p></div>
                         <div class="collapsible-body" style="display: block">
                                 <span>
-                                    <a href="/patient/prescriptionlist/<%= element.presc_id %>" class="black-text" id="reseta" data-notif="<%= JSON.stringify(element)%>">You have received a prescription, from your last checkup with <%= element.doctor_name%> on <%= element.date_created%></a>
+                                    <a href="/patients/prescriptions/<%= element.presc_id %>" class="black-text" id="reseta" data-notif="<%= JSON.stringify(element)%>">You have received a prescription, from your last checkup with <%= element.doctor_name%> on <%= element.date_created%></a>
                                 </span>
                             </div>
                     <% } %>
