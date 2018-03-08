@@ -1,6 +1,26 @@
 //prescriptionlist.js
 
 $(document).ready(function () {
+    $("#li-all").on("click",function(){
+        $('.status-0').removeClass("none");
+        $('.status-1').removeClass("none");
+        $('.status-2').removeClass("none");
+    });
+    $("#li-draft").on("click",function(){
+        $('.status-1').addClass("none");
+        $('.status-2').addClass("none");
+        $('.status-0').removeClass("none");
+    });
+    $("#li-presc").on("click",function (){
+        $('.status-0').addClass("none");
+        $('.status-2').addClass("none");
+        $('.status-1').removeClass("none");
+    });
+    $("#li-void").on("click",function(){
+        $('.status-0').addClass("none");
+        $('.status-1').addClass("none");
+        $('.status-2').removeClass("none");
+    });
     $.ajax({
         type: 'GET',
         url: '/api/pres/doctor',
@@ -14,16 +34,31 @@ $(document).ready(function () {
                     url: `/api/patient/${dataArray[i].patient_id}`,
                     success: function(response){
                         let patientData = response,
-                            patientArray = patientData['data'];
+                            patientArray = patientData['data'],
+                            color = "",
+                            light = "";
                         for (let x = 0; x < patientArray.length; x++){ // i variable was replaced by x as index for the 2nd loop
+                            if(dataArray[i].status == 0){
+                                color = "yellow";
+                                light = "darken-3";
+                            }else if(dataArray[i].status == 1){
+                                color = "purple";
+                                light = "lighten-3";
+                            }else if(dataArray[i].status == 2){
+                                color = "red";
+                                light = "lighten-1";
+                            }
                                 $('div.timeline').append(`
-                                <div class="timeline-event">
+                                <div class="timeline-event status-${dataArray[i].status}">
                                 <div class="card timeline-content"> 
                                 <ul class="collapsible active" data-collapsible="accordion">
                                   <li>
-                                    <div class="collapsible-header red lighten-1">${patientArray[x].name}
+                                    <div class="collapsible-header ${color + ' ' + light}">${patientArray[x].name}
                                     </div>
-                                    <div class="collapsible-body med-list-${dataArray[i].id}" style="display:block;"></div>
+                                    <div class="collapsible-body" style="display:block;">
+                                        <div class="medlist-${dataArray[i].id}">
+                                        </div>
+                                    </div>
                                   </li>
                                 </ul>
                                 </div>
@@ -45,12 +80,11 @@ $(document).ready(function () {
                                     }
                                 }
                             });
-                            
                         }    
                     }
                 });
-
             }
         }
     });
 });
+

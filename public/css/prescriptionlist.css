@@ -126,3 +126,6 @@
 .container .collection {
   border:none;
 }
+.none {
+  display:none !important; 
+}
