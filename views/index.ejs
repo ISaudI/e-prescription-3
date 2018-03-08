@@ -10,55 +10,27 @@
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
+        <!-- start of your own css here -->
+        <link type="text/css" rel="stylesheet" href="/css/login.css"/>
+        <!-- end of your own css        -->
+        
     </head>
     <body>
-            <% include common/navbar.ejs %>
-
-            <!-- start content goes here -->
-            <div class="container">
-                <!-- Page Content goes here -->
-
-                <div class="col s12 m7" style="margin:10%;">
-                    <div class="card horizontal">
-                        <div class="card-image red darken-1 white-text flex-center" style="padding:5%">
-                            <!-- this obj is from server -->
-                            <h2><%= obj.notif %></h2>
-                        </div>
-
-                        <div class="card-stacked">
-                            <div class="card-content">
-                                <p class="card-title">Notification</p>
-                                <p class="grey-text">last checked <%= obj.date%></p>
-                            </div>
-                        </div>
-                    </div>
+            <div>
+                <p class="left-align white-text mini-margin">&nbsp;</p>
+                <hr/>
+            </div>
+            <div class="progress hide" id="preloader" style="margin-top:-8px;">
+                <div class="indeterminate"></div>
+            </div>
+            <div class="flex-center" style="margin-bottom:50px;margin-top:50px;">
+                <img class="circle" src="images/logo.png" width="150px">
+            </div>
+            <div class="row flex-center">
+                <div class="col s8 no-padding" style="margin:auto;">
+                    <a href="/doctors/login" class="btn-large waves-effect waves-light white grey-text" id="btn-login" style="width:100%; margin-bottom:3%">Doctor login</a>
+                    <a href="/patients/login" class="btn-large waves-effect waves-light green" id="btn-login" style="width:100%; margin-bottom:3%">Patient login</a>
                 </div>
-
-                <div class="col s12 m7" style="margin:10%;">
-                    <div class="card horizontal">
-                        <!-- this obj is from server -->
-                        <div class="card-image blue lighten-1 white-text flex-center" style="padding:5%">
-                            <h2><%= obj.rx %></h2>
-                        </div>
-                        <div class="card-stacked">
-                            <div class="card-content">
-                                <p class="card-title">RX recieved</p>
-                                <p class="grey-text">For the month of <%= obj.month%></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr />
-                
-                <ul class="collapsible" data-collapsible="expandable">
-                    <!-- this array is from server -->
-                    <% for(let i =0;i < array.length; i++){ %>
-                    <li>
-                        <div class="collapsible-header teal lighten-1 active"><h5><%= array[i] %></h5></div>
-                        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi vitae neque quasi debitis sapiente! Sint nihil officiis, ab aspernatur ipsa omnis reprehenderit at odio eveniet aut blanditiis nulla repellat sed?</span></div>
-                    </li>
-                    <% } %>
-                </ul>
             </div>
             <!-- end content goes here   -->
             <% include common/js.ejs %>
