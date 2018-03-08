@@ -12,8 +12,23 @@
     </head>
     <body>
         <%- include('../common/navbar.ejs')%>
-        <ul class="collection">
             
+        <ul class="collection">
+            <% for(let x=0; x<presc.length; x++){ %>
+                    <% let element = presc[x]; %> 
+                <li id="doc" class="collection-item">
+	                    <h5 class="center-align"><%= element.doctor_name%></h5><br>
+	                    <h6 class="center-align grey-text"><%= element.license_no%></h6><br>
+	                    <h6>Office: <%= element.contact_no%></h6>
+                    </li>
+                    <li id="reseta" class="collection-item"><%= element.notes%><br>
+                    </li>
+            <% } %>
+            <% for(let y=0; y<prescdetails.length; y++){ %>
+                    <% let elem = prescdetails[y]; %>
+                        <%= elem.drug_name%> <%= elem.notes%><br>
+                    </li>
+            <% } %>
         </ul>
         <div class="container" id="footer">
                 <h5 class="center-align"><a href="/patient/maps" class="waves-effect waves-light big green btn">Look For A Pharmacy</a></h5>
@@ -27,7 +42,7 @@
                         user: <%- JSON.stringify(user); %>
                     };
                 </script>
-            <script src="/js/reseta.js"></script>
+            <!-- <script src="/js/reseta.js"></script> -->
             <!-- end your own js here   -->
     </body>
 </html>
