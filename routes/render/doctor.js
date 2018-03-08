@@ -70,10 +70,16 @@ router.get('/profile', function(req, res, next){
     });
 });
 
-router.get('/prescription', function(req, res, next){
-	res.render('patient/prescription',{
-        title: 'Prescription',
-        user : req.session.user
+router.get('/prescription/:id', function(req, res, next){
+    presc.getPresById(req.params.id).then(data=>{
+        presc_details.getDetailsById(req.params.id).then(detailsdata=>{
+            res.render('patient/prescription',{
+                title: 'Prescription',
+                user : req.session.user,            
+                presc: data.data,
+                prescdetails: detailsdata.data
+            });
+        });
     });
 });
 module.exports = router;
