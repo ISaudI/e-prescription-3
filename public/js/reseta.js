@@ -1,7 +1,7 @@
 $(document).ready(function(){
     $.ajax({
         type: 'GET',
-        url: 'http://localhost:3000/api/pres/patient',
+        url: '/api/pres/patient',
         data: {
             email: config.user.email
         },
@@ -20,7 +20,7 @@ $(document).ready(function(){
 
     $.ajax({
         type: 'GET',
-        url: 'http://localhost:3000/api/doctors',
+        url: '/api/doctors',
         data: {
             name: "John"
         },
@@ -39,7 +39,7 @@ $(document).ready(function(){
     
     $.ajax({
         type: 'GET',
-        url: 'http://localhost:3000/api/patient',
+        url: '/api/patient',
         data: {
             name: config.user.name
         },
@@ -55,21 +55,18 @@ $(document).ready(function(){
             }
         }
     });
-
-    // $.ajax({
-    //     type: 'GET',
-    //     url: 'http://localhost:3000/api/pres/details',
-    //     data: {
-    //         id: "1"
-    //     },
-    //     success: function(response){
-    //         var nameArray = response;
-    //         var dataArray = nameArray['data'];
-    //         for(var i = 0; i < dataArray.length; i++){
-    //             $('li#reseta').append(`
-    //                 ${dataArray[i].drug_name} ${dataArray[i].notes}<br>
-    //             `);
-    //         }
-    //     }
-    // });
+let notif = $("#reseta").data("notif");
+    $.ajax({
+        type: 'GET',
+        url: `/api/pres/${notif.presc_id}/details`,
+        success: function(response){
+            var nameArray = response;
+            var dataArray = nameArray['data'];
+            for(var i = 0; i < dataArray.length; i++){
+                $('li#reseta').append(`
+                    ${dataArray[i].drug_name} ${dataArray[i].notes}<br>
+                `);
+            }
+        }
+    });
 });

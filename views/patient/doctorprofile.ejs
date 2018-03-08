@@ -15,13 +15,27 @@
             </div> 
             <h4 class="center-align">Your prescription(s)</h4>
             <ul class="collapsible" data-collapsible="expandable">
-                <!-- this array is from server -->
+                <% for(let x=0; x<notif.length; x++){ %>
+                        <% let element = notif[x]; %>
+                <li class="active">
+                    <div class="collapsible-header teal lighten-1 active"><h5><%= element.doctor_name%></h5></div>
+                    <div class="collapsible-body" style="display: block">
+                        <span>
+                            <a href="" class="black-text">You have received a prescription, from your last checkup with <%= element.doctor_name%> on <%= element.date_created%></a>
+                        </span>
+                    </div>
+                </li>
+                <% } %>
             </ul>
 
             <% include ../common/js.ejs %>
             <!-- start your own js here -->
+            <script>
+                const config = {
+                    user: <%- JSON.stringify(user); %>
+                };
+            </script>
             <script src="/js/doctorprofile.js"></script>
-            <script src="/js/notif.js"></script>
             <script src="/js/helper.js"></script>
             
             <!-- end your own js here   -->

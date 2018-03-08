@@ -6,12 +6,9 @@ const presc_details = require('../../models/presc_details');
 const notif = require('../../models/notification');
 
 router.get('/prescriptionlist', function(req, res, next){
-    presc_details.getDetailsById(req.params.id).then(data=>{
-        res.render('patient/prescriptionlist',{
-            title: 'Rx Description',
-            user : req.session.user,
-            details: data.data
-        });
+    res.render('patient/prescriptionlist',{
+        title: 'Rx Description',
+        user : req.session.user
     });
 });
 
@@ -40,9 +37,12 @@ router.get('/notif', function(req, res, next){
 });
 
 router.get('/doctorprofile', function(req, res, next){
-	res.render('patient/doctorprofile',{
-        title: 'Doctor Profile',
-        user : req.session.user
+    notif.getPatientId(req.session.user.id).then(data=>{
+        res.render('patient/doctorprofile',{
+            title: 'Doctor Profile',
+            user : req.session.user,
+            notif: data.data
+        });
     });
 });
 
