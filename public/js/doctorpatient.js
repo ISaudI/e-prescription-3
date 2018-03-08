@@ -1,54 +1,25 @@
 $(document).ready(function() {
-    let queryParams = util.getQueryString()
-
-    $.ajax({
-        type:'GET',
-        url:`/api/patient/${queryParams.id}`,
-        success: function(response){
-            let patientArray = response;
-            let patientData = patientArray['data'];
-            for(i=0; i<patientData.length; i++){
-                $('div.head').append(`
-                <div class='center-align'>
-                    <br><span></span><img src='${patientData[i].img}' class='circle responsive'/><br><br><span></span>
-                </div>
-                `);
-                $('div.container').append(`
-                <ul class='collection'>
-                    <li class="collection-item"><i class="material-icons grey-text">person</i>
-                    ${patientData[i].name}
-                    </li>
-                    <li class="collection-item"><i class="material-icons grey-text">mail</i>
-                    ${patientData[i].email}
-                    </li>
-                    <li class="collection-item"><i class="material-icons grey-text">place</i>
-                    ${patientData[i].city}, ${patientData[i].state_province}
-                    </li>
-                    <li class="collection-item"><i class="material-icons grey-text">cake</i>
-                    ${patientData[i].date_of_birth}
-                    </li>
-                </ul>
-                `);
-            }
-        }
-    })
+    let pathArray = window.location.pathname.split( '/' );
+    let pId = pathArray[2];
 
     $('#btnAdd').on('click', function(){
         let symptoms = prompt("For what illness is this prescription?","fever");
-        $.ajax({
-            type:"POST",
-            url:'/api/pres/create',
-            data:{
-                patient_id: queryParams.id,
-                doctor_id: 1,
-                notes: symptoms,
-                status:0
-            },
-            success: function(response){
-                let prescArray = response;
-                let dataArray = prescArray['data']
-                window.location.href = `/prescription/${dataArray.insertId}`;
-            }
-        })
+        if(pid !==0){
+            $.ajax({
+                type:"POST",
+                url:'/api/pres/create',
+                data:{
+                    patient_id: pId,
+                    doctor_id: config.user.id,
+                    notes: symptoms,
+                    status:0
+                },
+                success: function(response){
+                    let prescArray = response;
+                    let dataArray = prescArray['data']
+                    window.location.href = `/prescription/${dataArray.insertId}`;
+                }
+            })
+        }
     })
 });
