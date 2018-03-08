@@ -14,18 +14,43 @@
     <body>
             <% include ../common/navbar.ejs %>
             <!-- start content goes here -->
+            <% for(let i=0; i<patient.length; i++){ %>
+                <% let elem = patient[i]; %>   
             <div class="head teal lighten-1">
-
+                <div class='center-align'>
+                    <br><span></span><img src='<%=elem.img %>' class='circle responsive'/><br><br><span></span>
+                </div>
             </div>
             <div class="container">
                 <!-- Page Content goes here -->
-                
-             </div>  
+                <ul class='collection'>
+                    <li class="collection-item"><i class="material-icons grey-text">person</i>
+                    <%=elem.name %>
+                    </li>
+                    <li class="collection-item"><i class="material-icons grey-text">mail</i>
+                    <%= elem.email %>
+                    </li>
+                    <li class="collection-item"><i class="material-icons grey-text">place</i>
+                    <%=elem.city%>, <%=elem.state_province%>
+                    </li>
+                    <li class="collection-item"><i class="material-icons grey-text">cake</i>
+                    <%=elem.date_of_birth%>
+                    </li>
+                </ul>
+             </div> 
+             
+             
             <div class="btn-footer center-align" style='position:fixed; bottom:0%; max-width:100%; width:100%; padding:3%; '>
                 <button class="btn btn-flat btn-large white-text waves-effect green accent-4"  style="width:100%;" id="btnAdd">Add Prescription</button>        
             </div>
+            <% } %>
             <% include ../common/js.ejs %>
             <!-- start your own js here -->
+            <script>
+                const config = {
+                    user: <%- JSON.stringify(user); %>
+                };
+            </script>
             <script src="/js/doctorpatient.js"></script>
             <script src="/js/helper.js"></script>
             

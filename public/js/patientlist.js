@@ -12,7 +12,7 @@ $(document).ready(function() {
             for (var i = 0; i < dataArray.length; i++) {
                 dataName[dataArray[i].name] = dataArray[i].img;
                 $('div.collection').append(`
-                <a class="collection-item avatar black-text" href='/doctor/patientinfo?id=${dataArray[i].id}'>
+                <a class="collection-item avatar black-text" href='/doctor/patientinfo/${dataArray[i].id}'>
                 <img src='${dataArray[i].img}' alt="profile pic" class="circle">
                 <span class="title">
                 ${dataArray[i].name}
