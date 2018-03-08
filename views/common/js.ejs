@@ -5,5 +5,10 @@
 <script>
     $(document).ready(function(){
         $(".button-collapse").sideNav();
+        $('#logout').click(function(){
+            $.post('/logout',{}, function(data){
+                window.location.href = "/";
+            });
+        });
     });
 </script>
