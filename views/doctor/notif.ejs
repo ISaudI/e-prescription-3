@@ -16,16 +16,17 @@
                 <% let element = notif[x]; %>
                 <li class="active">
                 <% if(element.cancel_flag == 0){ %>
-                    <div class="collapsible-header teal lighten-1 active"><h5><%= element.patient_name%><br>
-                    </h5></div>
+                    <div class="collapsible-header teal lighten-1 active"><h5><p class="right-align"><%= element.patient_name%></p><br>
+                    </h5>
+                    <%= element.date_approved%></div>
                     <div class="collapsible-body" style="display: block">
                         <span>
                             Your prescription has been accepted
                         </span>
                     </div>
                 <% }else { %>
-                    <div class="collapsible-header red lighten-1 active"><h5><%= element.patient_name%><br>
-                    </h5></div>
+                    <div class="collapsible-header red lighten-1 active"><h5><p class="right-align"><%= element.patient_name%></p><br>
+                    </h5><%= element.date_declines%></div>
                     <div class="collapsible-body" style="display: block">
                         <span>
                             Your prescription has been rejected
