@@ -34,7 +34,6 @@ module.exports = {
 
     isAuthenticated: (req, res, next) => {
         if(!req.session.user){
-            console.log(res.locals);
             if(res.locals.role == 1){
                 res.redirect('/doctors/login');
             }else{
