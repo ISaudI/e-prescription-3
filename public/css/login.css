@@ -55,3 +55,8 @@ body{
   bottom:0;
   width:100%;
 }
+
+.btn-icon {
+  color: #fff !important;
+  margin: 3%;
+}
