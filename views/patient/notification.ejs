@@ -17,17 +17,21 @@
                     <% let element = notif[x]; %>
                 <li class="active">
                     <% if(element.action_type == "VOID"){ %>
-                        <div class="collapsible-header red lighten-1 active"><h5><%= element.doctor_name%></h5><br><p class="right-align"><%= element.date_declined%></p></div>
+                        <div class="collapsible-header red lighten-1 active"><h5></div>
                         <div class="collapsible-body" style="display: block">
+                            <a href="/patients/prescriptions/<%= element.presc_id %>" class="black-text">
                                 <span>
-                                    Your prescription has been voided
+                                    Your prescription has been voided by Dr. <%= element.doctor_name%>. <%= element.date_created%>
                                 </span>
-                            </div>
+                            </a>
+                        </div>
                     <% }else { %>
-                        <div class="collapsible-header teal lighten-1 active"><h5><%= element.doctor_name%></h5><br><p class="right-align"><%= element.date_created %></p></div>
+                        <div class="collapsible-header teal lighten-1 active"><h5><%= element.doctor_name%></h5></div>
                         <div class="collapsible-body" style="display: block">
                                 <span>
-                                    <a href="/patients/prescriptions/<%= element.presc_id %>" class="black-text" id="reseta" data-notif="<%= JSON.stringify(element)%>">You have received a prescription, from your last checkup with <%= element.doctor_name%> on <%= element.date_created%></a>
+                                    <a href="/patients/prescriptions/<%= element.presc_id %>" class="black-text" id="reseta" data-notif="<%= JSON.stringify(element)%>">
+                                        You have received a prescription, from your last checkup with <%= element.doctor_name%> on <%= element.date_created%>
+                                    </a>
                                 </span>
                             </div>
                     <% } %>
