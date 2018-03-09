@@ -31,4 +31,11 @@ router.get('/pharmacy', function(req, res, next){
     });
 });
 
+router.get('/', function(req, res, next) {
+    res.render('patient/prescriptionlist',{
+        title: 'Prescription list',
+        user : req.session.user
+    });
+});
+
 module.exports = router;
