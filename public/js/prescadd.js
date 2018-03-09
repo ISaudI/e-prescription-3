@@ -42,10 +42,15 @@ $(document).ready(function(){
                 if(notifData[n].action_type == "VOID"){
                     $(".card").show();                           
                     $("#voidmsg").show();
-                    $("#voidmsg").html(`<span class="title red-text">You have voided this prescription</span>`)
+                    $("#voidmsg").html(`<span class="title red-text">You have voided this prescription</span>`);
                 }
                 else if(notifData[n].action_type == "PUSH" && notifData[n].ok_flag == 1){
-                    $(".btnfooterv").show();
+                    $(".btn-footerv").show();
+                }
+                else if(notifData[n].action_type == "PUSH" && notifData[n].cancel_flag == 1){
+                    $(".card").show();                           
+                    $("#voidmsg").show();
+                    $("#voidmsg").html('<span class="title red-text">Your patient has rejected this prescription</span>');
                 }
             }
         }
