@@ -8,7 +8,7 @@ const prescdetails = require('../../models/presc_details');
 router.get('/:id', function(req, res, next) {
     presc.getPresById(req.params.id).then(data=>{
         prescdetails.getDetailsById(req.params.id).then(pdata=>{
-            res.render('prescription/add',{
+            res.render('doctor/prescadd',{
                 title: 'Prescription',
                 user : req.session.user,
                 presc: data.data,
