@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <%- include('../common/css.ejs')%>
+
+        <!-- start of your own css here -->
+        <link type="text/css" rel="stylesheet" href="/css/prescriptionlist.css"/>
+        <!-- end of your own css        -->
+
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    </head>
+    <body>
+        <%- include('../common/navbar.ejs')%>
+        <div class="fixed-action-btn">
+                <a class="btn-floating btn-large green">
+                  <i class="large material-icons">add</i>
+                </a>
+        </div>
+        <div class="container">
+                <div style="padding-top:2%;">
+                        <a class='dropdown-button green btn pull-right' href='#' data-activates='dropdown1'>Filter</a></br></br>
+                        <ul id='dropdown1' class='dropdown-content'>
+                            <li id="li-all"><a>All</a></li>
+                            <li id="li-draft"><a>Draft</a></li>
+                            <li id="li-presc"><a>Prescribed</a></li>
+                            <li id="li-void"><a>Void</a></li>
+                        </ul>
+                </div>
+            <div class="timeline">
+                
+            </div>
+        </div>
+            <!-- end content goes here   -->
+            
+            <%- include('../common/js.ejs')%>
+            <!-- start your own js here -->
+            <script src="/js/prescriptionlist-patient.js"></script>
+            
+            <!-- end your own js here   -->
+            
+    </body>
+</html>
