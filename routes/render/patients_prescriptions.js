@@ -17,14 +17,14 @@ router.get('/:id', function(req, res, next){
     });
 });
 
-router.get('/:id/maps', function(req, res, next){
+router.get('/maps', function(req, res, next){
 	res.render('patient/maps',{
         title: 'Location',
         user : req.session.user
     });
 });
 
-router.get('/:id/pharmacy', function(req, res, next){
+router.get('/pharmacy', function(req, res, next){
 	res.render('patient/pharmacy',{
         title: 'Pharmacy',
         user : req.session.user

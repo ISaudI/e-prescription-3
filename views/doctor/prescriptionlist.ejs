@@ -13,7 +13,7 @@
 
     </head>
     <body>
-        <%- include('../common/navbar.ejs')%>
+        <%- include('../common/doctor_nav.ejs')%>
         <div class="fixed-action-btn">
                 <a class="btn-floating btn-large green">
                   <i class="large material-icons">add</i>
@@ -37,8 +37,12 @@
             
             <%- include('../common/js.ejs')%>
             <!-- start your own js here -->
+            <script>
+                    const config = {
+                        user: <%- JSON.stringify(user); %>
+                    };
+            </script>
             <script src="/js/prescriptionlist.js"></script>
-            
             <!-- end your own js here   -->
             
     </body>

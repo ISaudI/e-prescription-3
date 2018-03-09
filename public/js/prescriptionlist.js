@@ -24,7 +24,7 @@ $(document).ready(function () {
     $.ajax({
         type: 'GET',
         url: '/api/pres/doctor',
-        data: {email:'john.doe@gmail.com'},
+        data: {email: config.user.email},
         success: function (response) {
             let prescriptionArray = response,
                 dataArray = prescriptionArray['data'];
@@ -56,8 +56,10 @@ $(document).ready(function () {
                                     <div class="collapsible-header ${color + ' ' + light}">${patientArray[x].name}
                                     </div>
                                     <div class="collapsible-body" style="display:block;">
+                                        <a href="/doctors/prescriptions/${dataArray[i].id}">
                                         <div class="medlist-${dataArray[i].id}">
                                         </div>
+                                        </a>
                                     </div>
                                   </li>
                                 </ul>

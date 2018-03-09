@@ -17,7 +17,7 @@ $(document).ready(function(){
 
     /* Gets the pathname and splits it to get the prescription Id */
     let pathArray = window.location.pathname.split( '/' );
-    let pId = pathArray[2];
+    let pId = pathArray[3];
 
     $(".btn-footerv").hide();
     $(".card").hide();       
@@ -34,18 +34,18 @@ $(document).ready(function(){
     /* Checking of notification*/
     $.ajax({
         type:'GET',
-        url: `/api/notif/prescription/${pId}`,
+        url:`/api/notif/prescription/${pId}`,
         success: function(response){
             let notifArray = response;
             let notifData = notifArray['data'];
-            for(let i=0; i < notifData.length; i++){
-                if(notifData[i].action_type == "PUSH" && notifData[i].ok_flag == 1){
-                    $(".btnfooterv").show();
-                }
-                if(notifData[i].action_type == "VOID"){
+            for(n=0; n<notifData.length; n++){
+                if(notifData[n].action_type == "VOID"){
                     $(".card").show();                           
                     $("#voidmsg").show();
                     $("#voidmsg").html(`<span class="title red-text">You have voided this prescription</span>`)
+                }
+                else if(notifData[n].action_type == "PUSH" && notifData[n].ok_flag == 1){
+                    $(".btnfooterv").show();
                 }
             }
         }
@@ -177,7 +177,7 @@ $(document).ready(function(){
                 },
                 success: function(response){
                     document.getElementById("btnSend").disabled = true;
-                    window.location.href='/prescription';
+                    window.location.href='/doctors/prescriptions';
                 }
             })
         }
