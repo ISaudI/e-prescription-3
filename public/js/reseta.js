@@ -24,12 +24,16 @@ $(document).ready(function(){
                 else if((notifData[i].action_type == "PUSH") && (notifData[i].cancel_flag == 1)){
                     $("#voidcard").show();
                     $("#voidmsg").show();
+                    $("#findPharmacy").hide();         
+                    $("#divRequest").hide();                               
                     $("#voidmsg").html(`<span class="title red-text">You have rejected this prescription</span>`);
                 }
                 else if(notifData[i].action_type == "VOID"){
                     $("#voidcard").show();
                     $("#voidmsg").show();
+                    $("#divRequest").hide();                    
                     $("#voidmsg").html(`<span class="title red-text">Your doctor has voided this prescription</span>`);
+                    $("#findPharmacy").hide();                    
                 }
             }
         }

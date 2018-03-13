@@ -13,13 +13,17 @@
     </head>
     <body>
             <% include ../common/doctor_nav.ejs %>
-
+            <% for(let x=0; x<profile.length; x++){ %>
+                <% let element = profile[x]; %>
+            <div class="head teal lighten-1">
+                <div class='center-align'>
+                    <br><span></span><img src='<%=element.img %>' class='circle responsive'/><br><br><span></span>
+                </div>
+            </div>
             
-            <!-- start content goes here -->
             <div class="container">
                 <ul class='collection'>
-                    <% for(let x=0; x<profile.length; x++){ %>
-                        <% let element = profile[x]; %>
+                    
                     <li class="collection-item"><i class="material-icons grey-text">person</i>
                     <%= element.name%>
                     </li>
