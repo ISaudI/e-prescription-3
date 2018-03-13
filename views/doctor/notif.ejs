@@ -11,6 +11,10 @@
         <!-- Nav Bar -->
         <%- include('../common/doctor_nav.ejs')%>
         <!-- End of Nav Bar -->
+
+        <% notif.sort(function(a,b){
+            return b.date_created - a.date_created;
+        })%>
         <ul class="collapsible" data-collapsible="expandable">
             <% for(let x=0; x<notif.length; x++){ %>
                 <% let element = notif[x]; %>
@@ -41,7 +45,20 @@
                             </span>
                         </a>
                     </div>
-                <% } %>
+                    <% }else if(element.action_type == "VOID"){ %>
+                        <div class="collapsible-header red lighten-1">
+                            <h2 class="right-align white-text flow-text">
+                                <%= element.patient_name%>
+                            </h2>
+                        </div>
+                        <div class="collapsible-body black-text">
+                            <a href="/doctors/prescriptions/<%= element.presc_id%>">
+                                <span>  
+                                    You have voided this prescription. <%= element.date_created%>
+                                </span>
+                            </a>
+                        </div>
+                    <% } %>
           
             </li>
             <% } %>

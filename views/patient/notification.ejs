@@ -12,29 +12,31 @@
         <%- include('../common/navbar.ejs')%>
         <!-- End of Nav Bar -->
 
+        <% notif.sort(function(a,b){
+            return b.date_created - a.date_created;
+        })%>
             <ul class="collapsible" data-collapsible="expandable"> 
                 <% for(let x=0; x<notif.length; x++){ %>
                     <% let element = notif[x]; %>
                 <li class="active">
                     <% if(element.action_type == "VOID"){ %>
-                        <div class="collapsible-header red lighten-1 active"><h5><%= element.doctor_name%></h5><br/>
-                            <p><%= element.date_created%></p>
+                        <div class="collapsible-header red lighten-1 active white-text">
+                            <h5><%= element.doctor_name%></h5>
                         </div>
                         <div class="collapsible-body" style="display: block">
-                            <a href="/patients/prescriptions/<%= element.presc_id %>" class="black-text">
+                            <a href="/patients/prescriptions/<%= element.presc_id %>" class="flow-text">
                                 <span>
                                     Your prescription has been voided by Dr. <%= element.doctor_name%>. <%= element.date_created%>
                                 </span>
                             </a>
                         </div>
                     <% }else { %>
-                        <div class="collapsible-header teal lighten-1 active">
+                        <div class="collapsible-header teal lighten-1 active white-text">
                             <h5><%= element.doctor_name%></h5>
-                            <p><%= element.date_created%></p>
                         </div>
                         <div class="collapsible-body" style="display: block">
                                 <span>
-                                    <a href="/patients/prescriptions/<%= element.presc_id %>" class="black-text" id="reseta" data-notif="<%= JSON.stringify(element)%>">
+                                    <a href="/patients/prescriptions/<%= element.presc_id %>" class="flow-text" id="reseta" data-notif="<%= JSON.stringify(element)%>">
                                         You have received a prescription, from your last checkup with <%= element.doctor_name%> on <%= element.date_created%>
                                     </a>
                                 </span>
