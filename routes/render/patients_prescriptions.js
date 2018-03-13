@@ -17,25 +17,12 @@ router.get('/:id', function(req, res, next){
     });
 });
 
-router.get('/maps', function(req, res, next){
-	res.render('patient/maps',{
-        title: 'Location',
-        user : req.session.user
-    });
-});
-
-router.get('/pharmacy', function(req, res, next){
-	res.render('patient/pharmacy',{
-        title: 'Pharmacy',
-        user : req.session.user
-    });
-});
-
 router.get('/', function(req, res, next) {
     res.render('patient/prescriptionlist',{
         title: 'Prescription list',
         user : req.session.user
     });
 });
+
 
 module.exports = router;

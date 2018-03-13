@@ -17,7 +17,9 @@
                     <% let element = notif[x]; %>
                 <li class="active">
                     <% if(element.action_type == "VOID"){ %>
-                        <div class="collapsible-header red lighten-1 active"><h5></div>
+                        <div class="collapsible-header red lighten-1 active"><h5><%= element.doctor_name%></h5><br/>
+                            <p><%= element.date_created%></p>
+                        </div>
                         <div class="collapsible-body" style="display: block">
                             <a href="/patients/prescriptions/<%= element.presc_id %>" class="black-text">
                                 <span>
@@ -26,7 +28,10 @@
                             </a>
                         </div>
                     <% }else { %>
-                        <div class="collapsible-header teal lighten-1 active"><h5><%= element.doctor_name%></h5></div>
+                        <div class="collapsible-header teal lighten-1 active">
+                            <h5><%= element.doctor_name%></h5>
+                            <p><%= element.date_created%></p>
+                        </div>
                         <div class="collapsible-body" style="display: block">
                                 <span>
                                     <a href="/patients/prescriptions/<%= element.presc_id %>" class="black-text" id="reseta" data-notif="<%= JSON.stringify(element)%>">

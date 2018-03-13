@@ -24,7 +24,7 @@ $(document).ready(function () {
     $.ajax({
         type: 'GET',
         url: '/api/pres/patient',
-        data: {email:'kendrick004@gmail.com'},
+        data: {email: config.user.email},
         success: function (response) {
             let prescriptionArray = response,
                 dataArray = prescriptionArray['data'];

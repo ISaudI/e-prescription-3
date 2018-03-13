@@ -38,7 +38,11 @@
             <%- include('../common/js.ejs')%>
             <!-- start your own js here -->
             <script src="/js/prescriptionlist-patient.js"></script>
-            
+            <script>
+                const config = {
+                    user: <%- JSON.stringify(user); %>
+                };
+            </script>
             <!-- end your own js here   -->
             
     </body>
