@@ -2,12 +2,20 @@ const express = require('express');
 const router = express.Router();
 
 const patient = require('../../models/patients');
+const notif = require('../../models/notification');
+const presc = require('../../models/presc');
 
 router.get('/', function(req, res, next){
-    res.render('patient/dashboard',{
-        title: 'Reseta',
-        user : req.session.user,
-    });    
+    notif.getPatientId(req.session.user.id).then(data=>{
+        presc.getByPatient(req.session.user.email).then(datax=>{
+            res.render('patient/dashboard',{
+                title: 'Reseta',
+                user : req.session.user,
+                notif: data.data,
+                presc: datax.data
+            });
+        });
+    });
 });
 
 router.get('/profile', function(req, res, next){

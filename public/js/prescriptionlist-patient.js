@@ -62,7 +62,6 @@ $(document).ready(function () {
                                   </li>
                                 </ul>
                                 </div>
-                                <div class="timeline-badge green white-text"><i class="material-icons">mode_edit</i></div>
                                 </div>
                                 `);         
                             $.ajax({
