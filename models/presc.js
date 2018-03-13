@@ -49,7 +49,7 @@ exports.getByPatient = (email = '', limit, status) => {
     }));
     return new Promise((resolve, reject) => {
         let cols = TABLE_COLUMNS;
-        let sql = `SELECT ${Object.keys(cols).join(',')} FROM ${TABLE_NAME} WHERE patient_id = (SELECT id FROM patients WHERE email = ?)`;
+        let sql = `SELECT ${Object.keys(cols).join(',')} FROM ${TABLE_NAME} WHERE patient_id = (SELECT id FROM patients WHERE email = ?) AND (status = 1 OR status = 2)`;
         if(status){
             sql += ` AND status IN (${status})`;
         }

@@ -15,6 +15,8 @@ const app = express();
 
 const mysql = require('./lib/database');
 
+const moment = require('moment');
+app.locals.moment = moment;
 let mysql_con = mysql.connect();
 mysql_con.then((data) => {
     console.log("Database connected", data);

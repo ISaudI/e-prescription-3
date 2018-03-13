@@ -5,7 +5,7 @@
         <%- include('../common/css.ejs')%>
 
         <!-- start of your own css here -->
-        <link type="text/css" rel="stylesheet" href="/css/prescriptionlist.css"/>
+        <link type="text/css" rel="stylesheet" href="/css/timeline.css"/>
         <!-- end of your own css        -->
 
         <!--Let browser know website is optimized for mobile-->
@@ -14,35 +14,62 @@
     </head>
     <body>
         <%- include('../common/navbar.ejs')%>
-        <div class="fixed-action-btn">
-                <a class="btn-floating btn-large green">
-                  <i class="large material-icons">add</i>
-                </a>
-        </div>
         <div class="container">
-                <div style="padding-top:2%;">
-                        <a class='dropdown-button green btn pull-right' href='#' data-activates='dropdown1'>Filter</a></br></br>
-                        <ul id='dropdown1' class='dropdown-content'>
-                            <li id="li-all"><a>All</a></li>
-                            <li id="li-draft"><a>Draft</a></li>
-                            <li id="li-presc"><a>Prescribed</a></li>
-                            <li id="li-void"><a>Void</a></li>
-                        </ul>
-                </div>
-            <div class="timeline">
-                
+            <div style="padding-top:2%;">
+                    <a class='dropdown-button green btn pull-right' href='#' data-activates='dropdown1'>Filter</a></br></br>
+                    <ul id='dropdown1' class='dropdown-content'>
+                        <li id="li-all"><a>All</a></li>
+                        <li id="li-accept"><a>Accepted</a></li>
+                        <li id="li-reject"><a>Rejected</a></li>
+                        <li id="li-void"><a>Void</a></li>
+                    </ul>
             </div>
+            <ul class="timeline" style="padding:0% 10%"  data-presc="<%= JSON.stringify(presc)%>">
+            <%
+                presc.sort(function(a, b){
+                    return b.date_modified - a.date_modified;
+                })
+            %>
+                <li>
+                    <div class="timeline-badge green "><span class="fa fa-pencil"></span></div>
+                    <div class="speech-bubble-align">
+                        <div class="date-speech-bubble grey-text white">January 2018</div>
+                    </div>
+                    <div class="col s12 m6">
+                    <% for(let i=0; i<presc.length; i++) { %>
+                    <% let pres = presc[i]; %>
+                    <a href="prescriptions/<%=pres.id%>">
+                        <div class="card" style="margin-left:5%;" id="pres-<%=pres.id%>">
+                            <div class="card-content no-padding">
+                                <div class="header white-text" style="padding:3%;">
+                                    <% for(let x=0; x<doctors.length; x++){%>
+                                        <% if(pres.doctor_id == doctors[x].id) {%>
+                                        <h5>Dr. <%= doctors[x].name%></h5>
+                                        <% }%>
+                                    <% }%>
+                                    <p><%= moment(pres.date_modified).format('ll')%></p>
+                                </div>
+                                <div style="padding:3%;" class="details-<%=pres.id%>">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <% }%>
+                    </div>
+                </li>
+            </ul>
         </div>
             <!-- end content goes here   -->
             
             <%- include('../common/js.ejs')%>
             <!-- start your own js here -->
-            <script src="/js/prescriptionlist-patient.js"></script>
             <script>
                 const config = {
                     user: <%- JSON.stringify(user); %>
                 };
             </script>
+            <script src="/js/prescriptionlist-patient.js"></script>            
             <!-- end your own js here   -->
             
     </body>

@@ -3,6 +3,8 @@ const router = express.Router();
 
 const presc = require('../../models/presc');
 const presc_details = require('../../models/presc_details');
+const doctors = require('../../models/doctors');
+
 
 router.get('/:id', function(req, res, next){
     presc.getPresById(req.params.id).then(data=>{
@@ -18,9 +20,15 @@ router.get('/:id', function(req, res, next){
 });
 
 router.get('/', function(req, res, next) {
-    res.render('patient/prescriptionlist',{
-        title: 'Prescription list',
-        user : req.session.user
+    presc.getByPatient(req.session.user.email).then(data=>{
+        doctors.getDoctorsByName(req.query.name, req.query.limit).then(drdata=>{
+            res.render('patient/prescriptionlist',{
+                title: 'Prescription list',
+                user : req.session.user,
+                presc: data.data,
+                doctors: drdata.data
+            });
+        });
     });
 });
 

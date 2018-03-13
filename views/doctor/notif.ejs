@@ -10,42 +10,47 @@
             
         <!-- Nav Bar -->
         <%- include('../common/doctor_nav.ejs')%>
+        <div class="container">
         <!-- End of Nav Bar -->
-        <ul class="collapsible" data-collapsible="expandable">
+        <div class="col s12 m6"></div>
             <% for(let x=0; x<notif.length; x++){ %>
                 <% let element = notif[x]; %>
-                <li class="active">
                 <% if(element.ok_flag == 1){ %>
-                    <div class="collapsible-header teal lighten-1">
-                        <h2 class="right-align white-text flow-text">
-                            <%= element.patient_name%>
-                        </h2>
-                    </div>
-                    <div class="collapsible-body black-text">
-                        <a href="/doctors/prescriptions/<%= element.presc_id%>">
-                            <span>
-                                Your prescription has been accepted. <%= element.date_approved%>
-                            </span>
-                        </a>
-                    </div>
+                    <div class="card" style="margin-left:5%;">
+                        <div class="card-content no-padding">
+                            <div class="teal lighten-1 white-text" style="padding:3%;">
+                                <h5><%= element.patient_name%></h5>
+                                <p><%= moment(element.date_approved).format('ll')%></p>
+                            </div>
+                            <div style="padding:3%;">
+                                <a href="/doctors/prescriptions/<%= element.presc_id%>" class="black-text">
+                                    <blockquote>
+                                        Your prescription has been accepted by <%= element.patient_name%> on <%= moment(element.date_approved).format('ll')%>
+                                    </blockquote>
+                                </a>
+                            </div>
+                        </div>
+                    </div>                        
                 <% }else if(element.cancel_flag == 1){ %>
-                    <div class="collapsible-header red lighten-1">
-                        <h2 class="right-align white-text flow-text">
-                            <%= element.patient_name%>
-                        </h2>
-                    </div>
-                    <div class="collapsible-body black-text">
-                        <a href="/doctors/prescriptions/<%= element.presc_id%>">
-                            <span>  
-                                Your prescription has been rejected. <%= element.date_declined%>
-                            </span>
-                        </a>
-                    </div>
+                    <div class="card" style="margin-left:5%;">
+                        <div class="card-content no-padding">
+                            <div class="red lighten-1 white-text" style="padding:3%;">
+                                <h5><%= element.patient_name%></h5>
+                                <p><%= moment(element.date_declined).format('ll')%></p>
+                            </div>
+                            <div style="padding:3%;">
+                                <a href="/doctors/prescriptions/<%= element.presc_id%>" class="red-text">
+                                    <blockquote>
+                                        Your prescription has been rejected by <%= element.patient_name%> on <%= moment(element.date_declined).format('ll')%>
+                                    </blockquote>
+                                </a>
+                            </div>
+                        </div>
+                    </div>   
                 <% } %>
-          
-            </li>
             <% } %>
-        </ul>
+        </div>
+        </div>
             <!-- end content goes here   -->
             <%- include('../common/js.ejs')%>
             <script>

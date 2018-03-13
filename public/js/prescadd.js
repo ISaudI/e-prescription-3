@@ -45,13 +45,14 @@ $(document).ready(function(){
                     $("#voidmsg").html(`<span class="title red-text">You have voided this prescription</span>`);
                     $(".btn-footerv").hide();
                 }
-                else if(notifData[n].action_type == "PUSH" && notifData[n].ok_flag == 1){
-                    $(".btn-footerv").show();
-                }
                 else if(notifData[n].action_type == "PUSH" && notifData[n].cancel_flag == 1){
                     $(".card").show();                           
                     $("#voidmsg").show();
                     $("#voidmsg").html('<span class="title red-text">Your patient has rejected this prescription</span>');
+                    $(".btn-footerv").hide();                    
+                }
+                else if(notifData[n].action_type == "PUSH" && notifData[n].ok_flag == 1){
+                    $(".btn-footerv").show();
                 }
             }
         }
