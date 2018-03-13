@@ -12,9 +12,7 @@
 
     </head>
     <body>
-            <% include ../common/navbar.ejs %>
-            
-                    
+            <% include ../common/doctor_nav.ejs %>
     <div class="container">
         <div class="col s12 m7" style="margin:10%;">
             <div class="card horizontal">
@@ -49,13 +47,12 @@
     </div> 
             <% include ../common/js.ejs %>
             <!-- start your own js here -->
-            <script src="/js/prescriptionlist-patient.js"></script>
+            <script src="/js/prescriptionlist.js"></script>
             <script>
                 const config = {
                     user: <%- JSON.stringify(user); %>
                 };
             </script>
             <!-- end your own js here   -->
-            
     </body>
 </html>

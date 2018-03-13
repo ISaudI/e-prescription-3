@@ -1,3 +1,4 @@
+/**TIMELINE CSS**/
 .timeline {
     list-style: none;
     padding: 20px 0 20px;
@@ -108,20 +109,4 @@
       display:flex;
       align-items:center;
       margin:10px 0px;
-  }
-
-  .none {
-    display:none !important; 
-  }
-
-  div.status-0 > div > div.header{
-    background-color:#9575cd;
-  }
-
-  div.status-1 > div > div.header{
-    background-color:#ef5350;
-  }
-
-  div.status-2 > div> div.header{
-    background-color:#f9a825;
   }

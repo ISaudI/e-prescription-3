@@ -3,7 +3,7 @@ $(document).ready(function() {
     let pId = pathArray[3];
 
     $('#btnAdd').on('click', function(){
-        let symptoms = prompt("For what illness is this prescription?","fever");
+        let symptoms = prompt("For what illness is this prescription?","");
         if(pId !== 0){
             $.ajax({
                 type:"POST",
