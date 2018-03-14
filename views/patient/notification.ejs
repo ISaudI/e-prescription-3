@@ -27,7 +27,7 @@
                                     <p><%= moment(element.date_approved).format('ll')%></p>
                                 </div>
                                 <div style="padding:3%;">
-                                    <a href="/doctors/prescriptions/<%= element.presc_id%>" class="black-text">
+                                    <a href="/patients/prescriptions/<%= element.presc_id%>" class="black-text">
                                         <span>
                                             You have received a prescription, from your last checkup with <%= element.doctor_name%> on <%= moment(element.date_approved).format('ll')%>
                                         </span>
@@ -43,7 +43,7 @@
                                         <p><%= moment(element.date_declined).format('ll')%></p>
                                     </div>
                                     <div style="padding:3%;">
-                                        <a href="/doctors/prescriptions/<%= element.presc_id%>" class="black-text">
+                                        <a href="/patients/prescriptions/<%= element.presc_id%>" class="black-text">
                                             <span>
                                                 You have rejected this prescription on <%= moment(element.date_declined).format('ll')%>
                                             </span>
@@ -58,7 +58,7 @@
                                             <h5><%= element.doctor_name%></h5>
                                         </div>
                                         <div style="padding:3%;">
-                                            <a href="/doctors/prescriptions/<%= element.presc_id%>" class="black-text">
+                                            <a href="/patients/prescriptions/<%= element.presc_id%>" class="black-text">
                                                 <span>
                                                     Your prescription has been voided by Dr. <%= element.doctor_name%>
                                                 </span>
