@@ -47,9 +47,9 @@ module.exports = {
     isLogin: (req, res, next) => {
         if(req.session.user){
             if(req.session.user.role == 1){
-                res.redirect('/doctors/profile');
+                res.redirect('/doctors');
             }else{
-                res.redirect('/patients/profile');
+                res.redirect('/patients');
             }
         }else{
             next();
