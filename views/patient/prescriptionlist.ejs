@@ -24,12 +24,34 @@
                         <li id="li-void"><a>Void</a></li>
                     </ul>
             </div>
-            <ul class="timeline" style="padding:0% 10%"  data-presc="<%= JSON.stringify(presc)%>">
             <%
-                presc.sort(function(a, b){
-                    return b.date_modified - a.date_modified;
-                })
+            presc.sort(function(a, b){
+                return b.date_created - a.date_created;
+            });
             %>
+            <%    let monthyear = []; %>
+            <%    for(let m=0; m<presc.length; m++){ %>
+            <%         monthyear.push(moment(presc[m].date_created).format('MMMM YYYY')) %>
+            <% } %>
+            <%
+                function removeDuplicateUsingFilter(arr){
+                    let unique_array = [];
+                    for(let i = 0;i < arr.length; i++){
+                        if(unique_array.indexOf(arr[i]) == -1){
+                            unique_array.push(arr[i])
+                        }
+                    }
+                    return unique_array
+                }
+                let months =  removeDuplicateUsingFilter(monthyear);
+                let my = [];
+                %>
+            
+            <% for(m=0; m<months.length; m++){ %>
+            <%   my.push({"month":months[m]}); %>
+            <% } %>
+            <ul class="timeline" style="padding:0% 10%"  data-presc="<%= JSON.stringify(presc)%>">
+                    <% for(let mon = 0; mon<my.length; mon++) { %>                
                 <li>
                     <div class="timeline-badge green "><span class="fa fa-pencil"></span></div>
                     <div class="speech-bubble-align">
@@ -38,6 +60,7 @@
                     <div class="col s12 m6">
                     <% for(let i=0; i<presc.length; i++) { %>
                     <% let pres = presc[i]; %>
+                    <% if(moment(pres.date_created).format('MMMM YYYY') == my[mon].month){ %>                    
                     <a href="prescriptions/<%=pres.id%>">
                         <div class="card" style="margin-left:5%;" id="pres-<%=pres.id%>">
                             <div class="card-content no-padding">
@@ -56,8 +79,10 @@
                         </div>
                     </a>
                     <% }%>
+                    <% }%>                    
                     </div>
                 </li>
+                <% }%>
             </ul>
         </div>
             <!-- end content goes here   -->
