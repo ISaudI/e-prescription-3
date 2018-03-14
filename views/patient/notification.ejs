@@ -30,7 +30,18 @@
                                 </span>
                             </a>
                         </div>
-                    <% }else { %>
+                        <% }else if(element.cancel_flag == 1){ %>
+                            <div class="collapsible-header red lighten-1 active white-text">
+                                <h5><%= element.doctor_name%></h5>
+                            </div>
+                            <div class="collapsible-body" style="display: block">
+                                <a href="/patients/prescriptions/<%= element.presc_id %>" class="flow-text">
+                                    <span>
+                                        You have rejected this prescription
+                                    </span>
+                                </a>
+                            </div>
+                        <% }else { %>
                         <div class="collapsible-header teal lighten-1 active white-text">
                             <h5><%= element.doctor_name%></h5>
                         </div>
@@ -42,7 +53,6 @@
                                 </span>
                             </div>
                     <% } %>
-                    
                 </li>
                 <% } %>
             </ul>
