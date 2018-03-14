@@ -37,14 +37,14 @@
                 <% }else if(element.cancel_flag == 1){ %>
                     <div class="card" style="margin-left:5%;">
                             <div class="card-content no-padding">
-                                <div class="teal lighten-1 white-text" style="padding:3%;">
+                                <div class="red lighten-1 white-text" style="padding:3%;">
                                     <h5><%= element.patient_name%></h5>
-                                    <p><%= moment(element.date_approved).format('ll')%></p>
+                                    <p><%= moment(element.date_declined).format('ll')%></p>
                                 </div>
                                 <div style="padding:3%;">
                                     <a href="/doctors/prescriptions/<%= element.presc_id%>" class="black-text">
                                         <span>
-                                            Your prescription has been rejected by <%= element.patient_name%> on <%= moment(element.date_approved).format('ll')%>
+                                            Your prescription has been rejected by <%= element.patient_name%> on <%= moment(element.date_declined).format('ll')%>
                                         </span>
                                     </a>
                                 </div>
@@ -53,14 +53,14 @@
                     <% }else if(element.action_type == "VOID"){ %>
                         <div class="card" style="margin-left:5%;">
                                 <div class="card-content no-padding">
-                                    <div class="teal lighten-1 white-text" style="padding:3%;">
+                                    <div class="red lighten-1 white-text" style="padding:3%;">
                                         <h5><%= element.patient_name%></h5>
-                                        <p><%= moment(element.date_approved).format('ll')%></p>
+                                        <p><%= moment(element.date_created).format('ll')%></p>
                                     </div>
                                     <div style="padding:3%;">
                                         <a href="/doctors/prescriptions/<%= element.presc_id%>" class="black-text">
                                             <span>
-                                                You have rejected this prescription for <%= element.patient_name%> on <%= moment(element.date_approved).format('ll')%>
+                                                You have voided this prescription for <%= element.patient_name%> on <%= moment(element.date_created).format('ll')%>
                                             </span>
                                         </a>
                                     </div>
