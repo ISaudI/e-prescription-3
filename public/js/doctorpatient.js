@@ -4,7 +4,7 @@ $(document).ready(function() {
 
     $('#btnAdd').on('click', function(){
         let symptoms = prompt("For what illness is this prescription?","");
-        if(pId !== 0){
+        if(pId !== 0 && symptoms !=='' ){
             $.ajax({
                 type:"POST",
                 url:'/api/pres/create',

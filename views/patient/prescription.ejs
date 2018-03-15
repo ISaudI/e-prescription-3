@@ -25,7 +25,7 @@
                             Patient Name:<%= element.patient_name%><br/>
                             Address: <%= element.city%>, <%=element.state_province%><br/>
                             Illness: <b><%=element.notes%></b><br/>
-                            Date: <%=element.date_modified%>
+                            Date: <%=moment(element.date_modified).format('ll')%>
                         </p>
                     </div>
                 </div>
