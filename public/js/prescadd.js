@@ -101,7 +101,7 @@ $(document).ready(function(){
                     for(let i = 0; i < addMedData.length; i++){
                         $.ajax({
                             type:'POST',
-                            url:'http://localhost:3000/api/pres/details/create',
+                            url:'/api/pres/details/create',
                             data:{
                                 "presc_id" :pId,
                                 "drug_id" : addMedData[i].id,
